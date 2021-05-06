@@ -1,0 +1,33 @@
+.session {
+  width: 100vw;
+}
+
+.instruct {
+  text-align: center;
+  font-weight: 400;
+  font-size: 28px;
+  padding: 10px 18%;
+}
+
+.wordControls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+}
+
+.wordButton {
+  background-color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+#wordDisplay {
+  text-align: center;
+  margin-top: 10px;
+  border-bottom: 7px solid black;
+  padding-bottom: 10px;
+  transition: border-bottom 0.3s, color 0.3s;
+  grid-column: 2 / span 2;
+  width: 100%;
+}

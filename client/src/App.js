@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "firebase/firestore";
 import {
   FirebaseAppProvider,
   useFirestoreDocData,
   useFirestore,
 } from "reactfire";
+import "./App.css";
 import Session from "./game/session.js";
 
 const firebaseConfig = {

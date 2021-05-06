@@ -1,25 +1,53 @@
 import React, { useState, useEffect } from "react";
+import MaterialIcon from "material-icons-react";
 import { sendWord } from "./wordcheck.js";
+import "./session.css";
 
 const Session = () => {
   const [points, setPoints] = useState(0);
+  const [word, setWord] = useState("Hey");
+  const [words, setWords] = useState([]);
 
-  async function checkWord(e) {
-    e.preventDefault();
-    const result = await sendWord(e.target.elements.word.value);
+  async function checkWord() {
+    const result = await sendWord(word);
     if (result) {
-      setPoints((prev) => prev + e.target.elements.word.value.length);
+      setPoints((prev) => prev + word.length);
+      document.getElementById("wordDisplay").style.borderBottom =
+        "7px solid #2ecc71";
+      setTimeout(() => {
+        document.getElementById("wordDisplay").style.borderBottom =
+          "7px solid black";
+        document.getElementById("wordDisplay").style.color = "white";
+        setTimeout(() => setWord(""), 300);
+      }, 1000);
+      document.getElementById("wordDisplay").style.color = "black";
+    } else {
+      document.getElementById("wordDisplay").style.borderBottom =
+        "7px solid #e74c3c";
+      setTimeout(() => {
+        document.getElementById("wordDisplay").style.borderBottom =
+          "7px solid black";
+        document.getElementById("wordDisplay").style.color = "white";
+        setTimeout(() => setWord(""), 300);
+      }, 1000);
+      document.getElementById("wordDisplay").style.color = "black";
     }
   }
 
   return (
-    <>
-      <form onSubmit={checkWord}>
-        <input type='text' id='word' name='word' />
-        <input type='submit' />
-      </form>
+    <div className='session'>
+      <h2 className='instruct'>Form Words Using These Letters</h2>
+      <div className='wordControls'>
+        <button className='wordButton'>
+          <MaterialIcon icon='backspace' invert />
+        </button>
+        <h1 id='wordDisplay'>{word || <>&nbsp;</>}</h1>
+        <button className='wordButton' type='button' onClick={checkWord}>
+          <MaterialIcon icon='keyboard_return' size='small' invert />
+        </button>
+      </div>
       <h1>{points}</h1>
-    </>
+    </div>
   );
 };
 
