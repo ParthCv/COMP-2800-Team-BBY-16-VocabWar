@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "firebase/firestore";
 import {
   FirebaseAppProvider,
   useFirestoreDocData,
   useFirestore,
 } from "reactfire";
+import Session from "./game/session.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7RM--kySDQtpuFkxa9IImfEl-4hlFo3k",
@@ -18,7 +19,7 @@ const firebaseConfig = {
 function App() {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <h1>VocabWar</h1>
+      <Session />
     </FirebaseAppProvider>
   );
 }
