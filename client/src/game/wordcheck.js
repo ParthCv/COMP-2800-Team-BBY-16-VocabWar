@@ -5,11 +5,10 @@ const getWord = async (word) => {
   return data;
 };
 
-export async function sendWord(e) {
-  e.preventDefault();
-  if (e.target.elements.word.value) {
-    const word = await getWord(e.target.elements.word.value);
-    if (word.title) {
+export async function sendWord(word) {
+  if (word) {
+    const data = await getWord(word);
+    if (data.title) {
       return false;
     } else {
       return true;

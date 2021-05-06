@@ -5,7 +5,8 @@ const Session = () => {
   const [points, setPoints] = useState(0);
 
   async function checkWord(e) {
-    const result = await sendWord(e);
+    e.preventDefault();
+    const result = await sendWord(e.target.elements.word.value);
     if (result) {
       setPoints((prev) => prev + e.target.elements.word.value.length);
     }
