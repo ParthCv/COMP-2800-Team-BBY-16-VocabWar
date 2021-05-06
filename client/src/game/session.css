@@ -23,6 +23,7 @@
 }
 
 #wordDisplay {
+  font-size: 37px;
   text-align: center;
   margin-top: 10px;
   border-bottom: 7px solid black;
@@ -30,4 +31,7 @@
   transition: border-bottom 0.3s, color 0.3s;
   grid-column: 2 / span 2;
   width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
 }

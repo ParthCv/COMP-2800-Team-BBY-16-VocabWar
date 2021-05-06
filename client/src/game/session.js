@@ -5,12 +5,13 @@ import "./session.css";
 
 const Session = () => {
   const [points, setPoints] = useState(0);
-  const [word, setWord] = useState("Hey");
+  const [word, setWord] = useState("Helldsdsds");
   const [words, setWords] = useState([]);
 
   async function checkWord() {
     const result = await sendWord(word);
     if (result) {
+      setWords([...words, document.getElementById("wordDisplay").innerHTML]);
       setPoints((prev) => prev + word.length);
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #2ecc71";
@@ -34,6 +35,10 @@ const Session = () => {
     }
   }
 
+  useEffect(() => {
+    console.log(words);
+  });
+
   return (
     <div className='session'>
       <h2 className='instruct'>Form Words Using These Letters</h2>
@@ -41,9 +46,9 @@ const Session = () => {
         <button className='wordButton'>
           <MaterialIcon icon='backspace' invert />
         </button>
-        <h1 id='wordDisplay'>{word || <>&nbsp;</>}</h1>
+        <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
         <button className='wordButton' type='button' onClick={checkWord}>
-          <MaterialIcon icon='keyboard_return' size='small' invert />
+          <MaterialIcon icon='keyboard_return' invert />
         </button>
       </div>
       <h1>{points}</h1>
