@@ -35,7 +35,9 @@ const Session = () => {
         document.getElementById("wordDisplay").style.color = "white";
         setTimeout(() => setWord(""), 300);
       }, 1000);
-      document.getElementById("wordDisplay").style.color = "black";
+      setTimeout(() => {
+        document.getElementById("wordDisplay").style.color = "black";
+      }, 1010);
     } else {
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #e74c3c";
@@ -45,7 +47,9 @@ const Session = () => {
         document.getElementById("wordDisplay").style.color = "white";
         setTimeout(() => setWord(""), 300);
       }, 1000);
-      document.getElementById("wordDisplay").style.color = "black";
+      setTimeout(() => {
+        document.getElementById("wordDisplay").style.color = "black";
+      }, 1010);
     }
   }
 
