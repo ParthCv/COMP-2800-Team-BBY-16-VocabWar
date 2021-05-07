@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
+/*https://www.1001fonts.com/digital-7-font.html*/
+@font-face {
+    font-family: digital-7;
+    src: url(digital-7.regular.ttf);
+}
+
+*{
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+}
+
+.cointainer{
+  font-size: 3rem;  
+}
+
+.time{
+    color: red;
+    font-family: digital-7;
+    font-size: 5rem;
+}
+
