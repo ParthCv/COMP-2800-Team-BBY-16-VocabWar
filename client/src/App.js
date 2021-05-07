@@ -1,9 +1,6 @@
 import React from "react";
 import "firebase/firestore";
-import Points from "./fetchPoints/points";
-import Timer from "./game/Timer";
 import Session from "./game/session.js";
-//import logo from './logo.svg';
 import "./App.css";
 import {
   FirebaseAppProvider,
@@ -23,7 +20,6 @@ const firebaseConfig = {
 function App() {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <Timer minutes={1} seconds={30}></Timer>
       <Session />
     </FirebaseAppProvider>
   );

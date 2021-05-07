@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MaterialIcon from "material-icons-react";
 import { sendWord } from "./wordcheck.js";
+import Timer from "./Timer";
 import { useFirestoreDocData, useFirestore } from "reactfire";
 import Points from "./points.js";
 import "./session.css";
@@ -54,6 +55,7 @@ const Session = () => {
         <Points id='player1' player='1' />
         <Points id='player2' player='2' />
       </div>
+      <Timer minutes={1} seconds={30}></Timer>
       <h2 className='instruct'>Form Words Using These Letters</h2>
       <div className='wordControls'>
         <button className='wordButton'>
