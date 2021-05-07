@@ -19,11 +19,11 @@ const firebaseConfig = {
 
 function App() {
   return (
-   <>
-   <FirebaseAppProvider firebaseConfig={firebaseConfig}>   
-    <Timer minutes={1} seconds={30}></Timer>
-    </FirebaseAppProvider>
-  </>
+    <>
+      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+        <Timer minutes={1} seconds={30}></Timer>
+      </FirebaseAppProvider>
+    </>
   );
 }
 
