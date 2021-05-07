@@ -35,7 +35,7 @@ function Timer({ minutes = 0, seconds = 30 }) {
         <>
             <h1>Timer</h1>
             <h1 className='time'>{over ? "Times's Up" : `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`}</h1>
-            <button onClick={stopTimer}>Stop</button>
+            <button className="stopBtn" onClick={stopTimer}>&#10148;</button>
             <p>{remainingTime ? `You finished ${m} minutes and ${s} seconds before` : ""}</p>
         </>
     )

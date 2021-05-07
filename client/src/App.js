@@ -21,7 +21,7 @@ function App() {
   return (
    <>
    <FirebaseAppProvider firebaseConfig={firebaseConfig}>   
-    <Timer minutes={0} seconds={10}></Timer>
+    <Timer minutes={1} seconds={30}></Timer>
     </FirebaseAppProvider>
   </>
   );

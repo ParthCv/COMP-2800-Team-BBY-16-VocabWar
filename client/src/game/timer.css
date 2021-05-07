@@ -15,8 +15,15 @@
 }
 
 .time{
-    color: red;
+    color:#e74c3c;
     font-family: digital-7;
     font-size: 5rem;
+}
+
+.stopBtn{
+    color: #fff;
+    background-color: #000;
+    border-radius: 20%;
+    font-size: 2rem;
 }
 
