@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "firebase/firestore";
+import Session from "./game/session.js";
+import "./App.css";
+import {
+  FirebaseAppProvider,
+  useFirestoreDocData,
+  useFirestore,
+} from "reactfire";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD7RM--kySDQtpuFkxa9IImfEl-4hlFo3k",
+  authDomain: "vocabwar.firebaseapp.com",
+  projectId: "vocabwar",
+  storageBucket: "vocabwar.appspot.com",
+  messagingSenderId: "919676092490",
+  appId: "1:919676092490:web:9a950472fcc297688626b3",
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <Session />
+    </FirebaseAppProvider>
   );
 }
 
