@@ -4,8 +4,7 @@ import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import { useFirestoreDocData, useFirestore } from "reactfire";
 import Points from "./points.js";
-import RandLetters from './Letters/randLetters'
-import {v4 as uuidv4} from 'uuid'
+import { v4 as uuidv4 } from "uuid";
 import "./session.css";
 
 const Session = () => {
@@ -14,6 +13,9 @@ const Session = () => {
 
   const playerRef = useFirestore().collection("Player").doc(`Player1`);
   const points = useFirestoreDocData(playerRef).data;
+  const gameRef = useFirestore().collection("game").doc(`uzMaOwhU3YcKafFkVwZ7`);
+  const letterArray = useFirestoreDocData(gameRef).data;
+  console.log(letterArray);
 
   async function checkWord() {
     const result = await sendWord(word);
@@ -47,78 +49,53 @@ const Session = () => {
     }
   }
 
+  function backspace() {
+    setWord((prev) => prev.substring(0, prev.length - 1));
+  }
+
   // LETTERS //////////////////////
 
-  const LOCAL_STORAGE_KEY = 'letterApp.letters'
-const continents = "BCDFGHJKLMNPQRSTVWXZ"
-const vowels = "AEIOUY"
-const randomCharacter = continents[Math.floor(Math.random() * continents.length)]
-const randomCharacter2 = continents[Math.floor(Math.random() * continents.length)]
-const randomCharacter3 = continents[Math.floor(Math.random() * continents.length)]
-const randomCharacter4 = vowels[Math.floor(Math.random() * vowels.length)]
-const randomCharacter5 = vowels[Math.floor(Math.random() * vowels.length)]
-const randomCharacter6 = vowels[Math.floor(Math.random() * vowels.length)]
-
-  const[letters, setLetters] = useState([])
+  const continents = "BCDFGHJKLMNPQRSTVWXYZ";
+  const vowels = "AEIOU";
 
   useEffect(() => {
-     const storedLetters = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-     if (storedLetters) setLetters(storedLetters)
-     console.log(storedLetters.value);
-  }, []) 
- 
-  useEffect(() => {
-    
-   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(letters))
-   console.log();
-  }, [letters])
- 
-  function handleAddLetter(e) { 
-     setLetters(previousLetters => {
-       return[...previousLetters, {id: uuidv4(), letter: randomCharacter}]
-     })
+    if (letterArray) {
+      let array = letterArray && letterArray.letters;
+      let lastletter = null;
+      while (array.length <= 5) {
+        if (array.length % 2 == 0) {
+          let randomCharacter =
+            continents[Math.floor(Math.random() * continents.length)];
+          if (lastletter != randomCharacter)
+            array = [...array, randomCharacter];
+        }
+        if (array.length % 2 != 0) {
+          let randomCharacter =
+            vowels[Math.floor(Math.random() * vowels.length)];
+          if (lastletter != randomCharacter)
+            array = [...array, randomCharacter];
+        }
+        lastletter = array[array.length - 1];
+        console.log(array);
+      }
+      gameRef.set(
+        {
+          letters: array,
+        },
+        { merge: true }
+      );
+    }
+  });
+
+  function handleAddLetter(e) {
+    setWord((prev) => prev + e.target.value);
   }
- 
-  function handleAddLetter2(e) {
-   setLetters(previousLetters => {
-     return[...previousLetters, {id: uuidv4(), letter: randomCharacter2}]
-   })
- }
- 
- function handleAddLetter3(e) {
-   setLetters(previousLetters => {
-     return[...previousLetters, {id: uuidv4(), letter: randomCharacter3}]
-   })
- }
- 
- function handleAddLetter4(e) {
-   setLetters(previousLetters => {
-     return[...previousLetters, {id: uuidv4(), letter: randomCharacter4}]
-   })
- }
- 
- function handleAddLetter5(e) {
-   setLetters(previousLetters => {
-     return[...previousLetters, {id: uuidv4(), letter: randomCharacter5}]
-   })
- }
- 
- function handleAddLetter6(e) {
-   setLetters(previousLetters => {
-     return[...previousLetters, {id: uuidv4(), letter: randomCharacter6}]
-   })
- }
- 
-   function handleClearAll(id) {
-     const newLetters = letters.filter(letters => letters === id)
-     setLetters(newLetters)
- }
 
- // END OF LETTERS
- 
+  // END OF LETTERS
 
   useEffect(() => {
     console.log(words);
+    console.log(letterArray && letterArray.letters.length);
   });
 
   return (
@@ -130,7 +107,7 @@ const randomCharacter6 = vowels[Math.floor(Math.random() * vowels.length)]
       <Timer minutes={1} seconds={30}></Timer>
       <h2 className='instruct'>Form Words Using These Letters</h2>
       <div className='wordControls'>
-        <button className='wordButton'>
+        <button className='wordButton' type='button' onClick={backspace}>
           <MaterialIcon icon='backspace' invert />
         </button>
         <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
@@ -138,18 +115,28 @@ const randomCharacter6 = vowels[Math.floor(Math.random() * vowels.length)]
           <MaterialIcon icon='keyboard_return' invert />
         </button>
       </div>
-      <div>
-        <RandLetters letters={letters}/>
+      {letterArray && (
         <div>
-          <button onClick={handleClearAll}>Clear</button>
-          <button onClick={handleAddLetter}>{randomCharacter}</button>
-          <button onClick={handleAddLetter2}>{randomCharacter2}</button>
-          <button onClick={handleAddLetter3}>{randomCharacter3}</button>
-          <button onClick={handleAddLetter4}>{randomCharacter4}</button>
-          <button onClick={handleAddLetter5}>{randomCharacter5}</button>
-          <button onClick={handleAddLetter6}>{randomCharacter6}</button>
+          <button onClick={handleAddLetter} value={letterArray.letters[0]}>
+            {letterArray.letters[0]}
+          </button>
+          <button onClick={handleAddLetter} value={letterArray.letters[1]}>
+            {letterArray.letters[1]}
+          </button>
+          <button onClick={handleAddLetter} value={letterArray.letters[2]}>
+            {letterArray.letters[2]}
+          </button>
+          <button onClick={handleAddLetter} value={letterArray.letters[3]}>
+            {letterArray.letters[3]}
+          </button>
+          <button onClick={handleAddLetter} value={letterArray.letters[4]}>
+            {letterArray.letters[4]}
+          </button>
+          <button onClick={handleAddLetter} value={letterArray.letters[5]}>
+            {letterArray.letters[5]}
+          </button>
         </div>
-      </div>
+      )}
     </div>
   );
 };
