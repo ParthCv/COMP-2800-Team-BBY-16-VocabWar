@@ -4,6 +4,8 @@ import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import { useFirestoreDocData, useFirestore } from "reactfire";
 import Points from "./points.js";
+import RandLetters from './Letters/randLetters'
+import {v4 as uuidv4} from 'uuid'
 import "./session.css";
 
 const Session = () => {
@@ -45,6 +47,76 @@ const Session = () => {
     }
   }
 
+  // LETTERS //////////////////////
+
+  const LOCAL_STORAGE_KEY = 'letterApp.letters'
+const continents = "BCDFGHJKLMNPQRSTVWXZ"
+const vowels = "AEIOUY"
+const randomCharacter = continents[Math.floor(Math.random() * continents.length)]
+const randomCharacter2 = continents[Math.floor(Math.random() * continents.length)]
+const randomCharacter3 = continents[Math.floor(Math.random() * continents.length)]
+const randomCharacter4 = vowels[Math.floor(Math.random() * vowels.length)]
+const randomCharacter5 = vowels[Math.floor(Math.random() * vowels.length)]
+const randomCharacter6 = vowels[Math.floor(Math.random() * vowels.length)]
+
+  const[letters, setLetters] = useState([])
+
+  useEffect(() => {
+     const storedLetters = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+     if (storedLetters) setLetters(storedLetters)
+     console.log(storedLetters.value);
+  }, []) 
+ 
+  useEffect(() => {
+    
+   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(letters))
+   console.log();
+  }, [letters])
+ 
+  function handleAddLetter(e) { 
+     setLetters(previousLetters => {
+       return[...previousLetters, {id: uuidv4(), letter: randomCharacter}]
+     })
+  }
+ 
+  function handleAddLetter2(e) {
+   setLetters(previousLetters => {
+     return[...previousLetters, {id: uuidv4(), letter: randomCharacter2}]
+   })
+ }
+ 
+ function handleAddLetter3(e) {
+   setLetters(previousLetters => {
+     return[...previousLetters, {id: uuidv4(), letter: randomCharacter3}]
+   })
+ }
+ 
+ function handleAddLetter4(e) {
+   setLetters(previousLetters => {
+     return[...previousLetters, {id: uuidv4(), letter: randomCharacter4}]
+   })
+ }
+ 
+ function handleAddLetter5(e) {
+   setLetters(previousLetters => {
+     return[...previousLetters, {id: uuidv4(), letter: randomCharacter5}]
+   })
+ }
+ 
+ function handleAddLetter6(e) {
+   setLetters(previousLetters => {
+     return[...previousLetters, {id: uuidv4(), letter: randomCharacter6}]
+   })
+ }
+ 
+   function handleClearAll(id) {
+     const newLetters = letters.filter(letters => letters === id)
+     setLetters(newLetters)
+ }
+
+ // END OF LETTERS
+ 
+
   useEffect(() => {
     console.log(words);
   });
@@ -65,6 +137,18 @@ const Session = () => {
         <button className='wordButton' type='button' onClick={checkWord}>
           <MaterialIcon icon='keyboard_return' invert />
         </button>
+      </div>
+      <div>
+        <RandLetters letters={letters}/>
+        <div>
+          <button onClick={handleClearAll}>Clear</button>
+          <button onClick={handleAddLetter}>{randomCharacter}</button>
+          <button onClick={handleAddLetter2}>{randomCharacter2}</button>
+          <button onClick={handleAddLetter3}>{randomCharacter3}</button>
+          <button onClick={handleAddLetter4}>{randomCharacter4}</button>
+          <button onClick={handleAddLetter5}>{randomCharacter5}</button>
+          <button onClick={handleAddLetter6}>{randomCharacter6}</button>
+        </div>
       </div>
     </div>
   );
