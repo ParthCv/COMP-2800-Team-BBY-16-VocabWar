@@ -142,12 +142,12 @@ const randomCharacter6 = vowels[Math.floor(Math.random() * vowels.length)]
         <RandLetters letters={letters}/>
           {/* <button onClick={handleClearAll}>Clear</button> */}
         <div className="grid-cointainer">
-          <button className="grid-item-1" onClick={handleAddLetter}>{randomCharacter}</button>
-          <button className="grid-item-2" onClick={handleAddLetter2}>{randomCharacter2}</button>
-          <button className="grid-item-3" onClick={handleAddLetter3}>{randomCharacter3}</button>
-          <button className="grid-item-4" onClick={handleAddLetter4}>{randomCharacter4}</button>
-          <button className="grid-item-5" onClick={handleAddLetter5}>{randomCharacter5}</button>
-          <button className="grid-item-6" onClick={handleAddLetter6}>{randomCharacter6}</button>
+          <button onClick={handleAddLetter}>{randomCharacter}</button>
+          <button onClick={handleAddLetter2}>{randomCharacter2}</button>
+          <button onClick={handleAddLetter3}>{randomCharacter3}</button>
+          <button onClick={handleAddLetter4}>{randomCharacter4}</button>
+          <button onClick={handleAddLetter5}>{randomCharacter5}</button>
+          <button onClick={handleAddLetter6}>{randomCharacter6}</button>
         </div>
       </div>
     </div>
