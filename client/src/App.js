@@ -1,5 +1,6 @@
 import React from "react";
 import "firebase/firestore";
+import Points from "./fetchPoints/points";
 import {
   FirebaseAppProvider,
   useFirestoreDocData,
@@ -16,9 +17,13 @@ const firebaseConfig = {
 };
 
 function App() {
+
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <h1>VocabWar</h1>
+      <div>
+            <Points player="1" />
+            <Points player="2" />
+        </div>
     </FirebaseAppProvider>
   );
 }
