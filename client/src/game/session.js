@@ -116,7 +116,7 @@ const Session = () => {
         </button>
       </div>
       {letterArray && (
-        <div>
+        <div className='grid-cointainer'>
           <button onClick={handleAddLetter} value={letterArray.letters[0]}>
             {letterArray.letters[0]}
           </button>
