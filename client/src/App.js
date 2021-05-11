@@ -1,6 +1,7 @@
 import React from "react";
 import "firebase/firestore";
-import Session from "./game/session.js";
+// import Session from "./game/session.js";
+import JoinLobby from "./game/JoinLobby"
 import "./App.css";
 import {
   FirebaseAppProvider,
@@ -20,7 +21,8 @@ const firebaseConfig = {
 function App() {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <Session />
+      {/* <Session /> */}
+      <JoinLobby/>
     </FirebaseAppProvider>
   );
 }

@@ -4,11 +4,11 @@ import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import { useFirestoreDocData, useFirestore } from "reactfire";
 import Points from "./points.js";
-import { v4 as uuidv4 } from "uuid";
+//import { v4 as uuidv4 } from "uuid";
 import "./session.css";
 
 const Session = () => {
-  const [word, setWord] = useState("extraction");
+  const [word, setWord] = useState("");
   const [words, setWords] = useState([]);
 
   const playerRef = useFirestore().collection("Player").doc(`Player1`);
@@ -67,16 +67,16 @@ const Session = () => {
       let array = letterArray && letterArray.letters;
       let lastletter = null;
       while (array.length <= 5) {
-        if (array.length % 2 == 0) {
+        if (array.length % 2 === 0) {
           let randomCharacter =
             continents[Math.floor(Math.random() * continents.length)];
-          if (lastletter != randomCharacter)
+          if (lastletter !== randomCharacter)
             array = [...array, randomCharacter];
         }
-        if (array.length % 2 != 0) {
+        if (array.length % 2 !== 0) {
           let randomCharacter =
             vowels[Math.floor(Math.random() * vowels.length)];
-          if (lastletter != randomCharacter)
+          if (lastletter !== randomCharacter)
             array = [...array, randomCharacter];
         }
         lastletter = array[array.length - 1];
