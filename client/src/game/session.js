@@ -5,7 +5,7 @@ import "./session.css";
 
 const Session = () => {
   const [points, setPoints] = useState(0);
-  const [word, setWord] = useState("Helldsdsds");
+  const [word, setWord] = useState("All");
   const [words, setWords] = useState([]);
 
   async function checkWord() {
