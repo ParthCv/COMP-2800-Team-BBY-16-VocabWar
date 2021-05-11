@@ -1,13 +1,12 @@
 import React from "react";
 import "firebase/firestore";
-import Points from "./fetchPoints/points";
+import Session from "./game/session.js";
+import "./App.css";
 import {
   FirebaseAppProvider,
   useFirestoreDocData,
   useFirestore,
 } from "reactfire";
-import "./App.css";
-import Session from "./game/session.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD7RM--kySDQtpuFkxa9IImfEl-4hlFo3k",
@@ -19,14 +18,9 @@ const firebaseConfig = {
 };
 
 function App() {
-
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
       <Session />
-      <div>
-            <Points player="1" />
-            <Points player="2" />
-        </div>
     </FirebaseAppProvider>
   );
 }
