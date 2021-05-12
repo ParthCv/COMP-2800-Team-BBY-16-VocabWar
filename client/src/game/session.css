@@ -1,5 +1,10 @@
 .session {
   width: 100vw;
+  height: var(--vh);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
 }
 
 .points {
