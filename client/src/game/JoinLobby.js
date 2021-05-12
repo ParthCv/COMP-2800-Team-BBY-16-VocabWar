@@ -1,25 +1,54 @@
 import React, { useState, useRef } from "react";
+import 'firebase/firestore';
+import {
+    FirebaseAppProvider,
+    SuspenseWithPerf,
+    useFirestore,
+    useFirestoreCollectionData,
+    useFirestoreDocData,
+} from "reactfire";
 import "./joinLobby.css"
+//import * as firebase from 'firebase';
+//import { checkCode } from "./CodeCheck";
 
 const JoinLobby = () => {
     const [code, setCode] = useState('');
     const overlay = useRef(0);
+    const gameRef = useFirestore().collection("Games");
 
     const showOverlay = () => {
-        if(overlay.current.style.display === 'none'){
+        if (overlay.current.style.display === 'none') {
             overlay.current.style.display = 'inline'
         } else {
-            overlay.current.style.display = 'none' 
+            overlay.current.style.display = 'none'
         }
     }
 
-    const handleSubmit = (e) => {
+    function checkCode(e) {
         e.preventDefault();
         if (code) {
-            console.log("code=" + code);
+            try {
+                if (gameRef.doc(code).data().p1) {
+                    gameRef.doc(code).set(
+                        {
+                            p2: "hey",
+                        },
+                        { merge: true }
+                    );
+                }
+            } catch (err) {
+                console.log("game not found", err);
+            }
             setCode('');
         } else {
             console.log('empty value');
+            document.getElementById('joinBtn').innerHTML = "Worng Code";
+            document.getElementById('joinBtn').style.backgroundColor = "#E74C3C";
+            setTimeout(() => {
+                document.getElementById('joinBtn').innerHTML = "Join";
+                document.getElementById('joinBtn').style.backgroundColor = "#E67E22";
+            }, 1000);
+
         }
     }
 
@@ -33,10 +62,10 @@ const JoinLobby = () => {
                         <p>Lobby Code</p>
                     </div>
                     <div>
-                        <input type='text' name="code" value={code} onChange={(e) => setCode(e.target.value)} />
+                        <input type='text' name="code" value={code} onChange={(e) => setCode(e.target.value)} maxLength="7" minLength="6" />
                     </div>
                     <br />
-                    <button className='sub' type='submit' onClick={handleSubmit}>Join</button>
+                    <button id='joinBtn' className='sub' type='submit' onClick={checkCode}>Join</button>
                 </div>
             </div>
         </>
