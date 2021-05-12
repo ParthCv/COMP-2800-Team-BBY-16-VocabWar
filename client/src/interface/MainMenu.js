@@ -37,6 +37,7 @@ export default function MainMenu() {
         lastletter = array[array.length - 1];
       }
       gameRef.doc(gameID).set({
+        code: gameID,
         p1: "hey",
         p1Points: 0,
         p2Points: 0,
