@@ -1,7 +1,11 @@
 import React from "react";
 import "firebase/firestore";
-import Session from "./game/session.js";
+// import Session from "./game/session.js";
 import "./App.css";
+import Signup from './auth/Signup';
+import Login from './auth/Login';
+import Logout from './auth/Logout';
+import { useUser } from 'reactfire';
 import {
   FirebaseAppProvider,
   useFirestoreDocData,
@@ -18,9 +22,22 @@ const firebaseConfig = {
 };
 
 function App() {
+  const user = useUser();
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <Session />
+            <div className="App">
+      {
+        !user &&
+        <Logout />
+      }
+      {
+        user &&
+        <>
+          <Signup />
+          <Login />
+        </>
+      }
+    </div>
     </FirebaseAppProvider>
   );
 }
