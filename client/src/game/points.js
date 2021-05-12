@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./points.css";
-import { useFirestoreDocData, useFirestore } from "reactfire";
+import { useFirestoreDocData } from "reactfire";
 
 export default function Points(props) {
   const points = useFirestoreDocData(props.gameRef).data[
