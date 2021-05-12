@@ -8,19 +8,15 @@ import { v4 as uuidv4 } from "uuid";
 import "./session.css";
 
 const Session = () => {
-<<<<<<< HEAD
   const [points, setPoints] = useState(0);
   const [word, setWord] = useState("All");
-=======
-  const [word, setWord] = useState("extraction");
->>>>>>> a8640b2e7ebc07db30d019cb6df0ed3f618f5471
   const [words, setWords] = useState([]);
 
   const playerRef = useFirestore().collection("Player").doc(`Player1`);
-  const points = useFirestoreDocData(playerRef).data;
-  const gameRef = useFirestore().collection("game").doc(`uzMaOwhU3YcKafFkVwZ7`);
+  const point = useFirestoreDocData(playerRef).data;
+  const gameRef = useFirestore().collection("game").doc(`PB7EpD1TC5XY58qJaknd`);
   const letterArray = useFirestoreDocData(gameRef).data;
-  console.log(letterArray);
+  //console.log(letterArray);
 
   async function checkWord() {
     const result = await sendWord(word);
@@ -68,19 +64,27 @@ const Session = () => {
   const vowels = "AEIOU";
 
   useEffect(() => {
+    console.log(letterArray);
     if (letterArray) {
       let array = letterArray && letterArray.letters;
+      console.log(array);
       let lastletter = null;
       while (array.length <= 5) {
         if (array.length % 2 == 0) {
-          let randomCharacter =
-            continents[Math.floor(Math.random() * continents.length)];
+          let randomCharacter = continents[Math.floor(Math.random() * continents.length)];
+          while(array[0]==randomCharacter || array[1]==randomCharacter || array[2]==randomCharacter || array[3]==randomCharacter || array[4]==randomCharacter) {
+            randomCharacter = continents[Math.floor(Math.random() * continents.length)];
+            console.log(randomCharacter);
+          }
           if (lastletter != randomCharacter)
             array = [...array, randomCharacter];
         }
         if (array.length % 2 != 0) {
-          let randomCharacter =
-            vowels[Math.floor(Math.random() * vowels.length)];
+          let randomCharacter = vowels[Math.floor(Math.random() * vowels.length)];
+          while(array[0]==randomCharacter || array[1]==randomCharacter || array[2]==randomCharacter || array[3]==randomCharacter || array[4]==randomCharacter) {
+            randomCharacter = vowels[Math.floor(Math.random() * vowels.length)];
+            console.log(randomCharacter);
+          }
           if (lastletter != randomCharacter)
             array = [...array, randomCharacter];
         }
