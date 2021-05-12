@@ -34,7 +34,7 @@ const JoinLobby = () => {
                             p2: "hey",
                         },
                         { merge: true }
-                    );
+                    );                      
                 }
             } catch (err) {
                 console.log("game not found", err);
