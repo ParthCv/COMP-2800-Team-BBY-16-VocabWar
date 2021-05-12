@@ -1,0 +1,91 @@
+.createLobby {
+  height: 77%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 3fr 2fr;
+  align-content: center;
+}
+
+.gameBox {
+  background-color: rgba(129, 126, 126, 0.37);
+  margin: 7% 5%;
+  border-radius: 15%;
+  display: grid;
+  grid-template-rows: 25% 22% 22% 31%;
+  place-items: center;
+}
+
+.gameBox h1 {
+  font-size: 2.2rem;
+}
+
+.playerStatus {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 85%;
+  padding: 4% 8%;
+  border-radius: 20px;
+}
+
+.playerStatus h2 {
+  text-align: left;
+  font-size: 1.4rem;
+}
+
+.inlobbyButtons {
+  display: grid;
+  width: 85%;
+  gap: 5%;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.inlobbyButtons button {
+  color: white;
+  background-color: #e74c3c;
+  border: none;
+  font-size: 1.25rem;
+  padding: 10% 8%;
+  border-radius: 20px;
+}
+
+#readyButton {
+  background-color: #2ecc71;
+}
+.codeBox {
+  background-color: rgba(129, 126, 126, 0.37);
+  margin: 0% 5%;
+  border-radius: 15%;
+  display: grid;
+  padding: 2%;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.codeBox h1 {
+  font-size: 2.2rem;
+}
+
+.codeBox div {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 85%;
+  padding: 2% 8%;
+  border-radius: 20px;
+}
+
+.codeBox div h2 {
+  font-family: monospace;
+}
+
+.codeBox button {
+  color: white;
+  background-color: #e67e22;
+  border: none;
+  font-size: 1.25rem;
+  width: 85%;
+  padding: 5%;
+  border-radius: 20px;
+  transition: background-color 0.15s;
+}
+
+.codeBox button:active {
+  background-color: #b45806;
+}

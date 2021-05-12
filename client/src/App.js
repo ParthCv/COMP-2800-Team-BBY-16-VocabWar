@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "firebase/firestore";
 import Session from "./game/session.js";
+import MainMenu from "./interface/MainMenu";
 import "./App.css";
 import {
   FirebaseAppProvider,
@@ -18,9 +19,16 @@ const firebaseConfig = {
 };
 
 function App() {
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      document
+        .querySelector(":root")
+        .style.setProperty("--vh", window.innerHeight / 100 + "px");
+    });
+  }, []);
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <Session />
+      <MainMenu />
     </FirebaseAppProvider>
   );
 }
