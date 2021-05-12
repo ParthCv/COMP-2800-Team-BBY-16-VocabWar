@@ -38,16 +38,17 @@ const JoinLobby = () => {
                 }
             } catch (err) {
                 console.log("game not found", err);
+                document.getElementById('joinBtn').innerHTML = "Worng Code";
+                document.getElementById('joinBtn').style.backgroundColor = "#E74C3C";
+                setTimeout(() => {
+                    document.getElementById('joinBtn').innerHTML = "Join";
+                    document.getElementById('joinBtn').style.backgroundColor = "#E67E22";
+                }, 1000);
             }
             setCode('');
         } else {
             console.log('empty value');
-            document.getElementById('joinBtn').innerHTML = "Worng Code";
-            document.getElementById('joinBtn').style.backgroundColor = "#E74C3C";
-            setTimeout(() => {
-                document.getElementById('joinBtn').innerHTML = "Join";
-                document.getElementById('joinBtn').style.backgroundColor = "#E67E22";
-            }, 1000);
+
 
         }
     }
