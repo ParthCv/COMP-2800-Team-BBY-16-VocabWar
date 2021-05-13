@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import MaterialIcon from "material-icons-react";
 import CreateLobby from "./CreateLobby";
-import JoinLobby from "./JoinLobby"
+import JoinLobby from "./JoinLobby";
 import "./MainMenu.css";
 import { useFirestore } from "reactfire";
 
@@ -27,17 +27,34 @@ export default function MainMenu() {
       let lastletter = null;
       while (array.length <= 5) {
         if (array.length % 2 == 0) {
-          let randomCharacter = continents[Math.floor(Math.random() * continents.length)];
-          while(array[0] === randomCharacter || array[1] === randomCharacter || array[2] === randomCharacter || array[3] === randomCharacter || array[4] === randomCharacter || array[5] === randomCharacter) {
-           randomCharacter = continents[Math.floor(Math.random() * continents.length)];
+          let randomCharacter =
+            continents[Math.floor(Math.random() * continents.length)];
+          while (
+            array[0] === randomCharacter ||
+            array[1] === randomCharacter ||
+            array[2] === randomCharacter ||
+            array[3] === randomCharacter ||
+            array[4] === randomCharacter ||
+            array[5] === randomCharacter
+          ) {
+            randomCharacter =
+              continents[Math.floor(Math.random() * continents.length)];
           }
           if (lastletter != randomCharacter)
             array = [...array, randomCharacter];
         }
         if (array.length % 2 != 0) {
-          let randomCharacter = vowels[Math.floor(Math.random() * vowels.length)];
-          while(array[0] === randomCharacter || array[1] === randomCharacter || array[2] === randomCharacter || array[3] === randomCharacter || array[4] === randomCharacter || array[5] === randomCharacter) {
-           randomCharacter = vowels[Math.floor(Math.random() * vowels.length)];
+          let randomCharacter =
+            vowels[Math.floor(Math.random() * vowels.length)];
+          while (
+            array[0] === randomCharacter ||
+            array[1] === randomCharacter ||
+            array[2] === randomCharacter ||
+            array[3] === randomCharacter ||
+            array[4] === randomCharacter ||
+            array[5] === randomCharacter
+          ) {
+            randomCharacter = vowels[Math.floor(Math.random() * vowels.length)];
           }
           if (lastletter != randomCharacter)
             array = [...array, randomCharacter];
@@ -74,16 +91,31 @@ export default function MainMenu() {
             </span>
             Create a Lobby
           </button>
-          <button onClick={()=>{setIsJoining((prevState)=> !prevState);setPlayer(2)}}>
+          <button
+            onClick={() => {
+              setIsJoining((prevState) => !prevState);
+              setPlayer(2);
+            }}
+          >
             <span className='lobbyIcon'>
               <MaterialIcon icon='person_add' invert />
             </span>
             Join a Lobby
           </button>
-          {isJoining && <JoinLobby setIsJoining={setIsJoining} setIsCreating={setIsCreating} setGameID={setGameID}/>}
+          {isJoining && (
+            <JoinLobby
+              setIsJoining={setIsJoining}
+              setIsCreating={setIsCreating}
+              setGameID={setGameID}
+            />
+          )}
         </div>
       ) : (
-        <CreateLobby gameID={gameID} setIsCreating={setIsCreating} player={player}/>
+        <CreateLobby
+          gameID={gameID}
+          setIsCreating={setIsCreating}
+          player={player}
+        />
       )}
     </div>
   );

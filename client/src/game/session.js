@@ -7,7 +7,7 @@ import { useFirestoreDocData, useFirestore } from "reactfire";
 import Points from "./points.js";
 import "./session.css";
 
-export default function Session({ gameRef, player }) {
+export default function Session({ gameRef, player, setIsCreating }) {
   const [word, setWord] = useState("");
   const [words, setWords] = useState([]);
 
@@ -61,7 +61,14 @@ export default function Session({ gameRef, player }) {
 
   return (
     <div className='session'>
-      {over && <WinnerPoints over={over} gameRef={gameRef} player={player} />}
+      {over && (
+        <WinnerPoints
+          over={over}
+          setIsCreating={setIsCreating}
+          gameRef={gameRef}
+          player={player}
+        />
+      )}
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
         <Points gameRef={gameRef} id='player2' player='2' />

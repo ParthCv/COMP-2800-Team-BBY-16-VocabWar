@@ -10,12 +10,12 @@ export default function CreateLobby({ gameID, setIsCreating, player }) {
   const deleteKey = useFirestore.FieldValue.delete();
   const start = gameData.data?.start;
   const leaveLobby = () => {
-    if(player ===1) {
+    if (player === 1) {
       gameRef.delete();
     } else {
       gameRef.update({
         p2: deleteKey,
-      })
+      });
     }
     setIsCreating(false);
   };
@@ -41,7 +41,12 @@ export default function CreateLobby({ gameID, setIsCreating, player }) {
   return (
     <>
       {start ? (
-        <Session gameRef={gameRef} gameData={gameData} player={player} />
+        <Session
+          gameRef={gameRef}
+          setIsCreating={setIsCreating}
+          gameData={gameData}
+          player={player}
+        />
       ) : (
         <div className='createLobby'>
           <div className='gameBox'>

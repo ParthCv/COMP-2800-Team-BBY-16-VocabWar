@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./winner.css";
-import { useFirestoreDocData } from "reactfire";
+import { useFirestore, useFirestoreDocData } from "reactfire";
 
 // fetches the points from both players
 function WinnerPoints(props) {
@@ -8,7 +8,16 @@ function WinnerPoints(props) {
   const points2 = useFirestoreDocData(props.gameRef).data[`p2Points`];
   const winner = useFirestoreDocData(props.gameRef).data?.winner;
   const id = `player${props.player}`;
-
+  const deleteKey = useFirestore.FieldValue.delete();
+  const leaveLobbyResults = () => {
+    props.gameRef.set(
+      {
+        over: deleteKey,
+      },
+      { merge: true }
+    );
+    props.setIsCreating(false);
+  };
   useEffect(() => {
     if (props.over) {
       if (points1 > points2) {
@@ -67,7 +76,9 @@ function WinnerPoints(props) {
           <h2>{points2}pts</h2>
         </div>
       </div>
-      <button className='leaveLobbyResult'>Leave Lobby</button>
+      <button className='leaveLobbyResult' onClick={leaveLobbyResults}>
+        Leave Lobby
+      </button>
     </div>
   );
 }
