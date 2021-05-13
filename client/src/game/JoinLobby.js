@@ -1,19 +1,10 @@
 import React, { useState, useRef } from "react";
 import "firebase/firestore";
-import {
-  FirebaseAppProvider,
-  SuspenseWithPerf,
-  useFirestore,
-  useFirestoreCollectionData,
-  useFirestoreDocData,
-} from "reactfire";
+import { useFirestore } from "reactfire";
 import "./joinLobby.css";
-//import * as firebase from 'firebase';
-//import { checkCode } from "./CodeCheck";
 
 const JoinLobby = () => {
-  const [code, setCode] = useState("");
-  const [correctCode, SetCorrectCode] = useState("");
+  const [code, setCode] = useState(""); 
   const overlay = useRef(0);
   const gameRef = useFirestore().collection("Games");
 
@@ -39,8 +30,7 @@ const JoinLobby = () => {
             document.getElementById("joinBtn").innerHTML = "Join";
             document.getElementById("joinBtn").style.backgroundColor =
               "#E67E22";
-          }, 1000);
-          // throw new Error("Lobby already full");
+          }, 1000);     
           setCode('');
         }
         if (p1) {
@@ -50,7 +40,7 @@ const JoinLobby = () => {
             },
             { merge: true }
           );
-          console.log("correct code=>" + code);
+          console.log("correct code=> " + code);
         }
       } catch (err) {
         console.log("game not found", err);
