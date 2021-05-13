@@ -5,7 +5,7 @@
   font-size: 22px;
   font-family: "Roboto", sans-serif;
   background-image: url("dark-withoutwatermark.png");
-  width: 100vw;
+  width: 100%;
   height: var(--vh);
   display: grid;
   place-items: center;

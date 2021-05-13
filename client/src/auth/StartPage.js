@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login";
-import Logout from "./Logout";
 import { useUser } from "reactfire";
 import "./StartPage.css";
 import logo from "./BottomLogo.png";

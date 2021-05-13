@@ -8,6 +8,7 @@ import {
   FirebaseAppProvider,
   useFirestoreDocData,
   useFirestore,
+  useAuth,
 } from "reactfire";
 
 const firebaseConfig = {
@@ -20,6 +21,7 @@ const firebaseConfig = {
 };
 
 function App() {
+  const auth = useAuth();
   const user = useUser();
   console.log(user.displayName);
   console.log(user.uuid);
@@ -28,7 +30,17 @@ function App() {
       .querySelector(":root")
       .style.setProperty("--vh", window.innerHeight + "px");
   }, []);
-  return <AuthCheck fallback={<StartPage />}>{/* <Session /> */}</AuthCheck>;
+
+  const logoutHandler = () => {
+    auth.signOut();
+  };
+  return (
+    <AuthCheck fallback={<StartPage />}>
+      <button type='button' onClick={logoutHandler}>
+        Logout
+      </button>
+    </AuthCheck>
+  );
 }
 
 export default App;
