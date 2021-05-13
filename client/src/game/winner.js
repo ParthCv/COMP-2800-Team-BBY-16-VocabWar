@@ -10,12 +10,6 @@ function WinnerPoints(props) {
   const id = `player${props.player}`;
   const deleteKey = useFirestore.FieldValue.delete();
   const leaveLobbyResults = () => {
-    props.gameRef.set(
-      {
-        over: deleteKey,
-      },
-      { merge: true }
-    );
     props.setIsCreating(false);
   };
   useEffect(() => {
