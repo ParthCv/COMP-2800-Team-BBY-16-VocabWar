@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "firebase/firestore";
-// import Session from "./game/session.js";
+import Session from "./game/session.js";
 import "./App.css";
-import StartPage from './auth/StartPage'
-import { useUser } from 'reactfire';
+import StartPage from "./auth/StartPage";
+import { useUser, AuthCheck } from "reactfire";
 import {
   FirebaseAppProvider,
   useFirestoreDocData,
@@ -21,11 +21,14 @@ const firebaseConfig = {
 
 function App() {
   const user = useUser();
-  return (
-
-    <StartPage />
-
-  );
+  console.log(user.displayName);
+  console.log(user.uuid);
+  useEffect(() => {
+    document
+      .querySelector(":root")
+      .style.setProperty("--vh", window.innerHeight + "px");
+  }, []);
+  return <AuthCheck fallback={<StartPage />}>{/* <Session /> */}</AuthCheck>;
 }
 
 export default App;

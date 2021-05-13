@@ -1,75 +1,53 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
-body {
-    font-size: 22px;
-    font-family: "Roboto", sans-serif;
-    background-image: url("dark-withoutwatermark.png");
-    width: 100%
-  }
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
 
-h1 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    color:aliceblue;
-    text-align: center;
-    font-size: 60px;
-    padding-top: 20%;
-    width: 100%;
-    margin-top: 2%;
-    
+.authControls {
+  font-size: 22px;
+  font-family: "Roboto", sans-serif;
+  background-image: url("dark-withoutwatermark.png");
+  width: 100vw;
+  height: var(--vh);
+  display: grid;
+  place-items: center;
+  grid-template-rows: 30% 10% 60%;
 }
 
-.Logo {
-    background-image: url(./BottomLogo.png);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    margin-top: -10%;
-    margin-bottom: -8%;
+.appName {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: aliceblue;
+  text-align: center;
+  font-size: 85px;
+  width: 100%;
+  font-family: "Squada One";
 }
 
-
-.myform-button .myform-btn{
-    width:90%;
-    height: 55px;
-    font-size: 30px;
-    margin-top: 10%;
-    margin-left: 5%;
-    background: #1877F2;
-    justify-content: center;
-    text-align: center;
-    border: none;
-    border-radius: 50px;
-    color: #fff;
-    cursor: pointer;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-}
-.myform-button .myform-btn:hover{
-    background: #07315B;
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  margin-top: -10%;
+  margin-bottom: -8%;
 }
 
-
-
-
-.myform-button1 .myform-btn1{
-    width: 50%;
-    height: auto;
-    font-size: 30px;
-    height: 75px;
-    margin-left: 2%;
-    margin-top: 3%;
-    background: #1877F2;
-    border: none;
-    border-radius: 50px;
-    color: #fff;
-    cursor: pointer;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
+.myform-button {
+  display: grid;
+  width: 80%;
+  gap: 40px;
 }
-.myform-button1 .myform-btn1:hover{
-    background: #07315B;
+
+.myform-button .myform-btn {
+  width: 100%;
+  height: 55px;
+  font-size: 25px;
+  background: #1877f2;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  transition: all 0.5s;
+}
+.myform-button .myform-btn:active {
+  background: #07315b;
 }
