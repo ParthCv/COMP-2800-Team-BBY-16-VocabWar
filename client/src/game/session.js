@@ -4,9 +4,16 @@ import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import { useFirestoreDocData, useFirestore } from "reactfire";
 import Points from "./points.js";
+<<<<<<< HEAD
 import "./session.css";
 
 export default function Session({ gameRef, player }) {
+=======
+//import { v4 as uuidv4 } from "uuid";
+import "./session.css";
+
+const Session = () => {
+>>>>>>> Parth_joinLobby
   const [word, setWord] = useState("");
   const [words, setWords] = useState([]);
 
@@ -53,6 +60,43 @@ export default function Session({ gameRef, player }) {
     setWord((prev) => prev.substring(0, prev.length - 1));
   }
 
+<<<<<<< HEAD
+=======
+  // LETTERS //////////////////////
+
+  const continents = "BCDFGHJKLMNPQRSTVWXYZ";
+  const vowels = "AEIOU";
+
+  useEffect(() => {
+    if (letterArray) {
+      let array = letterArray && letterArray.letters;
+      let lastletter = null;
+      while (array.length <= 5) {
+        if (array.length % 2 === 0) {
+          let randomCharacter =
+            continents[Math.floor(Math.random() * continents.length)];
+          if (lastletter !== randomCharacter)
+            array = [...array, randomCharacter];
+        }
+        if (array.length % 2 !== 0) {
+          let randomCharacter =
+            vowels[Math.floor(Math.random() * vowels.length)];
+          if (lastletter !== randomCharacter)
+            array = [...array, randomCharacter];
+        }
+        lastletter = array[array.length - 1];
+        console.log(array);
+      }
+      gameRef.set(
+        {
+          letters: array,
+        },
+        { merge: true }
+      );
+    }
+  });
+
+>>>>>>> Parth_joinLobby
   function handleAddLetter(e) {
     setWord((prev) => prev + e.target.value);
   }
