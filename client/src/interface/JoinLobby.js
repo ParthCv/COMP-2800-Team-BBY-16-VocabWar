@@ -2,19 +2,20 @@ import React, { useState, useRef } from "react";
 import "firebase/firestore";
 import { useFirestore } from "reactfire";
 import "./joinLobby.css";
+import ClearIcon from '@material-ui/icons/Clear';
 
-const JoinLobby = () => {
+const JoinLobby = ({setIsJoining, setIsCreating, setGameID}) => {
   const [code, setCode] = useState(""); 
   const overlay = useRef(0);
   const gameRef = useFirestore().collection("Games");
 
-  const showOverlay = () => {
-    if (overlay.current.style.display === "none") {
-      overlay.current.style.display = "inline";
-    } else {
-      overlay.current.style.display = "none";
-    }
-  };
+  // const showOverlay = () => {
+  //   if (overlay.current.style.display === "none") {
+  //     overlay.current.style.display = "inline";
+  //   } else {
+  //     overlay.current.style.display = "none";
+  //   }
+  // };
 
   async function checkCode(e) {
     e.preventDefault();
@@ -40,6 +41,9 @@ const JoinLobby = () => {
             },
             { merge: true }
           );
+          setIsJoining(false);
+          setIsCreating(true);
+          setGameID(code);
           console.log("correct code=> " + code);
         }
       } catch (err) {
@@ -59,10 +63,14 @@ const JoinLobby = () => {
 
   return (
     <>
-      <button className='lobbyBtn' onClick={showOverlay}>
-        Join a Lobby
-      </button>
-      <div className='overlay' ref={overlay}>
+      <div className='overlay' >
+        <ClearIcon style={{
+          color: "white",
+          fontSize: 35,
+          position: "absolute",
+          right: 20,
+          top: 20}}
+          onClick={() => setIsJoining(false)}/>
         <div className='content'>
           <h1>Join Lobby</h1>
           <div className='lbHead'>
@@ -83,9 +91,8 @@ const JoinLobby = () => {
             id='joinBtn'
             className='sub'
             type='submit'
-            onClick={checkCode}
-          >
-            Join
+            onClick={checkCode}            
+          >Join
           </button>
         </div>
       </div>

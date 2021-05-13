@@ -3,14 +3,20 @@ import "./CreateLobby.css";
 import Session from "../game/session";
 import { useFirestore, useFirestoreDocData } from "reactfire";
 
-export default function CreateLobby({ gameID, setIsCreating }) {
+export default function CreateLobby({ gameID, setIsCreating, player }) {
   const gameRef = useFirestore().collection("Games").doc(gameID);
   const gameData = useFirestoreDocData(gameRef);
   const p2 = gameData.data?.p2;
+  const deleteKey = useFirestore.FieldValue.delete();
   const start = gameData.data?.start;
-
   const leaveLobby = () => {
-    gameRef.delete();
+    if(player ===1) {
+      gameRef.delete();
+    } else {
+      gameRef.update({
+        p2: deleteKey,
+      })
+    }
     setIsCreating(false);
   };
 
@@ -35,7 +41,7 @@ export default function CreateLobby({ gameID, setIsCreating }) {
   return (
     <>
       {start ? (
-        <Session gameRef={gameRef} gameData={gameData} player='1' />
+        <Session gameRef={gameRef} gameData={gameData} player={player} />
       ) : (
         <div className='createLobby'>
           <div className='gameBox'>

@@ -1,11 +1,7 @@
 import React, { useEffect } from "react";
 import "firebase/firestore";
 import Session from "./game/session.js";
-<<<<<<< HEAD
 import MainMenu from "./interface/MainMenu";
-=======
-import JoinLobby from "./game/JoinLobby"
->>>>>>> Parth_joinLobby
 import "./App.css";
 import {
   FirebaseAppProvider,
@@ -32,12 +28,7 @@ function App() {
   }, []);
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-<<<<<<< HEAD
       <MainMenu />
-=======
-      {/* <Session /> */}
-      <JoinLobby/>
->>>>>>> Parth_joinLobby
     </FirebaseAppProvider>
   );
 }
