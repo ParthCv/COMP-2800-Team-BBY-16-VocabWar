@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MaterialIcon from "material-icons-react";
 import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
+import WinnerPoints from "./winner";
 import { useFirestoreDocData, useFirestore } from "reactfire";
 import Points from "./points.js";
 import "./session.css";
@@ -12,6 +13,7 @@ export default function Session({ gameRef, player }) {
 
   const points = useFirestoreDocData(gameRef).data[`p${player}Points`];
   const letterArray = useFirestoreDocData(gameRef).data?.letters;
+  const over = useFirestoreDocData(gameRef).data?.over;
 
   async function checkWord() {
     const result = await sendWord(word);
@@ -59,11 +61,12 @@ export default function Session({ gameRef, player }) {
 
   return (
     <div className='session'>
+      {over && <WinnerPoints over={over} gameRef={gameRef} player={player} />}
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
         <Points gameRef={gameRef} id='player2' player='2' />
       </div>
-      <Timer minutes={1} seconds={30}></Timer>
+      <Timer minutes={0} seconds={10} gameRef={gameRef}></Timer>
       <h2 className='instruct'>Form Words Using These Letters</h2>
       <div className='wordControls'>
         <button className='wordButton' type='button' onClick={backspace}>
