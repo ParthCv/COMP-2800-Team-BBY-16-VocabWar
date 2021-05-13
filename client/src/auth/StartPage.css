@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+body {
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    background-image: url("dark-withoutwatermark.png");
+    width: 100%
+  }
+
+h1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color:aliceblue;
+    text-align: center;
+    font-size: 60px;
+    padding-top: 20%;
+    width: 100%;
+    margin-top: 2%;
+    
+}
+
+.Logo {
+    background-image: url(./BottomLogo.png);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    margin-top: -10%;
+    margin-bottom: -8%;
+}
+
+
+.myform-button .myform-btn{
+    width:90%;
+    height: 55px;
+    font-size: 30px;
+    margin-top: 10%;
+    margin-left: 5%;
+    background: #1877F2;
+    justify-content: center;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.myform-button .myform-btn:hover{
+    background: #07315B;
+}
+
+
+
+
+.myform-button1 .myform-btn1{
+    width: 50%;
+    height: auto;
+    font-size: 30px;
+    height: 75px;
+    margin-left: 2%;
+    margin-top: 3%;
+    background: #1877F2;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.myform-button1 .myform-btn1:hover{
+    background: #07315B;
+}
