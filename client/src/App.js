@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "firebase/firestore";
 import Session from "./game/session.js";
 import MainMenu from "./interface/MainMenu";
+import AboutUs from "./interface/AboutUs";
 import "./App.css";
 import {
   FirebaseAppProvider,
@@ -28,7 +29,8 @@ function App() {
   }, []);
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      <MainMenu />
+      {/* <MainMenu /> */}
+      <AboutUs/>
     </FirebaseAppProvider>
   );
 }

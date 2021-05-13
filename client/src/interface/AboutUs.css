@@ -1,0 +1,107 @@
+@font-face {
+    font-family: Montserrat;
+    src: url(Montserrat-Bold.ttf);
+}
+
+@font-face {
+    font-family: Raleway-Regular;
+    src: url(Raleway-ExtraBold.ttf);
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    align-content: center;
+    background-image: url("../images/light.png");
+    background-attachment: fixed;
+    color: #000;
+    font-family: Montserrat;
+}
+
+.head {
+    background-color: #c0c0c0;
+    opacity: 0.8;
+    height: 50vh;
+    padding: 50px 20px;    
+}
+
+h1{
+    font-size: 4rem;
+    font-family: Raleway-Regular;
+}
+
+h2 {
+    text-align: left;
+    font-size: 3rem;
+    color: #000;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 40%;
+    margin: 5% auto;
+    background-color: #fff;
+    font-family: Montserrat;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+    width: 100%;
+}
+
+.title {
+    color: gray;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.content {
+    padding: 2px 16px;
+    text-align: left;
+}
+
+.btn {
+    width: 100%;
+    margin: 3% 0;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.btn:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.team {
+    text-align: center;
+    margin: 10%;
+    font-size: 4rem;
+    font-family: Raleway-Regular;
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        width: 70%;
+    }
+
+    h2{
+        font-size: 1.75rem;
+    }
+
+    .head {
+        height: 73.5vh;
+    }
+
+    .team {
+        margin: 20% 5%;
+    }
+}
