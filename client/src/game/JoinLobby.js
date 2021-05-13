@@ -39,7 +39,8 @@ const JoinLobby = () => {
             document.getElementById('joinBtn').innerHTML = "Join";
             document.getElementById('joinBtn').style.backgroundColor = "#E67E22";
           }, 1000);
-          throw new Error("Lobby already full");
+          // throw new Error("Lobby already full");
+          setCode('');
         }
         if (p1) {
           gameRef.doc(code).set(
