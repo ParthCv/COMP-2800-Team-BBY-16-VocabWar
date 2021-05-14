@@ -18,8 +18,8 @@ export default function AboutUs(setIsAboutUs) {
                     onClick={() => setIsAboutUs === false}
                 />About Us</h1>
                 <br />
-                <p className='txt'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-                <p className='txt'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p className='txt'>Vocab War was made on the belief that learning doesn’t have to compromise fun and enjoyment. Launched with the enthusiastic spirit we bring to all our video games, we embarked on this project with a clear set of missions: to present the highest quality game environment to expand our English vocabulary, while offering users a fun and competitive experience.</p>
+                <p className='txt'>Vocab War was made on the belief that learning doesn’t have to compromise fun. We wanted to make a game environment where we the users could have fun and compete with their friends.</p>
                 <Circle style={{ fontSize: 15 }} /><Circle style={{ fontSize: 15 }} /><Circle style={{ fontSize: 15 }} />
             </div>
             <h2 className='team'>Our Team</h2>
