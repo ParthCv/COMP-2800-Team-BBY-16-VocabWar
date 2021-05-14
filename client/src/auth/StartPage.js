@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login";
-import { useUser } from "reactfire";
 import "./StartPage.css";
 import logo from "./BottomLogo.png";
 
@@ -21,11 +20,10 @@ export default function StartPage() {
     setShowLogin(false);
     setShowSignUp(false);
   };
-  const user = useUser();
   return (
     <div className='authControls'>
       <h1 className='appName'> Vocab War </h1>
-      <img src={logo} className='logo' />
+      <img alt='logo' src={logo} className='logo' />
       {!showLogin && !showSignUp && (
         <div className='myform-button'>
           <button className='myform-btn' onClick={handleLoginPage}>

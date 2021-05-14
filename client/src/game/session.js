@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MaterialIcon from "material-icons-react";
 import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import WinnerPoints from "./winner";
-import { useFirestoreDocData, useFirestore } from "reactfire";
+import { useFirestoreDocData } from "reactfire";
 import Points from "./points.js";
 import "./session.css";
 

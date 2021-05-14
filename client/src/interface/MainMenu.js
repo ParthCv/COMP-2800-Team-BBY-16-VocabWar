@@ -33,7 +33,7 @@ export default function MainMenu() {
       let array = [];
       let lastletter = null;
       while (array.length <= 5) {
-        if (array.length % 2 == 0) {
+        if (array.length % 2 === 0) {
           let randomCharacter =
             continents[Math.floor(Math.random() * continents.length)];
           while (
@@ -47,10 +47,10 @@ export default function MainMenu() {
             randomCharacter =
               continents[Math.floor(Math.random() * continents.length)];
           }
-          if (lastletter != randomCharacter)
+          if (lastletter !== randomCharacter)
             array = [...array, randomCharacter];
         }
-        if (array.length % 2 != 0) {
+        if (array.length % 2 !== 0) {
           let randomCharacter =
             vowels[Math.floor(Math.random() * vowels.length)];
           while (
@@ -63,7 +63,7 @@ export default function MainMenu() {
           ) {
             randomCharacter = vowels[Math.floor(Math.random() * vowels.length)];
           }
-          if (lastletter != randomCharacter)
+          if (lastletter !== randomCharacter)
             array = [...array, randomCharacter];
         }
         lastletter = array[array.length - 1];
