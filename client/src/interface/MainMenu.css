@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
+
+.mainmenu {
+  background-image: url("../images/light.png");
+  height: calc(var(--vh));
+  width: 100vw;
+}
+
+.header {
+  display: grid;
+  place-items: center;
+  height: 13%;
+  width: 100%;
+  background-color: rgba(196, 196, 196, 0.76);
+}
+
+.header h1 {
+  color: white;
+  font-family: "Squada One";
+  font-weight: 200;
+  font-size: 65px;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+.lobbyButtons {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.lobbyButtons button {
+  display: grid;
+  grid-template-columns: 1fr 11fr;
+  margin-top: 20px;
+  color: white;
+  background-color: #e74c3c;
+  border: none;
+  font-size: 28px;
+  padding: 8px 20px;
+  border-radius: 30px;
+  width: 85%;
+}
+
+#logoutButton {
+  grid-template-columns: 1fr;
+}
+
+.lobbyIcon {
+  padding-top: 2px;
+}

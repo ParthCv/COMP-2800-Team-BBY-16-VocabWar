@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./timer.css";
 
-function Timer({ minutes = 0, seconds = 30 }) {
+function Timer({ minutes = 0, seconds = 30, gameRef }) {
   const [over, setOver] = useState(false);
   const [[m, s], setTime] = useState([minutes, seconds]);
 
@@ -22,6 +22,17 @@ function Timer({ minutes = 0, seconds = 30 }) {
     const timerInterval = setInterval(() => changeTime(), 1000);
     return () => clearInterval(timerInterval);
   });
+
+  useEffect(() => {
+    if (over) {
+      gameRef.set(
+        {
+          over: "true",
+        },
+        { merge: true }
+      );
+    }
+  }, [over]);
 
   return (
     <>
