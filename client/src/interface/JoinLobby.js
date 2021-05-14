@@ -73,6 +73,7 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
           <div>
             <input
               type='text'
+              id='codeInput'
               name='code'
               value={code}
               onChange={(e) => setCode(e.target.value.trim().toLowerCase())}

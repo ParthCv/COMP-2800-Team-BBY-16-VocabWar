@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useFirebaseApp } from "reactfire";
 import "firebase/auth";
 import "./Login.css";
+import ClearIcon from "@material-ui/icons/Clear";
 
 const Login = ({ overlayCloseHandler }) => {
   const [user, setUser] = useState({
@@ -30,6 +31,12 @@ const Login = ({ overlayCloseHandler }) => {
           ...user,
           error: error.message,
         });
+        document.getElementById("emailLogin").style.border =
+          "2px solid #e74c3c";
+        document.getElementById("passLogin").style.border = "2px solid #e74c3c";
+        document.getElementById("loginButton").innerHTML = "Try again";
+        document.getElementById("loginButton").style.backgroundColor =
+          "#e74c3c";
       });
   };
 
@@ -37,27 +44,30 @@ const Login = ({ overlayCloseHandler }) => {
     <div className='overlayAuth'>
       <div className='authHB'>
         <button type='button' onClick={overlayCloseHandler}>
-          X
+          <ClearIcon />
         </button>
       </div>
       <form onSubmit={handleSubmit} className='authForm'>
         <input
-          type='text'
+          id='emailLogin'
+          type='email'
           placeholder='Email'
           name='email'
           onChange={handleChange}
         />
         <br />
         <input
+          id='passLogin'
           type='password'
           placeholder='Password'
           name='password'
           onChange={handleChange}
         />
         <br />
-        <button type='submit'>LOG IN</button>
+        <button type='submit' id='loginButton'>
+          LOG IN
+        </button>
       </form>
-      {user.error && <h4>{user.error}</h4>}
     </div>
   );
 };
