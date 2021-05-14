@@ -4,11 +4,13 @@ import CreateLobby from "./CreateLobby";
 import JoinLobby from "./JoinLobby";
 import "./MainMenu.css";
 import { useFirestore, useAuth } from "reactfire";
+import AboutUs from "./AboutUs";
 
 export default function MainMenu() {
   const auth = useAuth();
   const [isCreating, setIsCreating] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
+  const [isAboutUs, setIsAboutUs] = useState(false);
   const [gameID, setGameID] = useState();
   const [player, setPlayer] = useState(1);
   const gameRef = useFirestore().collection("Games");
@@ -83,7 +85,7 @@ export default function MainMenu() {
       .style.setProperty("--vh", window.innerHeight + "px")
   );
 
-  return (
+  return (isAboutUs? <AboutUs isAboutUs={isAboutUs}/> :(
     <div className='mainmenu'>
       <div className='header'>
         <h1>Vocab War</h1>
@@ -110,6 +112,9 @@ export default function MainMenu() {
           <button id='logoutButton' type='button' onClick={logoutHandler}>
             Logout
           </button>
+          <button id='logoutButton' type='button' onClick={()=>{setIsAboutUs(true);}}>
+            About Us
+          </button>
           {isJoining && (
             <JoinLobby
               setIsJoining={setIsJoining}
@@ -125,6 +130,7 @@ export default function MainMenu() {
           player={player}
         />
       )}
+     
     </div>
-  );
+  ));
 }
