@@ -32,6 +32,7 @@ const Signup = ({ overlayCloseHandler }) => {
         usersRef.doc(result.user.uid).set({
           email: result.user.email,
           nickname: user.nickname,
+          points: +0,
         });
       });
   };
