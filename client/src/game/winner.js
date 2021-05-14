@@ -60,8 +60,8 @@ function WinnerPoints(props) {
   return (
     <div className='overlay_results'>
       <div>
-        {winner != 3 ? (
-          winner == props.player ? (
+        {winner !== 3 ? (
+          winner === props.player ? (
             <>
               <h1 id='resultText'>You win</h1>
               <div className='resultLine win'></div>
