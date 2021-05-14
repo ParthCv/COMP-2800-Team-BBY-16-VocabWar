@@ -27,28 +27,11 @@ export default function Session({ gameRef, player, setIsCreating }) {
       );
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #2ecc71";
-      setTimeout(() => {
-        document.getElementById("wordDisplay").style.borderBottom =
-          "7px solid black";
-        document.getElementById("wordDisplay").style.color = "white";
-        setTimeout(() => setWord(""), 300);
-      }, 1000);
-      setTimeout(() => {
-        document.getElementById("wordDisplay").style.color = "black";
-      }, 1010);
     } else {
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #e74c3c";
-      setTimeout(() => {
-        document.getElementById("wordDisplay").style.borderBottom =
-          "7px solid black";
-        document.getElementById("wordDisplay").style.color = "white";
-        setTimeout(() => setWord(""), 300);
-      }, 1000);
-      setTimeout(() => {
-        document.getElementById("wordDisplay").style.color = "black";
-      }, 1010);
     }
+    setWord("");
   }
 
   function backspace() {
@@ -56,6 +39,8 @@ export default function Session({ gameRef, player, setIsCreating }) {
   }
 
   function handleAddLetter(e) {
+    document.getElementById("wordDisplay").style.borderBottom =
+      "7px solid black";
     setWord((prev) => prev + e.target.value);
   }
 
@@ -76,11 +61,21 @@ export default function Session({ gameRef, player, setIsCreating }) {
       <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
       <h2 className='instruct'>Form Words Using These Letters</h2>
       <div className='wordControls'>
-        <button className='wordButton' type='button' onClick={backspace}>
+        <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
+        <button
+          id='backspace'
+          className='wordButton'
+          type='button'
+          onClick={backspace}
+        >
           <MaterialIcon icon='backspace' invert />
         </button>
-        <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
-        <button className='wordButton' type='button' onClick={checkWord}>
+        <button
+          id='submitWord'
+          className='wordButton'
+          type='button'
+          onClick={checkWord}
+        >
           <MaterialIcon icon='keyboard_return' invert />
         </button>
       </div>
