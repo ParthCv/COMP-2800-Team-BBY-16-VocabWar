@@ -3,7 +3,8 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 50%;
+  height: 50vh;
+  min-height: 350px;
   background-color: rgba(129, 126, 126, 0.5);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;

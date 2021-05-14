@@ -44,7 +44,7 @@ const Signup = ({ overlayCloseHandler }) => {
           <ClearIcon />
         </button>
       </div>
-      <form onSubmit={handleSubmit} className='authForm'>
+      <form onSubmit={handleSubmit} className='authForm_Sign'>
         <input
           type='text'
           placeholder='Nickname'

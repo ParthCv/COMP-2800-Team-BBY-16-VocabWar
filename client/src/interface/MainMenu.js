@@ -86,7 +86,7 @@ export default function MainMenu() {
   );
 
   return isAboutUs ? (
-    <AboutUs isAboutUs={isAboutUs} />
+    <AboutUs isAboutUs={isAboutUs} setIsAboutUs={setIsAboutUs} />
   ) : (
     <div className='mainmenu'>
       <div className='header'>

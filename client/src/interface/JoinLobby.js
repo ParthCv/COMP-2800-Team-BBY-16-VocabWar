@@ -81,7 +81,6 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
               minLength='6'
             />
           </div>
-          <br />
           <button
             id='joinBtn'
             className='sub'
