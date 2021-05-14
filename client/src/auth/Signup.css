@@ -1,0 +1,57 @@
+.overlayAuth_Sign {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background-color: rgba(129, 126, 126, 0.5);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  place-items: center;
+}
+
+.authHB {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  place-items: center;
+  width: 100%;
+}
+
+.authHB button {
+  grid-column: 2 / span 1;
+  align-self: flex-start;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 40px;
+  font-family: "Squada One";
+}
+
+.authForm {
+  align-self: flex-start;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  height: 80%;
+}
+
+.authForm input {
+  width: 80%;
+  padding: 15px;
+  border-radius: 20px;
+  border: none;
+  font-size: 23px;
+  text-align: start;
+}
+
+.authForm button {
+  width: 80%;
+  border: none;
+  padding: 15px;
+  border-radius: 20px;
+  font-size: 20px;
+  background-color: #1877f2;
+  color: white;
+}

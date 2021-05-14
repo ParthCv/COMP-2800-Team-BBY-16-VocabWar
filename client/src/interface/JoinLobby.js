@@ -1,22 +1,13 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "firebase/firestore";
-import { useFirestore } from "reactfire";
+import { useFirestore, useAuth } from "reactfire";
 import "./joinLobby.css";
-import ClearIcon from '@material-ui/icons/Clear';
+import ClearIcon from "@material-ui/icons/Clear";
 
-const JoinLobby = ({setIsJoining, setIsCreating, setGameID}) => {
-  const [code, setCode] = useState(""); 
-  const overlay = useRef(0);
+const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
+  const [code, setCode] = useState("");
   const gameRef = useFirestore().collection("Games");
-
-  // const showOverlay = () => {
-  //   if (overlay.current.style.display === "none") {
-  //     overlay.current.style.display = "inline";
-  //   } else {
-  //     overlay.current.style.display = "none";
-  //   }
-  // };
-
+  const auth = useAuth();
   async function checkCode(e) {
     e.preventDefault();
     if (code) {
@@ -31,13 +22,13 @@ const JoinLobby = ({setIsJoining, setIsCreating, setGameID}) => {
             document.getElementById("joinBtn").innerHTML = "Join";
             document.getElementById("joinBtn").style.backgroundColor =
               "#E67E22";
-          }, 1000);     
-          setCode('');
+          }, 1000);
+          setCode("");
         }
         if (p1) {
           gameRef.doc(code).set(
             {
-              p2: "hey",
+              p2: auth.currentUser.uid,
             },
             { merge: true }
           );
@@ -63,14 +54,17 @@ const JoinLobby = ({setIsJoining, setIsCreating, setGameID}) => {
 
   return (
     <>
-      <div className='overlay' >
-        <ClearIcon style={{
-          color: "white",
-          fontSize: 35,
-          position: "absolute",
-          right: 20,
-          top: 20}}
-          onClick={() => setIsJoining(false)}/>
+      <div className='overlay'>
+        <ClearIcon
+          style={{
+            color: "white",
+            fontSize: 35,
+            position: "absolute",
+            right: 20,
+            top: 20,
+          }}
+          onClick={() => setIsJoining(false)}
+        />
         <div className='content'>
           <h1>Join Lobby</h1>
           <div className='lbHead'>
@@ -91,8 +85,9 @@ const JoinLobby = ({setIsJoining, setIsCreating, setGameID}) => {
             id='joinBtn'
             className='sub'
             type='submit'
-            onClick={checkCode}            
-          >Join
+            onClick={checkCode}
+          >
+            Join
           </button>
         </div>
       </div>

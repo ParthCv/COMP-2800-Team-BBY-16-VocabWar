@@ -37,10 +37,15 @@
   margin-top: 20px;
   color: white;
   background-color: #e74c3c;
-  border: none;  
+  border: none;
   font-size: 28px;
   padding: 8px 20px;
   border-radius: 30px;
+  width: 85%;
+}
+
+#logoutButton {
+  grid-template-columns: 1fr;
 }
 
 .lobbyIcon {

@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import MaterialIcon from "material-icons-react";
 import CreateLobby from "./CreateLobby";
 import JoinLobby from "./JoinLobby";
 import "./MainMenu.css";
-import { useFirestore } from "reactfire";
+import { useFirestore, useAuth } from "reactfire";
 
 export default function MainMenu() {
+  const auth = useAuth();
   const [isCreating, setIsCreating] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
   const [gameID, setGameID] = useState();
@@ -15,6 +16,10 @@ export default function MainMenu() {
     setPlayer(1);
     setIsCreating(true);
     setGameID(Math.random().toString(36).substr(2, 6));
+  };
+
+  const logoutHandler = () => {
+    auth.signOut();
   };
 
   useEffect(() => {
@@ -63,7 +68,7 @@ export default function MainMenu() {
       }
       gameRef.doc(gameID).set({
         code: gameID,
-        p1: "hey",
+        p1: auth.currentUser.uid,
         p1Points: 0,
         p2Points: 0,
         start: false,
@@ -101,6 +106,9 @@ export default function MainMenu() {
               <MaterialIcon icon='person_add' invert />
             </span>
             Join a Lobby
+          </button>
+          <button id='logoutButton' type='button' onClick={logoutHandler}>
+            Logout
           </button>
           {isJoining && (
             <JoinLobby

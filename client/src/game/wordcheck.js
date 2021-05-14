@@ -6,7 +6,7 @@ const getWord = async (word) => {
 };
 
 export async function sendWord(word) {
-  if (word) {
+  if (word.length > 1) {
     const data = await getWord(word);
     if (data.title) {
       return false;
@@ -14,4 +14,5 @@ export async function sendWord(word) {
       return true;
     }
   }
+  return false;
 }
