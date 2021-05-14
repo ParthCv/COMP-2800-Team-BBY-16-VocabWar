@@ -85,7 +85,9 @@ export default function MainMenu() {
       .style.setProperty("--vh", window.innerHeight + "px")
   );
 
-  return (isAboutUs? <AboutUs isAboutUs={isAboutUs}/> :(
+  return isAboutUs ? (
+    <AboutUs isAboutUs={isAboutUs} />
+  ) : (
     <div className='mainmenu'>
       <div className='header'>
         <h1>Vocab War</h1>
@@ -112,7 +114,13 @@ export default function MainMenu() {
           <button id='logoutButton' type='button' onClick={logoutHandler}>
             Logout
           </button>
-          <button id='logoutButton' type='button' onClick={()=>{setIsAboutUs(true);}}>
+          <button
+            id='logoutButton'
+            type='button'
+            onClick={() => {
+              setIsAboutUs(true);
+            }}
+          >
             About Us
           </button>
           {isJoining && (
@@ -130,7 +138,6 @@ export default function MainMenu() {
           player={player}
         />
       )}
-     
     </div>
-  ));
+  );
 }

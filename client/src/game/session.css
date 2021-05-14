@@ -23,6 +23,7 @@
 }
 
 .instruct {
+  margin-top: 2rem;
   text-align: center;
   font-weight: 400;
   font-size: 28px;
@@ -31,8 +32,10 @@
 
 .wordControls {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   place-items: center;
+  gap: 2rem;
+  grid-template-rows: repeat(2, 1fr);
 }
 
 .wordButton {
@@ -40,6 +43,16 @@
   border: none;
   padding: 10px;
   border-radius: 15px;
+  width: 70%;
+  align-self: flex-start;
+}
+
+#backspace {
+  justify-self: end;
+}
+
+#submitWord {
+  justify-self: start;
 }
 
 #wordDisplay {
@@ -49,15 +62,15 @@
   border-bottom: 7px solid black;
   padding-bottom: 10px;
   transition: border-bottom 0.3s, color 0.3s;
-  grid-column: 2 / span 2;
-  width: 100%;
+  grid-column: 1 / span 2;
+  width: 75%;
   overflow: hidden;
   text-overflow: ellipsis;
   direction: rtl;
 }
 
 .grid-cointainer {
-  margin: 40px 10px;
+  margin: 30px 10px;
 }
 
 .grid-cointainer button {
