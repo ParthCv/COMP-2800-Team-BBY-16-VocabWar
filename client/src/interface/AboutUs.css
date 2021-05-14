@@ -18,7 +18,7 @@ body {
     font-family: Montserrat;
 }
 
-.head {
+.abouthead {
     background-color: #c0c0c0;
     opacity: 0.8;
     height: 50vh;
@@ -32,23 +32,18 @@ body {
     text-align: left;
 }
 
-h1 {
+.abouth1 {
     font-size: 4rem;
     font-family: Raleway-Regular;
 }
 
-h2 {
+.abouth2 {
     text-align: left;
     font-size: 3rem;
     color: #000;
 }
 
-a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.card {
+.aboutcard {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 40%;
@@ -57,26 +52,26 @@ a {
     font-family: Montserrat;
 }
 
-.card:hover {
+.aboutcard:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-img {
+.aboutimg {
     width: 100%;
 }
 
-.title {
+.abouttitle {
     color: gray;
     text-align: left;
     font-size: 1rem;
 }
 
-.info {
+.aboutinfo {
     padding: 2px 16px;
     text-align: left;
 }
 
-.btn {
+/* .btn {
     width: 100%;
     margin: 3% 0;
     background-color: #000;
@@ -91,7 +86,7 @@ img {
     color: #000;
     background-color: #c0c0c0;
     border: 1px solid #000;
-}
+} */
 
 .team {
     text-align: center;
@@ -101,16 +96,16 @@ img {
 }
 
 @media screen and (max-width: 600px) {
-    .card {
+    .aboutcard {
         width: 70%;
         margin: 10% auto;
     }
 
-    h2 {
+    .abourh2 {
         font-size: 1.75rem;
     }
 
-    .head {
+    .abouthead {
         height: 73.5vh;
     }
 
@@ -118,7 +113,7 @@ img {
         margin: 20% 5%;
     }
 
-    .title{
+    .abouttitle{
         font-size: 1.25rem;
     }
 }
