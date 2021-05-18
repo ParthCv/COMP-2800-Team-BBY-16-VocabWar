@@ -5,6 +5,8 @@ import Timer from "./Timer";
 import WinnerPoints from "./winner";
 import { useFirestoreDocData } from "reactfire";
 import Points from "./points.js";
+import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
+import BackspaceIcon from "@material-ui/icons/Backspace";
 import "./session.css";
 
 export default function Session({ gameRef, player, setIsCreating }) {
@@ -16,17 +18,19 @@ export default function Session({ gameRef, player, setIsCreating }) {
   const over = useFirestoreDocData(gameRef).data?.over;
 
   async function checkWord() {
-    const result = await sendWord(word);
-    if (result) {
-      setWords([...words, document.getElementById("wordDisplay").innerHTML]);
-      gameRef.set(
-        {
-          [`p${player}Points`]: points + word.length,
-        },
-        { merge: true }
-      );
-      document.getElementById("wordDisplay").style.borderBottom =
-        "7px solid #2ecc71";
+    if (!words.includes(word)) {
+      const result = await sendWord(word);
+      if (result) {
+        setWords([...words, word]);
+        gameRef.set(
+          {
+            [`p${player}Points`]: points + word.length,
+          },
+          { merge: true }
+        );
+        document.getElementById("wordDisplay").style.borderBottom =
+          "7px solid #2ecc71";
+      }
     } else {
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #e74c3c";
@@ -68,7 +72,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
           type='button'
           onClick={backspace}
         >
-          <MaterialIcon icon='backspace' invert />
+          <BackspaceIcon className='inputIcons' fontSize='large' />
         </button>
         <button
           id='submitWord'
@@ -76,7 +80,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
           type='button'
           onClick={checkWord}
         >
-          <MaterialIcon icon='keyboard_return' invert />
+          <KeyboardReturnIcon className='inputIcons' fontSize='large' />
         </button>
       </div>
       {letterArray && (
