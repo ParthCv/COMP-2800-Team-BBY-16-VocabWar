@@ -58,7 +58,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
         <Points gameRef={gameRef} id='player1' player='1' />
         <Points gameRef={gameRef} id='player2' player='2' />
       </div>
-      <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
+      <Timer minutes={0} seconds={10} gameRef={gameRef}></Timer>
       <h2 className='instruct'>Form Words Using These Letters</h2>
       <div className='wordControls'>
         <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
