@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MaterialIcon from "material-icons-react";
 import CreateLobby from "./CreateLobby";
 import JoinLobby from "./JoinLobby";
+import Navbar from "./Navbar"
 import "./MainMenu.css";
 import { useFirestore, useAuth } from "reactfire";
 import AboutUs from "./AboutUs";
@@ -138,6 +139,7 @@ export default function MainMenu() {
           player={player}
         />
       )}
+      <Navbar/>
     </div>
   );
 }

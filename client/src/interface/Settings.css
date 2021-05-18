@@ -1,0 +1,21 @@
+.setngOverlay {
+    position: fixed;
+    width: 100%;
+    height: 40vh;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background-color: rgba(170, 170, 170, 0.75);
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 25px 25px 0 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+
+.setngH1{
+    position: absolute;
+    top: 20px;
+    left: 15px;
+}
