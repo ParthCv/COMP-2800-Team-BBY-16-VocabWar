@@ -9,12 +9,12 @@ export default function Points(props) {
   const [name, setName] = useState("Player");
   const gameData = useFirestoreDocData(props.gameRef).data;
   useEffect(() => {
-    if (props.player === 1) {
+    if (props.player == 1) {
       setName(gameData.p1Name);
     } else {
       setName(gameData.p2Name);
     }
-  }, []);
+  }, [gameData]);
   const id = `player${props.player}`;
 
   return (
