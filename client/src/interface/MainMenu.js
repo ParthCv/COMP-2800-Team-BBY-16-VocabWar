@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import MaterialIcon from "material-icons-react";
 import CreateLobby from "./CreateLobby";
 import JoinLobby from "./JoinLobby";
 import "./MainMenu.css";
-import { useFirestore, useAuth } from "reactfire";
+import { useFirestore, useAuth, useFirestoreDocData } from "reactfire";
 import AboutUs from "./AboutUs";
+import GamepadIcon from "@material-ui/icons/Gamepad";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
 export default function MainMenu() {
   const auth = useAuth();
@@ -14,6 +15,8 @@ export default function MainMenu() {
   const [gameID, setGameID] = useState();
   const [player, setPlayer] = useState(1);
   const gameRef = useFirestore().collection("Games");
+  const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
+  const userData = useFirestoreDocData(user).data;
   const createLobby = () => {
     setPlayer(1);
     setIsCreating(true);
@@ -71,6 +74,7 @@ export default function MainMenu() {
       gameRef.doc(gameID).set({
         code: gameID,
         p1: auth.currentUser.uid,
+        p1Name: userData.nickname,
         p1Points: 0,
         p2Points: 0,
         start: false,
@@ -96,7 +100,7 @@ export default function MainMenu() {
         <div className='lobbyButtons'>
           <button onClick={createLobby}>
             <span className='lobbyIcon'>
-              <MaterialIcon icon='gamepad' invert />
+              <GamepadIcon />
             </span>
             Create a Lobby
           </button>
@@ -107,7 +111,7 @@ export default function MainMenu() {
             }}
           >
             <span className='lobbyIcon'>
-              <MaterialIcon icon='person_add' invert />
+              <PersonAddIcon />
             </span>
             Join a Lobby
           </button>

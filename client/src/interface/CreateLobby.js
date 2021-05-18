@@ -15,6 +15,7 @@ export default function CreateLobby({ gameID, setIsCreating, player }) {
     } else {
       gameRef.update({
         p2: deleteKey,
+        p2Name: deleteKey,
       });
     }
     setIsCreating(false);
@@ -52,10 +53,10 @@ export default function CreateLobby({ gameID, setIsCreating, player }) {
           <div className='gameBox'>
             <h1>Game Lobby</h1>
             <div className='playerStatus'>
-              <h2>Player One</h2>
+              <h2>{gameData.data?.p1Name || <>Player One</>}</h2>
             </div>
             <div className='playerStatus'>
-              <h2>Player Two</h2>
+              <h2>{gameData.data?.p2Name || <>Player Two</>}</h2>
             </div>
             <div className='inlobbyButtons'>
               <button onClick={leaveLobby}>Leave Lobby</button>

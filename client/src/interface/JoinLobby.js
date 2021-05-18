@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "firebase/firestore";
-import { useFirestore, useAuth } from "reactfire";
+import {
+  useFirestore,
+  useAuth,
+  useFirestoreDocOnce,
+  useFirestoreDocData,
+} from "reactfire";
 import "./joinLobby.css";
 import ClearIcon from "@material-ui/icons/Clear";
 
@@ -8,6 +13,8 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
   const [code, setCode] = useState("");
   const gameRef = useFirestore().collection("Games");
   const auth = useAuth();
+  const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
+  const userData = useFirestoreDocData(user).data;
   async function checkCode(e) {
     e.preventDefault();
     if (code) {
@@ -29,6 +36,7 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
           gameRef.doc(code).set(
             {
               p2: auth.currentUser.uid,
+              p2Name: userData.nickname,
             },
             { merge: true }
           );
