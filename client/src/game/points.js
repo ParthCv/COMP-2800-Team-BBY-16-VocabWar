@@ -19,8 +19,10 @@ export default function Points(props) {
 
   return (
     <div id={id}>
-      <h2>{name}</h2>
-      <h2>{points}</h2>
+      <div>
+        <h2>{name}</h2>
+        <h2>{points}</h2>
+      </div>
     </div>
   );
 }

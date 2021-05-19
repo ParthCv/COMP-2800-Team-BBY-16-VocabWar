@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import MaterialIcon from "material-icons-react";
 import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import WinnerPoints from "./winner";
 import { useFirestoreDocData } from "reactfire";
 import Points from "./points.js";
+import WordArray from "./WordArray.js";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import BackspaceIcon from "@material-ui/icons/Backspace";
 import "./session.css";
@@ -29,9 +29,14 @@ export default function Session({ gameRef, player, setIsCreating }) {
           { merge: true }
         );
         document.getElementById("wordDisplay").style.borderBottom =
-          "7px solid #2ecc71";
+          "7px solid #2abc68";
+      } else {
+        console.log("HEY");
+        document.getElementById("wordDisplay").style.borderBottom =
+          "7px solid #e74c3c";
       }
     } else {
+      console.log("HEY");
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #e74c3c";
     }
@@ -60,10 +65,11 @@ export default function Session({ gameRef, player, setIsCreating }) {
       )}
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
+        <Timer minutes={50} seconds={10} gameRef={gameRef}></Timer>
         <Points gameRef={gameRef} id='player2' player='2' />
       </div>
-      <Timer minutes={0} seconds={10} gameRef={gameRef}></Timer>
-      <h2 className='instruct'>Form Words Using These Letters</h2>
+
+      <WordArray words={words} />
       <div className='wordControls'>
         <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
         <button
