@@ -8,7 +8,7 @@ export default function WordArray({ words }) {
       {words.length === 0 && <h2>No Words Formed Yet</h2>}
       {words.map((word) => {
         return (
-          <Fade in key={word}>
+          <Fade in disableStrictModeCompat key={word}>
             <p>{word}</p>
           </Fade>
         );
