@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Settings from './Settings'
 import { makeStyles } from '@material-ui/core/styles'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
@@ -16,8 +16,8 @@ const useStyles = makeStyles({
         bottom: 0,
         zIndex: 2,
         "&$selected": {
-          color: "red"
-        }      
+            color: "red"
+        }
     },
     selected: {
         color: "red"
@@ -25,28 +25,35 @@ const useStyles = makeStyles({
 })
 
 
-function Navbar() {   
+function Navbar() {
 
     const [value, setValue] = useState(0);
     const [isSettings, setIsSettings] = useState(true);
     const classes = useStyles();
 
-    useEffect(() =>{
-        if(value === 0){
-            console.log('home'); 
-            setIsSettings(false);  
-        } else if(value === 1){
-            console.log('shop');
-            setIsSettings(false);
-        } else if(value === 2){
-            console.log('stats');
-            setIsSettings(false);
-        } else {
-            console.log('settings');
-            // setIsSettings((prevState) => !prevState);
-            setIsSettings(true);
+    useEffect(() => {
+        switch (value) {
+            case 0:
+                console.log('home');
+                setIsSettings(false);
+                break;
+            case 1:
+                console.log('shop');
+                setIsSettings(false);
+                break;
+            case 2:
+                console.log('stats');
+                setIsSettings(false);
+                break;
+            case 3:
+                console.log('settings');
+                // setIsSettings((prevState) => !prevState);
+                setIsSettings(true);
+                break;
+            default:
+                break;
         }
-    },[value])
+    }, [value])
 
     return (
         <div>
@@ -57,8 +64,8 @@ function Navbar() {
                 value={value}
                 style={{
                     position: 'fixed',
-                    bottom:0,
-                    width:'100%',
+                    bottom: 0,
+                    width: '100%',
                     height: '60px',
                     zIndex: 1
                 }}
@@ -70,10 +77,10 @@ function Navbar() {
                     // console.log(document.querySelector("#root > div > div:nth-child(3) > div > button.MuiButtonBase-root.MuiBottomNavigationAction-root.Mui-selected > span.MuiBottomNavigationAction-wrapper > span"));
                 }}
             >
-                <BottomNavigationAction label='home' icon={<HomeIcon style={{ fontSize: 35, color: 'primary' }}/>}/>
-                <BottomNavigationAction label='shop' icon={<ShoppingCartIcon style={{ fontSize: 35, color: 'primary' }}/>}/>
-                <BottomNavigationAction label='stats' icon={<BarChartIcon style={{ fontSize: 35, color: 'primary' }}/>}/>
-                <BottomNavigationAction label='settings' icon={<TuneIcon style={{ fontSize: 35, color: 'primary' }}/>}/>
+                <BottomNavigationAction label='home' icon={<HomeIcon style={{ fontSize: 35, color: 'primary' }} />} />
+                <BottomNavigationAction label='shop' icon={<ShoppingCartIcon style={{ fontSize: 35, color: 'primary' }} />} />
+                <BottomNavigationAction label='stats' icon={<BarChartIcon style={{ fontSize: 35, color: 'primary' }} />} />
+                <BottomNavigationAction label='settings' icon={<TuneIcon style={{ fontSize: 35, color: 'primary' }} />} />
             </BottomNavigation>
         </div>
     )
