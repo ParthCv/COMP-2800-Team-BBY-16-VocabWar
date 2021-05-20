@@ -6,6 +6,7 @@ import { useFirestore, useAuth, useFirestoreDocData } from "reactfire";
 import AboutUs from "./AboutUs";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import LeaderBoard from "../game/LeaderBoard";
 
 export default function MainMenu() {
   const auth = useAuth();

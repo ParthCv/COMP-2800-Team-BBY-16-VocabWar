@@ -62,9 +62,6 @@ export default function LeaderBoard({ props }) {
 
   return (
     <div className='leader-mainmenu'>
-      <div className='leader-header'>
-        <h1>Vocab War</h1>
-      </div>
       <div className='leader-container'>
         <LeaderboardHeader />
         <ColumnHeader />
