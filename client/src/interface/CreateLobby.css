@@ -7,7 +7,7 @@
 }
 
 .gameBox {
-  background-color: rgba(244, 159, 10, 0.6);
+  background-color: rgba(244, 159, 10, 0.7);
   margin: 7% 5%;
   border-radius: 15%;
   display: grid;
@@ -53,7 +53,7 @@
   background-color: #2ecc71;
 }
 .codeBox {
-  background-color: rgba(244, 159, 10, 0.6);
+  background-color: rgba(244, 159, 10, 0.7);
   margin: 0% 5%;
   border-radius: 15%;
   display: grid;

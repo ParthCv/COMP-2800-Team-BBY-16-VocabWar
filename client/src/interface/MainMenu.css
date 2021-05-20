@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
 
 .mainmenu {
-  background: #ecd4ad;
+  background: linear-gradient(rgba(244, 159, 10, 0.3), rgba(244, 159, 10, 0.3)),
+    url(../images/light.png);
   height: calc(var(--vh));
   width: 100vw;
 }
