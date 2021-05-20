@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ClearIcon from "@material-ui/icons/Clear";
 import Switch from "@material-ui/core/Switch";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import "./Settings.css";
 
-export default function Settings({ setIsSettings, setValue, initial }) {
+export default function Settings({ setValue, initial }) {
   const [isSound, setIsSound] = useState(true);
   const [isContact, setIsContact] = useState(false);
   const [isMain, setIsMain] = useState(true);
   const [firstName, setFirstName] = useState("");
   const [description, setDescription] = useState("");
 
+  useEffect(() => {
+    if (localStorage.getItem("sound") === "true") {
+      setIsSound(true);
+    } else {
+      setIsSound(false);
+    }
+  }, []);
+
   const handleSound = (e) => {
-    setIsSound((prevState) => !prevState);
+    setIsSound((prevState) => {
+      localStorage.setItem("sound", !prevState);
+      return !prevState;
+    });
   };
 
   const handleContact = () => {

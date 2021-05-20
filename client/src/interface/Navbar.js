@@ -4,10 +4,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import { BottomNavigationAction } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import TuneIcon from "@material-ui/icons/Tune";
 import { Link } from "react-router-dom";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles({
   root: {
@@ -94,7 +94,9 @@ function Navbar(props) {
         <BottomNavigationAction
           className='nav-label'
           label='About Us'
-          icon={<ShoppingCartIcon style={{ fontSize: 35, color: "primary" }} />}
+          icon={
+            <AccountCircleIcon style={{ fontSize: 35, color: "primary" }} />
+          }
           component={Link}
           to='/aboutus'
         />

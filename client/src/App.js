@@ -12,6 +12,7 @@ function App({ usersID }) {
     document
       .querySelector(":root")
       .style.setProperty("--vh", window.innerHeight + "px");
+    localStorage.setItem("sound", true);
   }, []);
 
   return (

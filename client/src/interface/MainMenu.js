@@ -9,6 +9,7 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import LeaderBoard from "./LeaderBoard";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 export default function MainMenu() {
   return (
@@ -108,35 +109,41 @@ const Home = () => {
         <h1>Vocab War</h1>
       </div>
       {!isCreating ? (
-        <div className='lobbyButtons'>
-          <button onClick={createLobby}>
-            <span className='lobbyIcon'>
-              <AddCircleOutlineIcon style={{ fontSize: 50 }} />
-            </span>
-            Create Lobby
-          </button>
-          <button
-            onClick={() => {
-              setIsJoining((prevState) => !prevState);
-              setPlayer(2);
-            }}
-          >
-            <span className='lobbyIcon'>
-              <PersonAddIcon style={{ fontSize: 50 }} />
-            </span>
-            Join Lobby
-          </button>
-          <button id='logoutButton' type='button' onClick={logoutHandler}>
-            Logout
-          </button>
-          {isJoining && (
-            <JoinLobby
-              setIsJoining={setIsJoining}
-              setIsCreating={setIsCreating}
-              setGameID={setGameID}
-            />
-          )}
-        </div>
+        <>
+          <div className='lobbyButtons'>
+            <button onClick={createLobby}>
+              <span className='lobbyIcon'>
+                <AddCircleOutlineIcon style={{ fontSize: 50 }} />
+              </span>
+              Create Lobby
+            </button>
+            <button
+              onClick={() => {
+                setIsJoining((prevState) => !prevState);
+                setPlayer(2);
+              }}
+            >
+              <span className='lobbyIcon'>
+                <PersonAddIcon style={{ fontSize: 50 }} />
+              </span>
+              Join Lobby
+            </button>
+            <button id='logoutButton' type='button' onClick={logoutHandler}>
+              <span className='lobbyIcon'>
+                <ExitToAppIcon style={{ fontSize: 50 }} />
+              </span>
+              Logout
+            </button>
+            {isJoining && (
+              <JoinLobby
+                setIsJoining={setIsJoining}
+                setIsCreating={setIsCreating}
+                setGameID={setGameID}
+              />
+            )}
+          </div>
+          <Navbar initial='0' />
+        </>
       ) : (
         <CreateLobby
           gameID={gameID}
@@ -144,7 +151,6 @@ const Home = () => {
           player={player}
         />
       )}
-      <Navbar initial='0' />
     </div>
   );
 };
