@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import "./surrender.css";
+import "./Surrender.css";
 import { useFirestore, useFirestoreDocData, useAuth } from "reactfire";
 
-function surrender(props) {
+function Surrender(props) {
     const auth = useAuth();
     const surrenderer = useFirestore.FieldValue;
     const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
@@ -32,14 +32,14 @@ function surrender(props) {
             );
         }
         if (props.over) {
-            if (surrender === 1) {
+            if (Surrender === 1) {
                 props.gameRef.set(
                     {
                       winner: 2,
                     },
                     { merge: true }
                   );
-                } else if (surrender === 2) {
+                } else if (Surrender === 2) {
                   props.gameRef.set(
                     {
                       winner: 1,
@@ -66,4 +66,4 @@ return (
     </div>
 );
 }
-export default surrender;
+export default Surrender;
