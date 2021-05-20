@@ -14,7 +14,7 @@ function Test() {
         <div className="colheader">
             <div className="col1">Rank</div>
             <div className="col2">Name</div>
-            <div className="col4">Points</div>
+            <div className="col3">Points</div>
           </div>
       );
       }
