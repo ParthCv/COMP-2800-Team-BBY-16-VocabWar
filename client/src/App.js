@@ -4,7 +4,7 @@ import MainMenu from "./interface/MainMenu";
 import AboutUs from "./interface/AboutUs";
 import "./App.css";
 import StartPage from "./auth/StartPage";
-import Surrender from "./game/Surrender";
+import Surrender from "./game/surrender";
 import { AuthCheck } from "reactfire";
 
 
