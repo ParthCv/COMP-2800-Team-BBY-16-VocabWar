@@ -2,26 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap");
 
 .leader-mainmenu {
-  background-image: url("../images/light.png");
   height: calc(var(--vh));
   width: 100vw;
-}
-
-.leader-header {
-  display: grid;
-  place-items: center;
-  height: 13%;
-  width: 100%;
-  background-color: rgba(196, 196, 196, 0.76);
-}
-
-.leader-header h1 {
-  color: white;
-  font-family: "Squada One";
-  font-weight: 200;
-  font-size: 65px;
-  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
-    -1px -1px 0 #000;
 }
 
 .leader-container {
@@ -29,16 +11,8 @@
   font-family: "Roboto Condensed";
 }
 
-.leadheader {
-  width: 100%;
-  height: 70px;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  text-align: center;
-  border-radius: 5px 5px 0 0;
-}
-
 .colheader {
+  padding: 8px 0;
   background: rgba(0, 168, 232, 0.79);
   width: 100%;
   margin-left: 0;
@@ -57,10 +31,10 @@
   grid-template-columns: repeat(3, 33%);
 }
 .list:nth-of-type(odd) {
-  background: rgba(0, 0, 0, 0.3);
+  background: #ecd4ad;
 }
 .list:nth-of-type(even) {
-  background: rgba(0, 0, 0, 0.15);
+  background: #e2c28f;
 }
 .list:last-child {
   border-radius: 0 0 5px 5px;

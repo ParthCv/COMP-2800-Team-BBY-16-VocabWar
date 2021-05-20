@@ -6,14 +6,9 @@ import {
   useFirestoreCollection,
 } from "reactfire";
 import "./leaderboard.css";
+import Navbar from "./Navbar";
 
 export default function LeaderBoard({ props }) {
-  // const points = useFirestoreDocData(usersRef).data?.points;
-  // const auth = useAuth();
-  // const users = useFirestore().collection("Users");
-  // const userArray = useFirestoreCollection(users).data?.docs;
-  // const points = useFirestoreDocData(userArray).data[`points`];
-
   const users = useFirestore()
     .collection("Users")
     .orderBy("points", "desc")
@@ -29,27 +24,6 @@ export default function LeaderBoard({ props }) {
     });
   });
 
-  console.log(top);
-
-  // userArray.forEach((user) => {
-  //   name.push(<li>{user.data().nickname}</li>);
-  //   })
-
-  // useEffect(() => {
-  //   document
-  //     .querySelector(":root")
-  //     .style.setProperty("--vh", window.innerHeight + "px");
-  //   console.log(userArray);
-
-  // });
-  const LeaderboardHeader = () => {
-    return (
-      <div className='leadheader'>
-        <h2>Leaderboard</h2>
-      </div>
-    );
-  };
-
   const ColumnHeader = () => {
     return (
       <div className='colheader'>
@@ -62,8 +36,10 @@ export default function LeaderBoard({ props }) {
 
   return (
     <div className='leader-mainmenu'>
+      <div className='header'>
+        <h1>Leader Board</h1>
+      </div>
       <div className='leader-container'>
-        <LeaderboardHeader />
         <ColumnHeader />
         {top.map((item, index) => (
           <div className='list' key={item.id}>
@@ -73,6 +49,7 @@ export default function LeaderBoard({ props }) {
           </div>
         ))}
       </div>
+      <Navbar initial='1' />
     </div>
   );
 }

@@ -9,6 +9,8 @@
 
 .header {
   display: grid;
+  position: sticky;
+  top: 0;
   place-items: center;
   height: 13%;
   width: 100%;
@@ -57,4 +59,18 @@
 
 .lobbyIcon {
   padding-top: 2px;
+}
+
+.nav-label {
+  color: aliceblue !important;
+  transition: all 0.2s !important;
+}
+
+.nav-label.Mui-selected {
+  color: white !important;
+  background-color: #9c4104 !important;
+}
+
+.MuiBottomNavigationAction-label {
+  font-size: 0.9rem !important;
 }
