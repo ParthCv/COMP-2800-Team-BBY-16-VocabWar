@@ -1,0 +1,17 @@
+body {
+    padding: 0;
+    font-size: 20px;
+}
+
+#listItems {
+    text-align: left;
+    content: left;
+    align-items:left;
+    align-self: start;
+
+}
+
+li {
+    text-align: left;
+    padding: 6%;
+}

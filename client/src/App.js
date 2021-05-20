@@ -5,8 +5,15 @@ import AboutUs from "./interface/AboutUs";
 import "./App.css";
 import StartPage from "./auth/StartPage";
 import { AuthCheck } from "reactfire";
+import LeaderBoard from "./game/LeaderBoard";
 
-function App() {
+
+function App({usersID}) {
+
+  // const usersData = useFirestoreDocData(gameRef);
+  
+
+
   useEffect(() => {
     document
       .querySelector(":root")
@@ -15,7 +22,7 @@ function App() {
 
   return (
     <AuthCheck fallback={<StartPage />}>
-      <MainMenu />
+      <LeaderBoard  />
     </AuthCheck>
   );
 }
