@@ -7,6 +7,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import TuneIcon from '@material-ui/icons/Tune';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
@@ -77,8 +78,8 @@ function Navbar() {
                     // console.log(document.querySelector("#root > div > div:nth-child(3) > div > button.MuiButtonBase-root.MuiBottomNavigationAction-root.Mui-selected > span.MuiBottomNavigationAction-wrapper > span"));
                 }}
             >
-                <BottomNavigationAction label='home' icon={<HomeIcon style={{ fontSize: 35, color: 'primary' }} />} />
-                <BottomNavigationAction label='shop' icon={<ShoppingCartIcon style={{ fontSize: 35, color: 'primary' }} />} />
+                <BottomNavigationAction label='home' icon={<HomeIcon style={{ fontSize: 35, color: 'primary' }} />} component={Link} to='/aboutus' />
+                <BottomNavigationAction label='shop' icon={<ShoppingCartIcon style={{ fontSize: 35, color: 'primary' }} />} component={Link} to='/aboutus' />
                 <BottomNavigationAction label='stats' icon={<BarChartIcon style={{ fontSize: 35, color: 'primary' }} />} />
                 <BottomNavigationAction label='settings' icon={<TuneIcon style={{ fontSize: 35, color: 'primary' }} />} />
             </BottomNavigation>

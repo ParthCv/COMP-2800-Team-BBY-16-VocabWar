@@ -6,12 +6,24 @@ import Navbar from "./Navbar"
 import "./MainMenu.css";
 import { useFirestore, useAuth } from "reactfire";
 import AboutUs from "./AboutUs";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 export default function MainMenu() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/aboutus" exact component={AboutUs} />
+      </Switch>
+    </Router>
+  );
+}
+
+const Home = () => {
+
   const auth = useAuth();
   const [isCreating, setIsCreating] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
-  const [isAboutUs, setIsAboutUs] = useState(false);
   const [gameID, setGameID] = useState();
   const [player, setPlayer] = useState(1);
   const gameRef = useFirestore().collection("Games");
@@ -85,10 +97,7 @@ export default function MainMenu() {
       .querySelector(":root")
       .style.setProperty("--vh", window.innerHeight + "px")
   );
-
-  return isAboutUs ? (
-    <AboutUs isAboutUs={isAboutUs} setIsAboutUs={setIsAboutUs} />
-  ) : (
+  return (
     <div className='mainmenu'>
       <div className='header'>
         <h1>Vocab War</h1>
@@ -115,15 +124,14 @@ export default function MainMenu() {
           <button id='logoutButton' type='button' onClick={logoutHandler}>
             Logout
           </button>
-          <button
-            id='logoutButton'
-            type='button'
-            onClick={() => {
-              setIsAboutUs(true);
-            }}
-          >
-            About Us
+          <Link id='logoutButton' to='/aboutus'>
+            <button
+              id='logoutButton'
+              type='button'
+            >
+              About Us
           </button>
+          </Link>          
           {isJoining && (
             <JoinLobby
               setIsJoining={setIsJoining}
@@ -139,7 +147,11 @@ export default function MainMenu() {
           player={player}
         />
       )}
-      <Navbar/>
+      <Navbar />
     </div>
-  );
+  )
 }
+
+// isAboutUs ? (
+//   <AboutUs isAboutUs={isAboutUs} setIsAboutUs={setIsAboutUs} />
+// ) : 

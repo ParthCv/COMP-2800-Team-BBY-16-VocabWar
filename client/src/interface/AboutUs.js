@@ -5,6 +5,7 @@ import Akshay from "../images/Akshay_Avatar.png";
 import Eric from "../images/Eric_Avatar.png";
 import Boki from "../images/Boki_Avatar.png";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { Link } from 'react-router-dom'
 
 export default function AboutUs({ setIsAboutUs }) {
   const backAboutHandler = () => {
@@ -14,7 +15,7 @@ export default function AboutUs({ setIsAboutUs }) {
     <>
       <div className='abouthead'>
         <h1 className='abouth1'>
-          <ArrowBackIosIcon style={{ font: 40 }} onClick={backAboutHandler} />
+          <Link to='/'><ArrowBackIosIcon style={{ font: 40 }} /></Link>
           About Us
         </h1>
         <br />
@@ -28,9 +29,6 @@ export default function AboutUs({ setIsAboutUs }) {
           expand our English vocabulary, while offering users a fun and
           competitive experience.
         </p>
-        {/* <Circle style={{ fontSize: 15 }} />
-        <Circle style={{ fontSize: 15 }} />
-        <Circle style={{ fontSize: 15 }} /> */}
       </div>
       <h2 className='team'>Our Team</h2>
       <div className='row'>
