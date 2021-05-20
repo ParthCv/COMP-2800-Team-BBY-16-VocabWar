@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CreateLobby from "./CreateLobby";
 import JoinLobby from "./JoinLobby";
+import Navbar from "./Navbar";
 import "./MainMenu.css";
 import { useFirestore, useAuth, useFirestoreDocData } from "reactfire";
 import AboutUs from "./AboutUs";
@@ -143,6 +144,7 @@ export default function MainMenu() {
           player={player}
         />
       )}
+      <Navbar />
     </div>
   );
 }
