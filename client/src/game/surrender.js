@@ -47,8 +47,9 @@ function surrender(props) {
                     { merge: true }
                   );
             } 
+            console.log(surrenders, props.player);
         }
-    });
+    },[props.over]);
 
 return (
     <div>
