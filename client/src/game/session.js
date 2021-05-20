@@ -8,6 +8,9 @@ import WordArray from "./WordArray.js";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import BackspaceIcon from "@material-ui/icons/Backspace";
 import "./session.css";
+import useSound from 'use-sound';
+import Wrong from './audio/wrong.mp3'
+import Correct from './audio/correct.mp3'
 
 export default function Session({ gameRef, player, setIsCreating }) {
   const [word, setWord] = useState("");
@@ -16,6 +19,9 @@ export default function Session({ gameRef, player, setIsCreating }) {
   const points = useFirestoreDocData(gameRef).data[`p${player}Points`];
   const letterArray = useFirestoreDocData(gameRef).data?.letters;
   const over = useFirestoreDocData(gameRef).data?.over;
+
+  const [playWrong] = useSound(Wrong);
+  const [playCorrect] = useSound(Correct);
 
   async function checkWord() {
     if (!words.includes(word)) {
@@ -30,10 +36,12 @@ export default function Session({ gameRef, player, setIsCreating }) {
         );
         document.getElementById("wordDisplay").style.borderBottom =
           "7px solid #2abc68";
+          playCorrect();
       } else {
         console.log("HEY");
         document.getElementById("wordDisplay").style.borderBottom =
           "7px solid #e74c3c";
+          playWrong();
       }
     } else {
       console.log("HEY");
