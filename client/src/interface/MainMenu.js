@@ -4,7 +4,7 @@ import JoinLobby from "./JoinLobby";
 import "./MainMenu.css";
 import { useFirestore, useAuth, useFirestoreDocData } from "reactfire";
 import AboutUs from "./AboutUs";
-import GamepadIcon from "@material-ui/icons/Gamepad";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 
 export default function MainMenu() {
@@ -100,9 +100,9 @@ export default function MainMenu() {
         <div className='lobbyButtons'>
           <button onClick={createLobby}>
             <span className='lobbyIcon'>
-              <GamepadIcon />
+              <AddCircleOutlineIcon style={{ fontSize: 50 }} />
             </span>
-            Create a Lobby
+            Create Lobby
           </button>
           <button
             onClick={() => {
@@ -111,9 +111,9 @@ export default function MainMenu() {
             }}
           >
             <span className='lobbyIcon'>
-              <PersonAddIcon />
+              <PersonAddIcon style={{ fontSize: 50 }} />
             </span>
-            Join a Lobby
+            Join Lobby
           </button>
           <button id='logoutButton' type='button' onClick={logoutHandler}>
             Logout

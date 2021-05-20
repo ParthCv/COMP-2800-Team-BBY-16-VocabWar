@@ -65,7 +65,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
       )}
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
-        <Timer minutes={50} seconds={10} gameRef={gameRef}></Timer>
+        <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
         <Points gameRef={gameRef} id='player2' player='2' />
       </div>
 

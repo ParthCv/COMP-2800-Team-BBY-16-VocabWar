@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
 
 .mainmenu {
-  background-image: url("../images/light.png");
+  background: #ecd4ad;
   height: calc(var(--vh));
   width: 100vw;
 }
@@ -11,7 +11,7 @@
   place-items: center;
   height: 13%;
   width: 100%;
-  background-color: rgba(196, 196, 196, 0.76);
+  background-color: #f49f0a;
 }
 
 .header h1 {
@@ -25,23 +25,29 @@
 
 .lobbyButtons {
   display: grid;
+  place-items: center;
+  gap: 5%;
   width: 100%;
   grid-template-columns: 1fr;
   justify-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .lobbyButtons button {
   display: grid;
-  grid-template-columns: 1fr 11fr;
-  margin-top: 20px;
+  grid-template-columns: 1fr;
   color: white;
-  background-color: #e74c3c;
+  background-color: #3c91e6;
   border: none;
   font-size: 28px;
-  padding: 8px 20px;
+  padding: 15px 20px;
   border-radius: 30px;
   width: 85%;
+  transition: all 0.2s;
+}
+
+.lobbyButtons button:active {
+  background-color: #1670ca;
 }
 
 #logoutButton {
