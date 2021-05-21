@@ -7,6 +7,7 @@ import Points from "./points.js";
 import WordArray from "./WordArray.js";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import BackspaceIcon from "@material-ui/icons/Backspace";
+import Surrender from "./surrender";
 import "./session.css";
 import useSound from "use-sound";
 import Wrong from "./audio/wrong.mp3";
@@ -20,6 +21,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
   const points = useFirestoreDocData(gameRef).data[`p${player}Points`];
   const letterArray = useFirestoreDocData(gameRef).data?.letters;
   const over = useFirestoreDocData(gameRef).data?.over;
+  const [isSurrender, SetisSurrender] = useState(false);
 
   const [playWrong] = useSound(Wrong);
   const [playCorrect] = useSound(Correct);
@@ -79,13 +81,24 @@ export default function Session({ gameRef, player, setIsCreating }) {
           player={player}
         />
       )}
+      {isSurrender && (
+        <Surrender
+          SetisSurrender={SetisSurrender}
+          gameRef={gameRef}
+          player={player}
+        />
+      )}
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
         <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
         <Points gameRef={gameRef} id='player2' player='2' />
       </div>
-
       <WordArray words={words} />
+      <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
+      <button type='button' onClick={() => SetisSurrender(true)}>
+        Surrender
+      </button>
+      <h2 className='instruct'>Form Words Using These Letters</h2>
       <div className='wordControls'>
         <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
         <button
