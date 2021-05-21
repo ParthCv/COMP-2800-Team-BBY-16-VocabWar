@@ -28,10 +28,12 @@ function Surrender(props) {
       <div id='surrender-container'>
         <div id='surrender-overlay' onClick={() => props.SetisSurrender(false)}>
           <div id='surrender-text'>Surrender the game?</div>
-          <button className='surrender-button yes' onClick={surrenderHandler}>
-            Yes
-          </button>
-          <button className='surrender-button no'>No</button>
+          <div id='surrenderButtons'>
+            <button className='surrender-button yes' onClick={surrenderHandler}>
+              Yes
+            </button>
+            <button className='surrender-button no'>No</button>
+          </div>
         </div>
       </div>
     </div>

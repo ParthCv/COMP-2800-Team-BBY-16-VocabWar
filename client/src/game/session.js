@@ -17,7 +17,6 @@ export default function Session({ gameRef, player, setIsCreating }) {
   const [word, setWord] = useState("");
   const [words, setWords] = useState([]);
   const isSound = localStorage.getItem("sound");
-  console.log(isSound);
   const points = useFirestoreDocData(gameRef).data[`p${player}Points`];
   const letterArray = useFirestoreDocData(gameRef).data?.letters;
   const over = useFirestoreDocData(gameRef).data?.over;
@@ -43,7 +42,6 @@ export default function Session({ gameRef, player, setIsCreating }) {
           playCorrect();
         }
       } else {
-        console.log("HEY");
         document.getElementById("wordDisplay").style.borderBottom =
           "7px solid #e74c3c";
         if (isSound) {
@@ -51,7 +49,6 @@ export default function Session({ gameRef, player, setIsCreating }) {
         }
       }
     } else {
-      console.log("HEY");
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #e74c3c";
       if (isSound) {
@@ -90,15 +87,16 @@ export default function Session({ gameRef, player, setIsCreating }) {
       )}
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
-        <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
+        <div className='centerTimer'>
+          <Timer minutes={50} seconds={30} gameRef={gameRef}></Timer>
+          <button type='button' onClick={() => SetisSurrender(true)}>
+            Surrender
+          </button>
+        </div>
         <Points gameRef={gameRef} id='player2' player='2' />
       </div>
       <WordArray words={words} />
-      <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
-      <button type='button' onClick={() => SetisSurrender(true)}>
-        Surrender
-      </button>
-      <h2 className='instruct'>Form Words Using These Letters</h2>
+
       <div className='wordControls'>
         <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
         <button

@@ -1,46 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap");
-#surrender-overlay {
-  position: fixed;
+
+#surrender-container {
+  position: absolute;
   width: 100%;
-  height: 100%;
+  height: var(--vh);
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
   cursor: pointer;
+  display: grid;
+  place-items: center;
 }
 
-#surrender-container {
-  text-align: center;
+#surrender-overlay {
+  height: 70%;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+#surrenderButtons {
+  display: grid;
+  gap: 30%;
+  width: 100%;
+  place-items: center;
 }
 
 #surrender-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   font-size: 50px;
   color: white;
   font-family: "Roboto Condensed";
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
 }
 
 .surrender-button {
   border: none;
   color: white;
-  padding: 20px;
+  padding: 20px 50px;
+  width: 75%;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 25px;
   cursor: pointer;
-  width: 25%;
   transition-duration: 0.3s;
-  top: 50%;
-  left: 50%;
   border-radius: 15px;
 }
 
