@@ -72,12 +72,12 @@
   color: white;
 }
 
-.reprtForm {
+.reprtForm {  
   position: absolute;
   top: 85px;
 }
 
-#firstName {
+#title {
   text-align: left;
   background-color: rgba(255, 255, 255, 0.514);
   border: none;
@@ -109,4 +109,9 @@
   padding: 8px 20px;
   border-radius: 30px;
   width: 85%;
+}
+
+.submitMess{
+  color: #fff;
+  display: none;
 }
