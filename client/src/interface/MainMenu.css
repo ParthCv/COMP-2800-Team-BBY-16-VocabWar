@@ -26,6 +26,16 @@
     -1px -1px 0 #000;
 }
 
+.header h4 {
+  color: white;
+  font-family: "Squada One";
+  font-weight: 200;
+  font-size: 25px;
+  letter-spacing: 0.075em;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
 .userDetails {
   background-color: #ecb27f;
 }
