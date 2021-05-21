@@ -32,6 +32,7 @@ const Home = () => {
   const gameRef = useFirestore().collection("Games");
   const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
   const userData = useFirestoreDocData(user).data;
+
   const createLobby = () => {
     setPlayer(1);
     setIsCreating(true);

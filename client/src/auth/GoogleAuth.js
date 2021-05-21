@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useFirebaseApp, useFirestore, useAuth } from "reactfire";
 import "firebase/auth";
 
@@ -14,11 +14,16 @@ export default function GoogleAuth() {
 
   const auth = useAuth;
   const auth2 = useAuth();
+  console.log(auth2.currentUser);
   const provider = new auth.GoogleAuthProvider();
   const incrementer = useFirestore.FieldValue;
   const signInWithGoogle = (e) => {
+    auth2.signInWithRedirect(provider);
+  };
+
+  useEffect(() => {
     auth2
-      .signInWithPopup(provider)
+      .getRedirectResult()
       .then((result) => {
         usersRef.doc(result.user.uid).set(
           {
@@ -28,15 +33,10 @@ export default function GoogleAuth() {
           },
           { merge: true }
         );
+        auth2.signInWithCredential(result.credential);
       })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        var email = error.email;
-        var credential = error.credential;
-      });
-  };
-
+      .catch((error) => {});
+  }, []);
   return (
     <div>
       <button className='myform-btn' onClick={signInWithGoogle}>
