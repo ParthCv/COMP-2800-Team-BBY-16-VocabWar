@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useFirestore, useAuth, useFirestoreDocData } from "reactfire";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ClearIcon from "@material-ui/icons/Clear";
 import Switch from "@material-ui/core/Switch";
@@ -6,10 +7,13 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import "./Settings.css";
 
 export default function Settings({ setValue, initial }) {
+  const auth = useAuth();
+  const errorRef = useFirestore().collection("Report");
+  const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
   const [isSound, setIsSound] = useState(true);
   const [isContact, setIsContact] = useState(false);
   const [isMain, setIsMain] = useState(true);
-  const [firstName, setFirstName] = useState("");
+  const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   useEffect(() => {
@@ -32,7 +36,22 @@ export default function Settings({ setValue, initial }) {
   };
 
   const handleReport = (e) => {
-    e.preventdefault();
+    e.preventDefault();
+    if (title && description) {
+      try {
+        console.log(title, description);
+        errorRef.doc().set({
+          userID: auth.currentUser.uid,
+          title: title,
+          description: description
+        });
+        document.getElementsByClassName('reprtForm')[0].style.display = 'none';
+        document.getElementsByClassName('submitMess')[0].style.display = 'inline';
+      } catch (err) {
+        console.log(err);
+
+      }
+    }
   };
 
   return isMain ? (
@@ -133,10 +152,10 @@ export default function Settings({ setValue, initial }) {
         <form className='reprtForm' onSubmit={handleReport}>
           <input
             type='text'
-            id='firstName'
-            name='firstName'
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            id='title'
+            name='title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             placeholder='Title'
           />
           <br />
@@ -148,10 +167,15 @@ export default function Settings({ setValue, initial }) {
             placeholder='Describe the error'
           ></textarea>
           <br />
-          <button className='reprtBtn' type='submit'>
+          <button className='reprtBtn' type='submit' onClick={handleReport}>
             Submit
           </button>
         </form>
+        <div className='submitMess'>
+          <h1>Thank You!</h1>
+          <p>Your report has been submitted, we are sorry for the inconvenience.</p>
+          <p>Have a nice day!</p>
+        </div>
       </div>
     </>
   );
