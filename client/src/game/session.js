@@ -1,35 +1,59 @@
 import React, { useState } from "react";
-import MaterialIcon from "material-icons-react";
 import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import WinnerPoints from "./winner";
 import { useFirestoreDocData } from "reactfire";
 import Points from "./points.js";
+import WordArray from "./WordArray.js";
+import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
+import BackspaceIcon from "@material-ui/icons/Backspace";
+import Surrender from "./surrender";
 import "./session.css";
+import useSound from "use-sound";
+import Wrong from "./audio/wrong.mp3";
+import Correct from "./audio/correct.mp3";
 
 export default function Session({ gameRef, player, setIsCreating }) {
   const [word, setWord] = useState("");
   const [words, setWords] = useState([]);
-
+  const isSound = localStorage.getItem("sound");
   const points = useFirestoreDocData(gameRef).data[`p${player}Points`];
   const letterArray = useFirestoreDocData(gameRef).data?.letters;
   const over = useFirestoreDocData(gameRef).data?.over;
+  const [isSurrender, SetisSurrender] = useState(false);
+
+  const [playWrong] = useSound(Wrong);
+  const [playCorrect] = useSound(Correct);
 
   async function checkWord() {
-    const result = await sendWord(word);
-    if (result) {
-      setWords([...words, document.getElementById("wordDisplay").innerHTML]);
-      gameRef.set(
-        {
-          [`p${player}Points`]: points + word.length,
-        },
-        { merge: true }
-      );
-      document.getElementById("wordDisplay").style.borderBottom =
-        "7px solid #2ecc71";
+    if (!words.includes(word)) {
+      const result = await sendWord(word);
+      if (result) {
+        setWords([...words, word]);
+        gameRef.set(
+          {
+            [`p${player}Points`]: points + word.length,
+          },
+          { merge: true }
+        );
+        document.getElementById("wordDisplay").style.borderBottom =
+          "7px solid #2abc68";
+        if (isSound === "true") {
+          playCorrect();
+        }
+      } else {
+        document.getElementById("wordDisplay").style.borderBottom =
+          "7px solid #e74c3c";
+        if (isSound) {
+          playWrong();
+        }
+      }
     } else {
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #e74c3c";
+      if (isSound) {
+        playWrong();
+      }
     }
     setWord("");
   }
@@ -54,12 +78,25 @@ export default function Session({ gameRef, player, setIsCreating }) {
           player={player}
         />
       )}
+      {isSurrender && (
+        <Surrender
+          SetisSurrender={SetisSurrender}
+          gameRef={gameRef}
+          player={player}
+        />
+      )}
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
+        <div className='centerTimer'>
+          <Timer minutes={50} seconds={30} gameRef={gameRef}></Timer>
+          <button type='button' onClick={() => SetisSurrender(true)}>
+            Surrender
+          </button>
+        </div>
         <Points gameRef={gameRef} id='player2' player='2' />
       </div>
-      <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
-      <h2 className='instruct'>Form Words Using These Letters</h2>
+      <WordArray words={words} />
+
       <div className='wordControls'>
         <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
         <button
@@ -68,7 +105,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
           type='button'
           onClick={backspace}
         >
-          <MaterialIcon icon='backspace' invert />
+          <BackspaceIcon className='inputIcons' fontSize='large' />
         </button>
         <button
           id='submitWord'
@@ -76,7 +113,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
           type='button'
           onClick={checkWord}
         >
-          <MaterialIcon icon='keyboard_return' invert />
+          <KeyboardReturnIcon className='inputIcons' fontSize='large' />
         </button>
       </div>
       {letterArray && (

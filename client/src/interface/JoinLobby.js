@@ -1,15 +1,31 @@
 import React, { useState } from "react";
 import "firebase/firestore";
-import { useFirestore, useAuth } from "reactfire";
+import {
+  useFirestore,
+  useAuth,
+  useFirestoreDocOnce,
+  useFirestoreDocData,
+} from "reactfire";
 import "./joinLobby.css";
 import ClearIcon from "@material-ui/icons/Clear";
+import RickRoll from "./RickRoll.js";
 
 const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
   const [code, setCode] = useState("");
+  const [isRickRoll, SetIsRickRoll] = useState(false);
   const gameRef = useFirestore().collection("Games");
   const auth = useAuth();
+  const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
+  const userData = useFirestoreDocData(user).data;
   async function checkCode(e) {
     e.preventDefault();
+    if (code === "vocab") {
+      SetIsRickRoll(true);
+      if (isRickRoll === true) {
+        setTimeout(() => SetIsRickRoll(false), 7000);
+      }
+      return;
+    }
     if (code) {
       try {
         let gameDoc = await gameRef.doc(code).get();
@@ -29,6 +45,7 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
           gameRef.doc(code).set(
             {
               p2: auth.currentUser.uid,
+              p2Name: userData.nickname,
             },
             { merge: true }
           );
@@ -54,6 +71,7 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
 
   return (
     <>
+      {isRickRoll && <RickRoll SetIsRickRoll={SetIsRickRoll} />}
       <div className='overlay'>
         <ClearIcon
           style={{

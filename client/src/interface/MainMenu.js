@@ -1,19 +1,38 @@
 import React, { useState, useEffect } from "react";
-import MaterialIcon from "material-icons-react";
 import CreateLobby from "./CreateLobby";
 import JoinLobby from "./JoinLobby";
+import Navbar from "./Navbar";
 import "./MainMenu.css";
-import { useFirestore, useAuth } from "reactfire";
+import { useFirestore, useAuth, useFirestoreDocData } from "reactfire";
 import AboutUs from "./AboutUs";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import LeaderBoard from "./LeaderBoard";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
 export default function MainMenu() {
+  return (
+    <Router>
+      <Switch>
+        <Route path='/' exact component={Home} />
+        <Route path='/aboutus' exact component={AboutUs} />
+        <Route path='/leaderboard' exact component={LeaderBoard} />
+      </Switch>
+    </Router>
+  );
+}
+
+const Home = () => {
   const auth = useAuth();
   const [isCreating, setIsCreating] = useState(false);
   const [isJoining, setIsJoining] = useState(false);
-  const [isAboutUs, setIsAboutUs] = useState(false);
   const [gameID, setGameID] = useState();
   const [player, setPlayer] = useState(1);
   const gameRef = useFirestore().collection("Games");
+  const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
+  const userData = useFirestoreDocData(user).data;
+
   const createLobby = () => {
     setPlayer(1);
     setIsCreating(true);
@@ -71,6 +90,7 @@ export default function MainMenu() {
       gameRef.doc(gameID).set({
         code: gameID,
         p1: auth.currentUser.uid,
+        p1Name: userData.nickname,
         p1Points: 0,
         p2Points: 0,
         start: false,
@@ -84,53 +104,66 @@ export default function MainMenu() {
       .querySelector(":root")
       .style.setProperty("--vh", window.innerHeight + "px")
   );
-
-  return isAboutUs ? (
-    <AboutUs isAboutUs={isAboutUs} setIsAboutUs={setIsAboutUs} />
-  ) : (
+  return (
     <div className='mainmenu'>
       <div className='header'>
         <h1>Vocab War</h1>
       </div>
       {!isCreating ? (
-        <div className='lobbyButtons'>
-          <button onClick={createLobby}>
-            <span className='lobbyIcon'>
-              <MaterialIcon icon='gamepad' invert />
-            </span>
-            Create a Lobby
-          </button>
-          <button
-            onClick={() => {
-              setIsJoining((prevState) => !prevState);
-              setPlayer(2);
-            }}
-          >
-            <span className='lobbyIcon'>
-              <MaterialIcon icon='person_add' invert />
-            </span>
-            Join a Lobby
-          </button>
-          <button id='logoutButton' type='button' onClick={logoutHandler}>
-            Logout
-          </button>
-          <button
-            id='logoutButton'
-            type='button'
-            onClick={() => {
-              setIsAboutUs(true);
-            }}
-          >
-            About Us
-          </button>
-          {isJoining && (
-            <JoinLobby
-              setIsJoining={setIsJoining}
-              setIsCreating={setIsCreating}
-              setGameID={setGameID}
-            />
-          )}
-        </div>
+        <>
+          <div className='userDetails'>
+            <h2 className='nickname'>Welcome {userData?.nickname}</h2>
+            <div className='levelProgress'>
+              <h2 className='leveltext'>
+                Lvl {Math.floor(userData?.points / 20) + 1}
+              </h2>
+              <div className='level'>
+                <div
+                  className='levelInner'
+                  style={{ width: `${userData?.points % 20}%` }}
+                >
+                  &nbsp;
+                </div>
+              </div>
+              <h2 className='leveltext'>
+                Lvl {Math.floor(userData?.points / 20) + 2}
+              </h2>
+            </div>
+          </div>
+          <div className='lobbyButtons'>
+            <button onClick={createLobby}>
+              <span className='lobbyIcon'>
+                <AddCircleOutlineIcon style={{ fontSize: 50 }} />
+              </span>
+              Create Lobby
+            </button>
+            <button
+              onClick={() => {
+                setIsJoining((prevState) => !prevState);
+                setPlayer(2);
+              }}
+            >
+              <span className='lobbyIcon'>
+                <PersonAddIcon style={{ fontSize: 50 }} />
+              </span>
+              Join Lobby
+            </button>
+            <button id='logoutButton' type='button' onClick={logoutHandler}>
+              <span className='lobbyIcon'>
+                <ExitToAppIcon style={{ fontSize: 50 }} />
+              </span>
+              Logout
+            </button>
+            {isJoining && (
+              <JoinLobby
+                setIsJoining={setIsJoining}
+                setIsCreating={setIsCreating}
+                setGameID={setGameID}
+              />
+            )}
+          </div>
+          <Navbar initial='0' />
+        </>
       ) : (
         <CreateLobby
           gameID={gameID}
@@ -140,4 +173,8 @@ export default function MainMenu() {
       )}
     </div>
   );
-}
+};
+
+// isAboutUs ? (
+//   <AboutUs isAboutUs={isAboutUs} setIsAboutUs={setIsAboutUs} />
+// ) :

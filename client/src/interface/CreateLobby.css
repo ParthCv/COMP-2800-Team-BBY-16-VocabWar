@@ -7,7 +7,7 @@
 }
 
 .gameBox {
-  background-color: rgba(129, 126, 126, 0.37);
+  background-color: rgba(244, 159, 10, 0.7);
   margin: 7% 5%;
   border-radius: 15%;
   display: grid;
@@ -17,6 +17,7 @@
 
 .gameBox h1 {
   font-size: 2.2rem;
+  color: #020122;
 }
 
 .playerStatus {
@@ -29,6 +30,7 @@
 .playerStatus h2 {
   text-align: left;
   font-size: 1.4rem;
+  color: #020122;
 }
 
 .inlobbyButtons {
@@ -41,7 +43,7 @@
 .inlobbyButtons button {
   color: white;
   background-color: #e74c3c;
-  border: none;
+  border: 2px solid black;
   font-size: 1.25rem;
   padding: 10% 8%;
   border-radius: 20px;
@@ -51,7 +53,7 @@
   background-color: #2ecc71;
 }
 .codeBox {
-  background-color: rgba(129, 126, 126, 0.37);
+  background-color: rgba(244, 159, 10, 0.7);
   margin: 0% 5%;
   border-radius: 15%;
   display: grid;
@@ -73,12 +75,13 @@
 
 .codeBox div h2 {
   font-family: monospace;
+  color: #020122;
 }
 
 .codeBox button {
   color: white;
-  background-color: #e67e22;
-  border: none;
+  background-color: #3c91e6;
+  border: 2px solid black;
   font-size: 1.25rem;
   width: 85%;
   padding: 5%;
@@ -87,5 +90,5 @@
 }
 
 .codeBox button:active {
-  background-color: #b45806;
+  background-color: #0e6e97;
 }

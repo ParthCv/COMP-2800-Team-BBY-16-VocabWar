@@ -1,17 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
 
 .mainmenu {
-  background-image: url("../images/light.png");
+  background: linear-gradient(rgba(244, 159, 10, 0.1), rgba(244, 159, 10, 0.1)),
+    url(../images/light.png);
   height: calc(var(--vh));
   width: 100vw;
 }
 
 .header {
   display: grid;
+  position: sticky;
+  top: 0;
   place-items: center;
   height: 13%;
   width: 100%;
-  background-color: rgba(196, 196, 196, 0.76);
+  background: linear-gradient(#df5b03, #d35400);
 }
 
 .header h1 {
@@ -23,25 +26,68 @@
     -1px -1px 0 #000;
 }
 
+.userDetails {
+  background-color: #ecb27f;
+}
+
+.userDetails h2 {
+  font-size: 1.75rem;
+}
+
+.levelProgress {
+  padding: 0px 20px 10px 20px;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  place-items: center;
+}
+
+.levelProgress h2 {
+  font-size: 1rem;
+}
+
+.nickname {
+  padding: 10px 10px;
+}
+
+.level {
+  width: 90%;
+  height: 75%;
+  background-color: #b2ceeb;
+  grid-column: 2 / span 1;
+  border-radius: 20px;
+}
+
+.levelInner {
+  height: 100%;
+  background-color: #135fac;
+  border-radius: 20px;
+}
+
 .lobbyButtons {
   display: grid;
+  place-items: center;
+  gap: 5%;
   width: 100%;
   grid-template-columns: 1fr;
   justify-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .lobbyButtons button {
   display: grid;
-  grid-template-columns: 1fr 11fr;
-  margin-top: 20px;
+  grid-template-columns: 1fr;
   color: white;
-  background-color: #e74c3c;
+  background: linear-gradient(#0773df, #3c91e6);
   border: none;
   font-size: 28px;
-  padding: 8px 20px;
+  padding: 15px 20px;
   border-radius: 30px;
   width: 85%;
+  transition: all 0.2s;
+}
+
+.lobbyButtons button:active {
+  background-color: #1670ca;
 }
 
 #logoutButton {
@@ -50,4 +96,18 @@
 
 .lobbyIcon {
   padding-top: 2px;
+}
+
+.nav-label {
+  color: aliceblue !important;
+  transition: all 0.2s !important;
+}
+
+.nav-label.Mui-selected {
+  color: white !important;
+  background-color: #9c4104 !important;
+}
+
+.MuiBottomNavigationAction-label {
+  font-size: 0.9rem !important;
 }
