@@ -25,7 +25,6 @@ export default function GoogleAuth() {
             email: result.user.email,
             nickname: result.user.displayName,
             points: incrementer.increment(0),
-            photoURL: result.user.photoURL,
           },
           { merge: true }
         );
@@ -41,10 +40,6 @@ export default function GoogleAuth() {
   return (
     <div>
       <button className='myform-btn' onClick={signInWithGoogle}>
-        {/* <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            alt="logo"
-          /> */}
         Continue With Google
       </button>
     </div>
