@@ -10,7 +10,6 @@ export default function StartPage() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [showGoogle, setShowGoogle] = useState(false);
 
-
   const handleLoginPage = () => {
     setShowSignUp(false);
     setShowLogin(true);
@@ -21,12 +20,6 @@ export default function StartPage() {
     setShowSignUp(true);
     setShowGoogle(false);
   };
-
-  const handleGoogleAuth = () => {
-    setShowLogin(false);
-    setShowSignUp(false);
-    setShowGoogle(true);
-  }
 
   const closeOverlay = () => {
     setShowLogin(false);
@@ -47,7 +40,6 @@ export default function StartPage() {
           </button>
           <GoogleAuth />
         </div>
-        
       )}
       {showLogin && <Login overlayCloseHandler={closeOverlay} />}
       {showSignUp && <Signup overlayCloseHandler={closeOverlay} />}
