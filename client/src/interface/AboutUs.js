@@ -45,7 +45,7 @@ export default function AboutUs({ setIsAboutUs }) {
           <div className='aboutinfo'>
             <h2 className='abouth2'>Akshay Marwah</h2>
             <p className='abouttitle'>Coder</p>
-            <a href='mailto: etan34@my.bcit.ca'>
+            <a href='mailto: amarwah4@my.bcit.ca'>
               <button className='btn'>Contact</button>
             </a>
           </div>
@@ -56,7 +56,7 @@ export default function AboutUs({ setIsAboutUs }) {
           <div className='aboutinfo'>
             <h2 className='abouth2'>Eric Tan</h2>
             <p className='abouttitle'>Scrum Master</p>
-            <a href='mailto: amarwah4@my.bcit.ca'>
+            <a href='mailto: etan34@my.bcit.ca'>
               <button className='btn'>Contact</button>
             </a>
           </div>
