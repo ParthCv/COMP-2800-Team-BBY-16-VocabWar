@@ -7,6 +7,7 @@ import Points from "./points.js";
 import WordArray from "./WordArray.js";
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import BackspaceIcon from "@material-ui/icons/Backspace";
+import Surrender from "./surrender";
 import "./session.css";
 import useSound from "use-sound";
 import Wrong from "./audio/wrong.mp3";
@@ -16,10 +17,10 @@ export default function Session({ gameRef, player, setIsCreating }) {
   const [word, setWord] = useState("");
   const [words, setWords] = useState([]);
   const isSound = localStorage.getItem("sound");
-  console.log(isSound);
   const points = useFirestoreDocData(gameRef).data[`p${player}Points`];
   const letterArray = useFirestoreDocData(gameRef).data?.letters;
   const over = useFirestoreDocData(gameRef).data?.over;
+  const [isSurrender, SetisSurrender] = useState(false);
 
   const [playWrong] = useSound(Wrong);
   const [playCorrect] = useSound(Correct);
@@ -41,7 +42,6 @@ export default function Session({ gameRef, player, setIsCreating }) {
           playCorrect();
         }
       } else {
-        console.log("HEY");
         document.getElementById("wordDisplay").style.borderBottom =
           "7px solid #e74c3c";
         if (isSound) {
@@ -49,7 +49,6 @@ export default function Session({ gameRef, player, setIsCreating }) {
         }
       }
     } else {
-      console.log("HEY");
       document.getElementById("wordDisplay").style.borderBottom =
         "7px solid #e74c3c";
       if (isSound) {
@@ -79,13 +78,25 @@ export default function Session({ gameRef, player, setIsCreating }) {
           player={player}
         />
       )}
+      {isSurrender && (
+        <Surrender
+          SetisSurrender={SetisSurrender}
+          gameRef={gameRef}
+          player={player}
+        />
+      )}
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
-        <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
+        <div className='centerTimer'>
+          <Timer minutes={50} seconds={30} gameRef={gameRef}></Timer>
+          <button type='button' onClick={() => SetisSurrender(true)}>
+            Surrender
+          </button>
+        </div>
         <Points gameRef={gameRef} id='player2' player='2' />
       </div>
-
       <WordArray words={words} />
+
       <div className='wordControls'>
         <h2 id='wordDisplay'>{word || <>&nbsp;</>}</h2>
         <button

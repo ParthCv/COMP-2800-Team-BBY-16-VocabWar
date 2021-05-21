@@ -1,4 +1,5 @@
 .wordArray {
+  grid-row: 2 / span 1;
   align-self: center;
   height: 95%;
   width: 90%;
