@@ -18,12 +18,8 @@ export default function GoogleAuth() {
   const provider = new auth.GoogleAuthProvider();
   const incrementer = useFirestore.FieldValue;
   const signInWithGoogle = (e) => {
-    auth2.signInWithRedirect(provider);
-  };
-
-  useEffect(() => {
     auth2
-      .getRedirectResult()
+      .signInWithPopup(provider)
       .then((result) => {
         usersRef.doc(result.user.uid).set(
           {
@@ -36,7 +32,13 @@ export default function GoogleAuth() {
         auth2.signInWithCredential(result.credential);
       })
       .catch((error) => {});
-  }, []);
+  };
+
+  // useEffect(() => {
+  //   auth2
+  //     .getRedirectResult()
+
+  // }, []);
   return (
     <div>
       <button className='myform-btn' onClick={signInWithGoogle}>
