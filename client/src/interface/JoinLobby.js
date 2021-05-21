@@ -41,7 +41,7 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
           }, 1000);
           setCode("");
         }
-        if (p1) {
+        if (p1 && !p2) {
           gameRef.doc(code).set(
             {
               p2: auth.currentUser.uid,

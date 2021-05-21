@@ -108,6 +108,7 @@ const Home = () => {
     <div className='mainmenu'>
       <div className='header'>
         <h1>Vocab War</h1>
+        <h4>Battle with Words</h4>
       </div>
       {!isCreating ? (
         <>
