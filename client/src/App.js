@@ -5,6 +5,7 @@ import AboutUs from "./interface/AboutUs";
 import "./App.css";
 import StartPage from "./auth/StartPage";
 import { AuthCheck } from "reactfire";
+import Test from "./game/TestingLeaderboard";
 
 function App() {
   useEffect(() => {
@@ -14,9 +15,7 @@ function App() {
   }, []);
 
   return (
-    <AuthCheck fallback={<StartPage />}>
-      <MainMenu />
-    </AuthCheck>
+<Test />
   );
 }
 
