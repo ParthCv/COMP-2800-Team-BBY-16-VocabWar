@@ -115,3 +115,10 @@
   color: #fff;
   display: none;
 }
+
+.proBtn{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

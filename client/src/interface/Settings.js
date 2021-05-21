@@ -8,8 +8,7 @@ import "./Settings.css";
 
 export default function Settings({ setValue, initial }) {
   const auth = useAuth();
-  const errorRef = useFirestore().collection("Report");
-  const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
+  const errorRef = useFirestore().collection("Report");  
   const [isSound, setIsSound] = useState(true);
   const [isContact, setIsContact] = useState(false);
   const [isMain, setIsMain] = useState(true);
@@ -38,8 +37,7 @@ export default function Settings({ setValue, initial }) {
   const handleReport = (e) => {
     e.preventDefault();
     if (title && description) {
-      try {
-        console.log(title, description);
+      try {        
         errorRef.doc().set({
           userID: auth.currentUser.uid,
           title: title,
@@ -49,7 +47,12 @@ export default function Settings({ setValue, initial }) {
         document.getElementsByClassName('submitMess')[0].style.display = 'inline';
       } catch (err) {
         console.log(err);
-
+        document.getElementsByClassName('reprtForm')[0].style.display = 'none';
+        document.getElementsByClassName('submitMess')[0].innerHTML = `
+          <h1>Error!</h1>
+          <p>Try again Later. Bye for now.</p>
+        `;
+        document.getElementsByClassName('submitMess')[0].style.display = 'inline';
       }
     }
   };
