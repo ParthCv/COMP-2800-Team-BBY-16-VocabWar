@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
-import "firebase/firestore";
 import MainMenu from "./interface/MainMenu";
 import AboutUs from "./interface/AboutUs";
 import "./App.css";
 import StartPage from "./auth/StartPage";
-import Surrender from "./game/surrender";
 import { AuthCheck } from "reactfire";
-
 
 function App() {
   useEffect(() => {
@@ -16,9 +13,9 @@ function App() {
   }, []);
 
   return (
-    <AuthCheck fallback = {<StartPage />}>
-    <Surrender />
-</AuthCheck>
+    <AuthCheck fallback={<StartPage />}>
+      <MainMenu />
+    </AuthCheck>
   );
 }
 

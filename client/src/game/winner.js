@@ -31,6 +31,9 @@ function WinnerPoints(props) {
       );
     }
     if (props.over) {
+      if (winner) {
+        return;
+      }
       if (points1 > points2) {
         props.gameRef.set(
           {
