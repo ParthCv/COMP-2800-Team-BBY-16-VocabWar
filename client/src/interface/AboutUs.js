@@ -17,7 +17,7 @@ export default function AboutUs({ setIsAboutUs }) {
       <div className='abouthead'>
         <h1 className='abouth1'>
           <Link to='/'>
-            <ArrowBackIosIcon style={{ font: 40 }} />
+            <ArrowBackIosIcon style={{ fontSize: 40 }} />
           </Link>
           About Us
         </h1>
@@ -25,12 +25,6 @@ export default function AboutUs({ setIsAboutUs }) {
         <p className='txt'>
           Vocab War was made on the belief that learning doesn’t have to
           compromise fun and enjoyment.
-        </p>
-        <p className='txt'>
-          Launched with the enthusiastic spirit we bring to all our video games,
-          we embarked on this project with a clear set of missions: to present
-          the highest quality game environment to expand our English vocabulary,
-          while offering users a fun and competitive experience.
         </p>
       </div>
       <h2 className='team'>Our Team</h2>

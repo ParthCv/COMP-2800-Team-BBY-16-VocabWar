@@ -111,6 +111,25 @@ const Home = () => {
       </div>
       {!isCreating ? (
         <>
+          <div className='userDetails'>
+            <h2 className='nickname'>Welcome {userData?.nickname}</h2>
+            <div className='levelProgress'>
+              <h2 className='leveltext'>
+                Lvl {Math.floor(userData?.points / 20) + 1}
+              </h2>
+              <div className='level'>
+                <div
+                  className='levelInner'
+                  style={{ width: `${userData?.points % 20}%` }}
+                >
+                  &nbsp;
+                </div>
+              </div>
+              <h2 className='leveltext'>
+                Lvl {Math.floor(userData?.points / 20) + 2}
+              </h2>
+            </div>
+          </div>
           <div className='lobbyButtons'>
             <button onClick={createLobby}>
               <span className='lobbyIcon'>
