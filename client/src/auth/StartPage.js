@@ -3,22 +3,28 @@ import Signup from "./Signup";
 import Login from "./Login";
 import "./StartPage.css";
 import logo from "./BottomLogo.png";
+import GoogleAuth from "./GoogleAuth";
 
 export default function StartPage() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const [showGoogle, setShowGoogle] = useState(false);
+
   const handleLoginPage = () => {
     setShowSignUp(false);
     setShowLogin(true);
+    setShowGoogle(false);
   };
   const handleSignUpPage = () => {
     setShowLogin(false);
     setShowSignUp(true);
+    setShowGoogle(false);
   };
 
   const closeOverlay = () => {
     setShowLogin(false);
     setShowSignUp(false);
+    setShowGoogle(false);
   };
   return (
     <div className='authControls'>
@@ -32,11 +38,12 @@ export default function StartPage() {
           <button className='myform-btn' onClick={handleSignUpPage}>
             Create Account
           </button>
-          <button className='myform-btn'>Continue With Google</button>
+          <GoogleAuth />
         </div>
       )}
       {showLogin && <Login overlayCloseHandler={closeOverlay} />}
       {showSignUp && <Signup overlayCloseHandler={closeOverlay} />}
+      {showGoogle && <GoogleAuth overlayCloseHandler={closeOverlay} />}
     </div>
   );
 }
