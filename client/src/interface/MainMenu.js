@@ -113,22 +113,20 @@ const Home = () => {
       {!isCreating ? (
         <>
           <div className='userDetails'>
-            <h2 className='nickname'>Welcome {userData?.nickname}</h2>
+            <h2 className='nickname'>
+              Welcome <span>{userData?.nickname}</span>
+            </h2>
             <div className='levelProgress'>
               <h2 className='leveltext'>
-                Lvl {Math.floor(userData?.points / 20) + 1}
+                Level {Math.floor(userData?.points / 20) + 1}
               </h2>
               <div className='level'>
                 <div
                   className='levelInner'
-                  style={{ width: `${userData?.points % 20}%` }}
-                >
-                  &nbsp;
-                </div>
+                  style={{ width: `${(userData?.points % 20) * 5}%` }}
+                ></div>
               </div>
-              <h2 className='leveltext'>
-                Lvl {Math.floor(userData?.points / 20) + 2}
-              </h2>
+              <h2 className='leveltext'>Points {userData?.points}</h2>
             </div>
           </div>
           <div className='lobbyButtons'>
