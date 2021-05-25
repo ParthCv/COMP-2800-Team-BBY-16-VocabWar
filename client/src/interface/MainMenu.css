@@ -5,6 +5,8 @@
     url(../images/light.png);
   height: calc(var(--vh));
   width: 100vw;
+  display: grid;
+  grid-template-rows: 13% 11% 67%;
 }
 
 .header {
@@ -12,7 +14,7 @@
   position: sticky;
   top: 0;
   place-items: center;
-  height: 13%;
+  height: 100%;
   width: 100%;
   background: linear-gradient(#df5b03, #d35400);
 }
@@ -86,11 +88,12 @@
 .lobbyButtons {
   display: grid;
   place-items: center;
-  gap: 5%;
   width: 100%;
   grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
   justify-items: center;
-  margin-top: 30px;
+  height: 100%;
+  padding: 30px 0;
 }
 
 .lobbyButtons button {
