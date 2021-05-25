@@ -117,8 +117,37 @@
 }
 
 .proBtn{
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: absolute;
+  text-align: center;
+  left: 25%;
+}
+
+.proButton{
+  width: 170px;
+  font-size: 1.5rem;
+  background-color: #5999da;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+}
+
+.socialIcons{
+  padding: 0 25px;
+}
+
+.proHead{
+  text-align: left;
+  color: #fff;
+  margin-left: 5%;
+  font-size: 2.25rem;
+}
+
+.proName{
+  color: #fff;
+  margin-bottom: 25px;
 }

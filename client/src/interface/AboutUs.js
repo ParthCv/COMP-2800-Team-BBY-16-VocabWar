@@ -81,7 +81,7 @@ export default function AboutUs({ setIsAboutUs }) {
       </div>
       <br />
       <br />
-      <Navbar initial='2' />
+      {/* <Navbar initial='2' /> */}
     </div>
   );
 }
