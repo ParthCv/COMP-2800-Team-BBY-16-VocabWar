@@ -88,7 +88,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
         <div className='centerTimer'>
-          <Timer minutes={50} seconds={30} gameRef={gameRef}></Timer>
+          <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
           <button type='button' onClick={() => SetisSurrender(true)}>
             Surrender
           </button>
