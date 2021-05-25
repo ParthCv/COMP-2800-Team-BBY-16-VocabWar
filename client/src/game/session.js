@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import WinnerPoints from "./winner";
@@ -24,6 +24,17 @@ export default function Session({ gameRef, player, setIsCreating }) {
 
   const [playWrong] = useSound(Wrong);
   const [playCorrect] = useSound(Correct);
+
+  useEffect(() => {
+    window.addEventListener("beforeunload", alertUser);
+    return () => {
+      window.removeEventListener("beforeunload", alertUser);
+    };
+  }, []);
+  const alertUser = (e) => {
+    e.preventDefault();
+    e.returnValue = "";
+  };
 
   async function checkWord() {
     if (!words.includes(word)) {
