@@ -108,8 +108,8 @@ body {
 }
 
 .btn {
-  width: 100%;
-  margin: 3% 0;
+  width: 90%;
+  margin: 10px 0;
   background-color: #000;
   color: #fff;
   border: none;
@@ -127,6 +127,10 @@ body {
   margin: 5%;
   font-size: 4rem;
   font-family: Raleway-Regular;
+}
+
+.contactTeam{
+  background-color: rgba(244, 159, 10, 0.7);
 }
 
 @media screen and (max-width: 600px) {

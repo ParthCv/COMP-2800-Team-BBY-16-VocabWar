@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { sendWord } from "./wordcheck.js";
 import Timer from "./Timer";
 import WinnerPoints from "./winner";
@@ -99,7 +99,7 @@ export default function Session({ gameRef, player, setIsCreating }) {
       <div className='points'>
         <Points gameRef={gameRef} id='player1' player='1' />
         <div className='centerTimer'>
-          <Timer minutes={1} seconds={30} gameRef={gameRef}></Timer>
+          <Timer minutes={0} seconds={30} gameRef={gameRef}></Timer>
           <button type='button' onClick={() => SetisSurrender(true)}>
             Surrender
           </button>

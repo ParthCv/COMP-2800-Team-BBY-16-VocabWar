@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useFirebaseApp, useFirestore } from "reactfire";
 import "firebase/auth";
 import "./Signup.css";
 import ClearIcon from "@material-ui/icons/Clear";
 
 const Signup = ({ overlayCloseHandler }) => {
+  const signButton = useRef();
   const usersRef = useFirestore().collection("Users");
   const [user, setUser] = useState({
     nickname: "",
@@ -34,6 +35,10 @@ const Signup = ({ overlayCloseHandler }) => {
           nickname: user.nickname,
           points: +0,
         });
+      })
+      .catch((error) => {
+        signButton.current.innerHTML = "Email already in use";
+        e.target.elements.email.focus();
       });
   };
 
@@ -56,6 +61,7 @@ const Signup = ({ overlayCloseHandler }) => {
           type='email'
           placeholder='Email'
           name='email'
+          id='email'
           onChange={handleChange}
         />
         <input
@@ -65,7 +71,9 @@ const Signup = ({ overlayCloseHandler }) => {
           pattern='[A-za-z0-9]{6,40}'
           onChange={handleChange}
         />
-        <button type='submit'>Sign Up</button>
+        <button ref={signButton} type='submit'>
+          Sign Up
+        </button>
       </form>
       {user.error && <h4>{user.error}</h4>}
     </div>

@@ -7,6 +7,8 @@ function WinnerPoints(props) {
   const auth = useAuth();
   const incrementer = useFirestore.FieldValue;
   const user = useFirestore().collection("Users").doc(auth.currentUser.uid);
+  const p1Name = useFirestoreDocData(props.gameRef).data[`p1Name`];
+  const p2Name = useFirestoreDocData(props.gameRef).data[`p2Name`];
   const points1 = useFirestoreDocData(props.gameRef).data[`p1Points`];
   const points2 = useFirestoreDocData(props.gameRef).data[`p2Points`];
   const winner = useFirestoreDocData(props.gameRef).data?.winner;
@@ -82,11 +84,11 @@ function WinnerPoints(props) {
           </>
         )}
         <div className='scoreResult'>
-          <h2 className='playerResult'>Player 1</h2>
+          <h2 className='playerResult'>{p1Name}</h2>
           <h2>{points1}pts</h2>
         </div>
         <div className='scoreResult'>
-          <h2 className='playerResult'>Player 2</h2>
+          <h2 className='playerResult'>{p2Name}</h2>
           <h2>{points2}pts</h2>
         </div>
       </div>
