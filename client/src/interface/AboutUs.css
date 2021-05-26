@@ -47,6 +47,8 @@ body {
 
 .us-header h1 {
   color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-family: "Squada One";
   font-weight: 200;
   font-size: 65px;
@@ -62,6 +64,7 @@ body {
   background: #ecb27f;
   text-align: center;
   position: absolute;
+  padding: 8px;
 }
 
 .abouth1 {
