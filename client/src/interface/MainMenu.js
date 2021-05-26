@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 import "./MainMenu.css";
 import { useFirestore, useAuth, useFirestoreDocData } from "reactfire";
 import AboutUs from "./AboutUs";
-import FB from "./FB";
 import Reddit from "./Reddit";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
@@ -19,7 +18,6 @@ export default function MainMenu() {
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/aboutus' exact component={AboutUs} />
-        <Route path='/fb' exact component={FB} />
         <Route path='/reddit' exact component={Reddit} />
         <Route path='/leaderboard' exact component={LeaderBoard} />
       </Switch>

@@ -5,7 +5,6 @@ import "./Reddit.css";
 
 export default function Reddit() {
   const [post, setPost] = useState([]);
-  console.log(post);
   useEffect(async () => {
     const response = await fetch("https://www.reddit.com/r/VocabWar/hot.json");
     const info = await response.json();

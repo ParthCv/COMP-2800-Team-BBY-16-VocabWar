@@ -6,6 +6,8 @@ import AccountBoxIcon from "@material-ui/icons/AccountBox";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import "./Settings.css";
 import { Link } from "react-router-dom";
+import RedditIconMaterial from "@material-ui/icons/Reddit";
+import InfoIcon from "@material-ui/icons/Info";
 import {
   FacebookShareButton,
   RedditShareButton,
@@ -30,7 +32,7 @@ export default function Profile({ setValue, initial }) {
     profile && (
       <div className='setngOverlay'>
         <h1 className='setngH1'>
-          <AccountCircleIcon style={{ fontSize: 40 }} /> Profile
+          <AccountCircleIcon style={{ fontSize: 40 }} /> About
         </h1>
         <ClearIcon
           style={{
@@ -45,24 +47,18 @@ export default function Profile({ setValue, initial }) {
           }}
         />
         <div className='setngContent'>
-          <h3 className='proHead'>Hello, Player!</h3>
-        </div>
-        <div
-          className='proBtn'
-          style={{ position: "relative", left: 0, top: 0 }}
-        >
-          <Link to='/fb'>
+          <Link to='/aboutus'>
             <button className='proButton'>
-              <AccountBoxIcon style={{ fontSize: 35 }} />
-              FB Feed
-            </button>
-          </Link>
-          <Link to='/reddit'>
-            <button className='proButton'>
-              <ExitToAppIcon style={{ fontSize: 35 }} /> Subreddit
+              <InfoIcon style={{ fontSize: 45 }} /> <h2>About Us</h2>
             </button>
           </Link>
         </div>
+
+        <Link to='/reddit'>
+          <button className='proButton'>
+            <RedditIconMaterial style={{ fontSize: 45 }} /> <h2>Subreddit</h2>
+          </button>
+        </Link>
         <Container style={{ position: "absolute", bottom: 30 }}>
           <p className='proName'>Share our game on Social Media</p>
           <TwitterShareButton

@@ -72,7 +72,7 @@
   color: white;
 }
 
-.reprtForm {  
+.reprtForm {
   position: absolute;
   top: 85px;
 }
@@ -111,43 +111,46 @@
   width: 85%;
 }
 
-.submitMess{
+.submitMess {
   color: #fff;
   display: none;
 }
 
-.proBtn{
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: absolute;
-  text-align: center;
-  left: 25%;
-}
-
-.proButton{
-  width: 170px;
+.proButton {
+  margin: 10px auto;
+  width: 80%;
   font-size: 1.5rem;
-  background-color: #5999da;
+  background-color: #ff4500;
   color: #fff;
+  padding: 0.5rem;
   border: none;
   border-radius: 25px;
-  padding: 10px;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 40% 60%;
 }
 
-.socialIcons{
+.proButton h2 {
+  justify-self: start;
+  text-decoration: none;
+}
+
+.setngOverlay a {
+  width: 100%;
+}
+
+.socialIcons {
   padding: 0 25px;
 }
 
-.proHead{
+.proHead {
   text-align: left;
   color: #fff;
   margin-left: 5%;
   font-size: 2.25rem;
 }
 
-.proName{
+.proName {
   color: #fff;
   margin-bottom: 25px;
 }

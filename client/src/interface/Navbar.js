@@ -115,7 +115,7 @@ function Navbar(props) {
         />
         <BottomNavigationAction
           className='nav-label'
-          label='About Us'
+          label='About'
           onClick={profileHandler}
           icon={
             <AccountCircleIcon style={{ fontSize: 35, color: "primary" }} />
