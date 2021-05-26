@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Settings from "./Settings";
+import Profile from "./Profile";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import { BottomNavigationAction } from "@material-ui/core";
@@ -28,6 +29,7 @@ const useStyles = makeStyles({
 function Navbar(props) {
   const [value, setValue] = useState(parseInt(props.initial));
   const [isSettings, setIsSettings] = useState(true);
+  const [isProfile, setIsProfile] = useState(true);
   const classes = useStyles();
 
   const settingsHandler = () => {
@@ -37,17 +39,30 @@ function Navbar(props) {
     setIsSettings((prev) => !prev);
   };
 
+  const profileHandler = () => {
+    if (isProfile) {
+      setValue(parseInt(props.initial));
+    }
+    setIsProfile((prev) => !prev);
+  };
+
   useEffect(() => {
     switch (value) {
       case 0:
+        setIsProfile(false);
         setIsSettings(false);
         break;
       case 1:
+        setIsProfile(false);
         setIsSettings(false);
         break;
       case 2:
         setIsSettings(false);
+        setIsProfile(true);
         break;
+      case 3:
+        setIsProfile(false);
+        setIsSettings(true);
       default:
         break;
     }
@@ -58,6 +73,13 @@ function Navbar(props) {
       {isSettings && (
         <Settings
           setIsSettings={setIsSettings}
+          setValue={setValue}
+          initial={parseInt(props.initial)}
+        />
+      )}
+      {isProfile && (
+        <Profile
+          setIsProfile={setIsProfile}
           setValue={setValue}
           initial={parseInt(props.initial)}
         />
@@ -93,12 +115,11 @@ function Navbar(props) {
         />
         <BottomNavigationAction
           className='nav-label'
-          label='About Us'
+          label='About'
+          onClick={profileHandler}
           icon={
             <AccountCircleIcon style={{ fontSize: 35, color: "primary" }} />
           }
-          component={Link}
-          to='/aboutus'
         />
         <BottomNavigationAction
           className='nav-label'
