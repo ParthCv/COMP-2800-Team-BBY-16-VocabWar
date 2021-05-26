@@ -76,7 +76,7 @@ export default function Profile({ setValue, initial }) {
                     hashtag='#game'
                     className='socialIcons'
                     style={{ paddingRight: 35 }}
-                    iconFillColor='red'
+                    iconfillcolor='red'
                 >
                     <FacebookIcon size={45} round={true} />
                 </FacebookShareButton>

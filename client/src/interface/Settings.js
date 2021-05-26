@@ -121,7 +121,7 @@ export default function Settings({ setValue, initial }) {
               />
             </div>
             <button className='setngButton' onClick={() => setIsMain(false)}>
-              Report an Error
+              Report a Bug
             </button>
             <button className='setngButton' onClick={handleContact}>
               Contact Us
@@ -138,7 +138,7 @@ export default function Settings({ setValue, initial }) {
             onClick={() => setIsMain(true)}
             style={{ fontSize: 35 }}
           />{" "}
-          Report Error
+          Report Bug
         </h1>
         <ClearIcon
           style={{
@@ -167,7 +167,7 @@ export default function Settings({ setValue, initial }) {
             name='description'
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder='Describe the error'
+            placeholder='Describe the Bug'
           ></textarea>
           <br />
           <button className='reprtBtn' type='submit' onClick={handleReport}>
