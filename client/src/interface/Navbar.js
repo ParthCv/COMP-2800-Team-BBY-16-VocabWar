@@ -92,7 +92,7 @@ function Navbar(props) {
           position: "fixed",
           bottom: 0,
           width: "100%",
-          height: "70px",
+          height: "9%",
           zIndex: 1,
         }}
         onChange={(event, newValue) => {

@@ -1,6 +1,7 @@
 .createLobby {
-  height: 77%;
+  height: 90%;
   width: 100%;
+  grid-row: 2 / span 3;
   display: grid;
   grid-template-rows: 3fr 2fr;
   align-content: center;

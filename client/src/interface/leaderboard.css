@@ -4,6 +4,8 @@
 .leader-mainmenu {
   height: calc(var(--vh));
   width: 100vw;
+  display: grid;
+  grid-template-rows: 13% 78% 9%;
 }
 
 .leader-container {
