@@ -58,7 +58,7 @@ function Timer({ minutes = 0, seconds = 30, gameRef }) {
     <>
       <h1 className='time'>
         {over
-          ? "Times's Up"
+          ? "OVER"
           : `${time.minutes.toString().padStart(2, "0")}:${time.seconds
               .toString()
               .padStart(2, "0")}`}
