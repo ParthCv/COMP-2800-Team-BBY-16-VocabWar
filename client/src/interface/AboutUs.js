@@ -14,14 +14,15 @@ export default function AboutUs({ setIsAboutUs }) {
   };
   return (
     <div className='aboutContainer'>
-      <div className='abouthead'>
-        <h1 className='abouth1'>
+      <div className='us-container'>
+        <div className='us-header'>
+          <h1>
           <Link to='/'>
             <ArrowBackIosIcon style={{ fontSize: 40 }} />
           </Link>
           About Us
-        </h1>
-        <br />
+          </h1>
+        </div>
         <p className='txt'>
           Vocab War was made on the belief that learning doesn’t have to
           compromise fun and enjoyment.

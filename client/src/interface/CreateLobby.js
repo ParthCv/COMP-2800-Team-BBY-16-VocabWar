@@ -65,7 +65,7 @@ export default function CreateLobby({ gameID, setIsCreating, player }) {
                   Start
                 </button>
               ) : (
-                <button>Waiting</button>
+                <button>Waiting For Friend</button>
               )}
             </div>
           </div>
