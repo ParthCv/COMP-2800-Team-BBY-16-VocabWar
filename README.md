@@ -21,7 +21,9 @@ VocabWar uses a number of technologies to work properly:
 - `Netlify` - Hosting provider
 - `react-fire` - Custom hooks for React and Firebase integration
 - `GitHub` - For code collaboration
-- `VS Code` - Text Editor
+- `VS Code` - Code Editor
+- `react-social` - For social media icon
+- `Material-UI` - For icons and components
 
 ## API
 
@@ -74,6 +76,7 @@ We are Team 16 Burnaby for Comp 2800 Summer 2021
 | Borivoj Pantic  | bpantic@my.bcit.ca     |
 
 ## File Structure
+
 ```
 client
 ├─ .gitignore
