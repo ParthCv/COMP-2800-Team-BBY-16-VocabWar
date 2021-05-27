@@ -61,14 +61,7 @@ const Home = () => {
         letters: randomLetters(),
       });
     }
-  }, [
-    gameID,
-    auth.currentUser.uid,
-    gameRef,
-    isCreating,
-    player,
-    userData?.nickname,
-  ]);
+  }, [gameID]);
 
   if (isCreating) {
     return (
