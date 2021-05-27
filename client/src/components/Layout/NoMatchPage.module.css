@@ -1,0 +1,29 @@
+.container {
+  height: var(--vh);
+  display: grid;
+  grid-template-rows: 13% 78% 9%;
+  background: linear-gradient(rgba(244, 159, 10, 0.1), rgba(244, 159, 10, 0.1)),
+    url(../../assets/images/light.png);
+}
+
+.error {
+  width: 100vw;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  place-items: center;
+}
+
+.error h2 {
+  font-size: 4rem;
+}
+.error h3 {
+  padding: 0 2rem;
+  align-self: flex-start;
+  grid-column: 1 / span 2;
+}
+
+.error img {
+  width: 70%;
+}

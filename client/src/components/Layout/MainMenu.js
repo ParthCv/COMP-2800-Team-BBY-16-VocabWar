@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import randomLetters from "./RandomLetters";
 import User from "./User";
 import MainMenuButtons from "./MainMenuButtons";
+import NoMatchPage from "./NoMatchPage";
 
 const MainMenu = () => {
   return (
@@ -21,6 +22,7 @@ const MainMenu = () => {
         <Route path='/aboutus' exact component={AboutUs} />
         <Route path='/reddit' exact component={Reddit} />
         <Route path='/leaderboard' exact component={LeaderBoard} />
+        <Route component={NoMatchPage} />
       </Switch>
     </Router>
   );
