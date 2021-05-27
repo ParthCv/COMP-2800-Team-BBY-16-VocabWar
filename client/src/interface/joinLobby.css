@@ -58,7 +58,7 @@
   font-size: 2rem;
   width: 300px;
   border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: rgba(255, 255, 255, 0.5); */
 }
 
 .sub {
@@ -77,13 +77,13 @@
 
 #codeInput {
   font-size: 2rem;
-  width: 300px;
+  width: 320px;
   border-radius: 25px;
   border: none;
-  padding: 10px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 4px 2px;
+  margin: 10px 2px;
   background-color: rgba(255, 255, 255, 0.5);
 }

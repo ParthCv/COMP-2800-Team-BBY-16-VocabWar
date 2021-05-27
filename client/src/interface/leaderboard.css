@@ -3,18 +3,21 @@
 
 .leader-mainmenu {
   height: calc(var(--vh));
+  height: 100%;
   width: 100vw;
-  display: grid;
-  grid-template-rows: 13% 78% 9%;
+  padding-bottom: 65px;
 }
 
 .leader-container {
   width: 100vw;
   font-family: "Roboto Condensed";
+  position: relative;
+  height: 100%;
+  
 }
 
 .colheader {
-  padding: 8px 0;
+  padding: 10px 0;
   background: #e09462;
   width: 100%;
   margin-left: 0;
@@ -23,6 +26,8 @@
   font-size: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+  
 }
 
 .list {
@@ -31,6 +36,9 @@
   padding-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(3, 33%);
+  height: 100%;
+
+  
 }
 .list:nth-of-type(odd) {
   background: #ecd4ad;

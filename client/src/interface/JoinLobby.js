@@ -85,14 +85,14 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
         />
         <div className='content'>
           <h1>Join Lobby</h1>
-          <div className='lbHead'>
-            <p>Lobby Code</p>
-          </div>
+          {/* <div className='lbHead'>
+          </div> */}
           <div>
             <input
               type='text'
               id='codeInput'
               name='code'
+              placeholder="Lobby code..."
               value={code}
               onChange={(e) => setCode(e.target.value.trim().toLowerCase())}
               maxLength='7'
