@@ -1,0 +1,35 @@
+.lobbyButtons {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  height: 100%;
+  padding: 30px 0;
+}
+
+.lobbyButtons button {
+  display: grid;
+  grid-template-columns: 1fr;
+  color: white;
+  background: linear-gradient(#0773df, #3c91e6);
+  border: none;
+  font-size: 28px;
+  padding: 15px 20px;
+  border-radius: 30px;
+  width: 85%;
+  transition: all 0.2s;
+}
+
+.lobbyButtons button:active {
+  background-color: #1670ca;
+}
+
+#logoutButton {
+  grid-template-columns: 1fr;
+}
+
+.lobbyIcon {
+  padding-top: 2px;
+}
