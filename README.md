@@ -15,12 +15,22 @@ VocabWars is a two player game where people compete by making the maximum number
 
 VocabWar uses a number of technologies to work properly:
 
-- ReactJS - HTML enhanced for web apps!
-- FireAuth - User Authentication
-- Firestore - Realtime Database
-- Netlify - Hosting provider
-- react-fire - Custom hooks for React and Firebase integration
-- GitHub - For code collaboration
+- `ReactJS` - HTML enhanced for web apps!
+- `FireAuth` - User Authentication
+- `Firestore` - Realtime Database
+- `Netlify` - Hosting provider
+- `react-fire` - Custom hooks for React and Firebase integration
+- `GitHub` - For code collaboration
+- `VS Code` - Text Editor
+
+## API
+
+VocabWar requires the use of few APIs to funtion properly.
+
+- [Firebase API](https://firebase.google.com/docs/reference)
+- [Dictionary API](https://dictionaryapi.dev/)
+- [Reddit API](https://www.reddit.com/dev/api/)
+- [React Share](https://www.npmjs.com/package/react-share)
 
 ## Tutorial
 
