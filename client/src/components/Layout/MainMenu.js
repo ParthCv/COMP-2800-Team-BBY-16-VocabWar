@@ -65,7 +65,7 @@ const Home = () => {
     gameRef,
     isCreating,
     player,
-    userData.nickname,
+    userData?.nickname,
   ]);
 
   if (isCreating) {
