@@ -32,7 +32,15 @@ VocabWar requires the use of few APIs to funtion properly.
 - [Reddit API](https://www.reddit.com/dev/api/)
 - [React Share](https://www.npmjs.com/package/react-share)
 
-## Tutorial
+## Overview
+
+### Installation
+
+For installation just clone the repository and then install all the dependencies by `npm install`.
+To run the app use the command `npm start` and after the code is compiled check `http://localhost:3000/` in a browser to see the app.
+
+
+### Game tutorial
 
 VocabWar requires the user to make an account on VocabWar or use their existing Google account.
 
@@ -45,7 +53,16 @@ VocabWar requires the user to make an account on VocabWar or use their existing 
 - Points will be granted if word is valid
 - After Timer ends, the result screen will be displayed with points of both players and a option to leave game lobby.
 
-## Team
+### Testing 
+
+The testing for the app has been in two ways
+
+- Manual Testing
+- Selenium IDE extension
+
+To check the test plan and results click [here.](https://docs.google.com/spreadsheets/d/1AlxlwN3Q0pNr2RjthexjCvG1_qoovl7bYUKQMjRTaCs/edit#gid=394496370)
+
+### Team
 
 We are Team 16 Burnaby for Comp 2800 Summer 2021
 
