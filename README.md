@@ -46,71 +46,106 @@ We are Team 16 Burnaby for Comp 2800 Summer 2021
 | Eric Tan        | etan32@my.bcit.ca      |
 | Borivoj Pantic  | bpantic@my.bcit.ca     |
 
-## Structure
-
+## File Structure
 ```
+client
 ├─ .gitignore
-├─ client
-│  ├─ .gitignore
-│  ├─ package-lock.json
-│  ├─ package.json
-│  ├─ public
-│  │  ├─ favicon.ico
-│  │  ├─ index.html
-│  │  ├─ logo192.png
-│  │  ├─ logo512.png
-│  │  ├─ manifest.json
-│  │  └─ robots.txt
-│  ├─ README.md
-│  └─ src
-│     ├─ App.css
-│     ├─ App.js
-│     ├─ auth
-│     │  ├─ BottomLogo.png
-│     │  ├─ dark-withoutwatermark.png
-│     │  ├─ firebaseConfig.js
-│     │  ├─ Login.css
-│     │  ├─ Login.js
-│     │  ├─ Signup.css
-│     │  ├─ Signup.js
-│     │  ├─ StartPage.css
-│     │  └─ StartPage.js
-│     ├─ game
-│     │  ├─ digital-7.regular.ttf
-│     │  ├─ points.css
-│     │  ├─ points.js
-│     │  ├─ session.css
-│     │  ├─ session.js
-│     │  ├─ timer.css
-│     │  ├─ Timer.js
-│     │  ├─ winner.css
-│     │  ├─ winner.js
-│     │  └─ wordcheck.js
-│     ├─ images
-│     │  ├─ Akshay_Avatar.png
-│     │  ├─ Boki_Avatar.png
-│     │  ├─ dark.png
-│     │  ├─ Eric_Avatar.png
-│     │  ├─ light.png
-│     │  └─ Parth_Avatar.png
-│     ├─ index.css
-│     ├─ index.js
-│     └─ interface
-│        ├─ AboutUs.css
-│        ├─ AboutUs.js
-│        ├─ CreateLobby.css
-│        ├─ CreateLobby.js
-│        ├─ joinLobby.css
-│        ├─ JoinLobby.js
-│        ├─ MainMenu.css
-│        ├─ MainMenu.js
-│        ├─ Montserrat-Bold.ttf
-│        ├─ Montserrat-Regular.ttf
-│        ├─ Navbar.js
-│        ├─ OFL.txt
-│        ├─ Raleway-ExtraBold.ttf
-│        ├─ Settings.css
-│        └─ Settings.js
 ├─ package-lock.json
-└─ README.md
+├─ package.json
+├─ public
+│  ├─ favicon.ico
+│  ├─ index.html
+│  ├─ manifest.json
+│  └─ robots.txt
+├─ README.md
+└─ src
+   ├─ API
+   │  └─ firebaseConfig.js
+   ├─ App.css
+   ├─ App.js
+   ├─ assets
+   │  ├─ fonts
+   │  │  ├─ digital-7.regular.ttf
+   │  │  ├─ Montserrat-Bold.ttf
+   │  │  ├─ Montserrat-Regular.ttf
+   │  │  └─ Raleway-ExtraBold.ttf
+   │  ├─ images
+   │  │  ├─ Akshay_Avatar.png
+   │  │  ├─ Boki_Avatar.png
+   │  │  ├─ BottomLogo.png
+   │  │  ├─ dark.png
+   │  │  ├─ Eric_Avatar.png
+   │  │  ├─ light.png
+   │  │  ├─ orange.png
+   │  │  ├─ Parth_Avatar.png
+   │  │  └─ rickroll.gif
+   │  └─ sounds
+   │     ├─ correct.mp3
+   │     ├─ rickroll.mp3
+   │     └─ wrong.mp3
+   ├─ components
+   │  ├─ About
+   │  │  ├─ AboutUs.js
+   │  │  ├─ AboutUs.module.css
+   │  │  ├─ Profile.js
+   │  │  ├─ Profile.module.css
+   │  │  ├─ Reddit.js
+   │  │  └─ Reddit.module.css
+   │  ├─ Authentication
+   │  │  ├─ GoogleAuth.js
+   │  │  ├─ Login.js
+   │  │  ├─ Login.module.css
+   │  │  ├─ Signup.js
+   │  │  ├─ Signup.module.css
+   │  │  ├─ StartPage.js
+   │  │  └─ StartPage.module.css
+   │  ├─ Game
+   │  │  ├─ Points
+   │  │  │  ├─ Points.js
+   │  │  │  └─ Points.module.css
+   │  │  ├─ Session.js
+   │  │  ├─ Session.module.css
+   │  │  ├─ Surrender
+   │  │  │  ├─ Surrender.js
+   │  │  │  └─ Surrender.module.css
+   │  │  ├─ Timer
+   │  │  │  ├─ Timer.js
+   │  │  │  └─ Timer.module.css
+   │  │  ├─ WinnerOverlay
+   │  │  │  ├─ Winner.js
+   │  │  │  └─ Winner.module.css
+   │  │  ├─ WordArray
+   │  │  │  ├─ WordArray.js
+   │  │  │  └─ WordArray.module.css
+   │  │  └─ wordcheck.js
+   │  ├─ Layout
+   │  │  ├─ MainMenu.js
+   │  │  ├─ MainMenu.module.css
+   │  │  ├─ MainMenuButtons.js
+   │  │  ├─ MainMenuButtons.module.css
+   │  │  ├─ RandomLetters.js
+   │  │  ├─ User.js
+   │  │  └─ User.module.css
+   │  ├─ Leaderboard
+   │  │  ├─ LeaderBoard.js
+   │  │  └─ Leaderboard.module.css
+   │  ├─ Lobby
+   │  │  ├─ CodeBox.js
+   │  │  ├─ CodeBox.module.css
+   │  │  ├─ CreateLobby.js
+   │  │  ├─ CreateLobby.module.css
+   │  │  ├─ EasterEgg
+   │  │  │  ├─ RickRoll.js
+   │  │  │  └─ RickRoll.module.css
+   │  │  ├─ JoinLobby.js
+   │  │  └─ JoinLobby.module.css
+   │  ├─ Settings
+   │  │  ├─ Settings.js
+   │  │  └─ Settings.module.css
+   │  └─ UI
+   │     ├─ Header.js
+   │     ├─ Header.module.css
+   │     ├─ Navbar.css
+   │     └─ Navbar.js
+   └─ index.js
 ```
