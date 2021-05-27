@@ -59,16 +59,7 @@ const WinnerPoints = (props) => {
         );
       }
     }
-  }, [
-    props.over,
-    incrementer,
-    points1,
-    points2,
-    props.gameRef,
-    props.player,
-    user,
-    winner,
-  ]);
+  }, [props.over]);
 
   return (
     <div className={classes.overlay_results}>
