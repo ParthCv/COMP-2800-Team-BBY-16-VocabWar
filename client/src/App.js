@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import MainMenu from "./interface/MainMenu";
+import MainMenu from "./components/Layout/MainMenu";
 import "./App.css";
-import StartPage from "./auth/StartPage";
+import StartPage from "./components/Authentication/StartPage";
 import { AuthCheck } from "reactfire";
 
-function App({ usersID }) {
-  // const usersData = useFirestoreDocData(gameRef);
-
+const App = () => {
   useEffect(() => {
     document
       .querySelector(":root")
@@ -19,6 +17,6 @@ function App({ usersID }) {
       <MainMenu />
     </AuthCheck>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,40 @@
+.codeBox {
+  background-color: rgba(244, 159, 10, 0.7);
+  margin: 0% 5%;
+  border-radius: 15%;
+  display: grid;
+  padding: 2%;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.codeBox h1 {
+  font-size: 2.2rem;
+}
+
+.codeBox div {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 85%;
+  padding: 2% 8%;
+  border-radius: 20px;
+}
+
+.codeBox div h2 {
+  font-family: "Courier New", Courier, monospace;
+  color: #020122;
+}
+
+.codeBox button {
+  color: white;
+  background-color: #3c91e6;
+  border: 2px solid black;
+  font-size: 1.25rem;
+  width: 85%;
+  padding: 5%;
+  border-radius: 20px;
+  transition: background-color 0.15s;
+}
+
+.codeBox button:active {
+  background-color: #0e6e97;
+}

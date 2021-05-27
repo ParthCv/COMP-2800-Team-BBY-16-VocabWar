@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Squada+One&display=swap");
+
+.mainmenu {
+  background: linear-gradient(rgba(244, 159, 10, 0.1), rgba(244, 159, 10, 0.1)),
+    url(../../assets/images/light.png);
+  height: calc(var(--vh));
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 13% 11% 67% 9%;
+}

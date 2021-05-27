@@ -1,0 +1,17 @@
+.rickroll {
+  position: absolute;
+  width: 250px;
+  top: 30%;
+  left: 50%;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  background-color: #e67e22;
+  border-radius: 20px;
+}
+
+.rickroll img {
+  padding: 20px;
+  width: 250px;
+}

@@ -1,0 +1,12 @@
+.points {
+  width: 100%;
+  height: 100%;
+  background-color: #d35400;
+  display: grid;
+  place-items: center;
+}
+
+.points h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}

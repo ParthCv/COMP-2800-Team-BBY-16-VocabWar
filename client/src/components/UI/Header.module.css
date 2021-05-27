@@ -1,0 +1,30 @@
+.header {
+  display: grid;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#df5b03, #d35400);
+}
+
+.header h1 {
+  color: white;
+  font-family: "Squada One";
+  font-weight: 200;
+  font-size: 4rem;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+.header h4 {
+  align-self: flex-start;
+  color: white;
+  font-family: "Squada One";
+  font-weight: 200;
+  font-size: 1.25rem;
+  letter-spacing: 0.075em;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
