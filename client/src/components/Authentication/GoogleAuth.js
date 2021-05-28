@@ -3,6 +3,7 @@ import { useFirestore, useAuth } from "reactfire";
 import classes from "./StartPage.module.css";
 import "firebase/auth";
 
+//Component resposible for logging in using Google Account
 const GoogleAuth = () => {
   const usersRef = useFirestore().collection("Users");
   const auth = useAuth;
@@ -10,6 +11,8 @@ const GoogleAuth = () => {
 
   const provider = new auth.GoogleAuthProvider();
   const incrementer = useFirestore.FieldValue;
+
+  // Handles authentication with google and updates the Users collection.
 
   const signInWithGoogle = (e) => {
     auth2

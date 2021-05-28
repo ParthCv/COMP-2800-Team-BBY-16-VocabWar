@@ -3,8 +3,11 @@ import Header from "../UI/Header";
 import Navbar from "../UI/Navbar";
 import classes from "./Reddit.module.css";
 
+//Component resposible to display posts from subreddit
 const Reddit = () => {
   const [post, setPost] = useState([]);
+
+  // Makes a fetch request to reddit and then stores the result.
 
   useEffect(() => {
     const fetchReddit = async () => {

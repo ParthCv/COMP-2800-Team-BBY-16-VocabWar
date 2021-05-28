@@ -4,6 +4,7 @@ import "firebase/auth";
 import classes from "./Signup.module.css";
 import ClearIcon from "@material-ui/icons/Clear";
 
+//Component resposible for signing up of new users
 const Signup = ({ overlayCloseHandler }) => {
   const signButton = useRef();
   const usersRef = useFirestore().collection("Users");
@@ -14,6 +15,8 @@ const Signup = ({ overlayCloseHandler }) => {
     error: "",
   });
 
+  // stores the input in signup form.
+
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -23,6 +26,8 @@ const Signup = ({ overlayCloseHandler }) => {
   };
 
   const firebase = useFirebaseApp();
+
+  // Registers the new user with firebase and catches any error.
 
   const handleSubmit = (e) => {
     e.preventDefault();

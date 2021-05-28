@@ -4,7 +4,9 @@ import Header from "../UI/Header";
 import classes from "./Leaderboard.module.css";
 import Navbar from "../UI/Navbar";
 
+// Component resposible for displaying leaderboard
 const LeaderBoard = () => {
+  //Hook to retrieve top 20 users based upon points from user collection
   const users = useFirestore()
     .collection("Users")
     .orderBy("points", "desc")
@@ -19,6 +21,8 @@ const LeaderBoard = () => {
       points: user.data().points,
     });
   });
+
+  // Component for the Leaderboard header.
 
   const ColumnHeader = () => {
     return (

@@ -1,7 +1,9 @@
 import React from "react";
 import classes from "./Surrender.module.css";
 
+//Component resposible for surrender function
 const Surrender = (props) => {
+  //Function to check which player clicked surrender and sets winner accordingly
   const surrenderHandler = () => {
     if (props.player === 1) {
       props.gameRef.set(

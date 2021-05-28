@@ -4,7 +4,9 @@ import "./App.css";
 import StartPage from "./components/Authentication/StartPage";
 import { AuthCheck } from "reactfire";
 
+// Component resposible for displaying whole App
 const App = () => {
+  // Sets global height variable to display game properly
   useEffect(() => {
     document
       .querySelector(":root")
@@ -12,6 +14,7 @@ const App = () => {
     localStorage.setItem("sound", true);
   }, []);
 
+  //Checks for login status
   return (
     <AuthCheck fallback={<StartPage />}>
       <MainMenu />

@@ -1,3 +1,5 @@
+// Firebase API configuration.
+
 const firebaseConfig = {
     apiKey: "AIzaSyD7RM--kySDQtpuFkxa9IImfEl-4hlFo3k",
     authDomain: "vocabwar.firebaseapp.com",

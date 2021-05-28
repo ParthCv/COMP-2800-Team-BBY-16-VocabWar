@@ -5,11 +5,13 @@ import GoogleAuth from "./GoogleAuth";
 import classes from "./StartPage.module.css";
 import logo from "../../assets/images/BottomLogo.png";
 
+//Component resposible for Showing authentication options
 const StartPage = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const [showGoogle, setShowGoogle] = useState(false);
 
+  //Overlay handlers
   const handleLoginPage = () => {
     setShowSignUp(false);
     setShowLogin(true);

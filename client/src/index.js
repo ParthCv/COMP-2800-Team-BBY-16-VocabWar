@@ -4,6 +4,7 @@ import App from "./App";
 import firebaseConfig from "./API/firebaseConfig";
 import { FirebaseAppProvider } from "reactfire";
 
+//Renders the app inside root element
 ReactDOM.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <Suspense fallback={<h3>Loading...</h3>}>

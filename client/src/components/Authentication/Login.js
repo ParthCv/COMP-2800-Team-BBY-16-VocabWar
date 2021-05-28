@@ -4,12 +4,15 @@ import "firebase/auth";
 import classes from "./Login.module.css";
 import ClearIcon from "@material-ui/icons/Clear";
 
+//Component resposible for logging in user using credential
 const Login = ({ overlayCloseHandler }) => {
   const [user, setUser] = useState({
     email: "",
     password: "",
     error: "",
   });
+
+  // stores the input in login form
 
   const handleChange = (e) => {
     setUser({
@@ -20,6 +23,9 @@ const Login = ({ overlayCloseHandler }) => {
   };
 
   const firebase = useFirebaseApp();
+
+  // Handles login with email and password on submit.
+
   const handleSubmit = (e) => {
     e.preventDefault();
     firebase

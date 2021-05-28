@@ -4,6 +4,7 @@ import Rick from "../../../assets/sounds/rickroll.mp3";
 import useSound from "use-sound";
 import classes from "./RickRoll.module.css";
 
+//Component resposible for displaying Rickroll easter egg
 const RickRoll = ({ SetIsRickRoll }) => {
   const [rickroll, data] = useSound(Rick);
 

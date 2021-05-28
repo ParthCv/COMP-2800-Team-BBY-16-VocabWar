@@ -16,6 +16,8 @@ import {
 } from "react-share";
 import { Container } from "@material-ui/core";
 
+// Uses React Share to let user share through social media.
+// Let users access /aboutus and /reddit routes.
 const Profile = ({ setValue, initial }) => {
   return (
     <div className={classes.setngOverlay}>

@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import * as workerTimers from "worker-timers";
 import classes from "./Timer.module.css";
 
+//Component resposible for Timer in game gets starting time from session using props
 const Timer = ({ minutes = 0, seconds = 30, gameRef }) => {
   const [over, setOver] = useState(false);
   const [time, setTime] = useState({ minutes, seconds });
+
+  // makes the time in timer decrement every second.
+  // also checks if the time is over
+
   useEffect(() => {
     const interval = workerTimers.setInterval(() => {
       if (!over) {
@@ -24,6 +29,8 @@ const Timer = ({ minutes = 0, seconds = 30, gameRef }) => {
       workerTimers.clearInterval(interval);
     };
   }, [over]);
+
+  // Sets the game to be over in Firebase.
 
   useEffect(() => {
     if (over) {

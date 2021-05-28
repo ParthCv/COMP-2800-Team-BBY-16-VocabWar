@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import classes from "./Winner.module.css";
 import { useFirestore, useFirestoreDocData, useAuth } from "reactfire";
 
-// fetches the points from both players
+// Component resposible for displaying winner after game over
 const WinnerPoints = (props) => {
   const auth = useAuth();
   const incrementer = useFirestore.FieldValue;
@@ -15,6 +15,8 @@ const WinnerPoints = (props) => {
   const leaveLobbyResults = () => {
     props.setIsCreating(false);
   };
+
+  //Retrives over status from firebase and checks if game over, if yes sets result of game
   useEffect(() => {
     if (props.player === 1) {
       user.set(

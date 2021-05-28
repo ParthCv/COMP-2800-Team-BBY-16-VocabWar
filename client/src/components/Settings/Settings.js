@@ -6,6 +6,7 @@ import Switch from "@material-ui/core/Switch";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import classes from "./Settings.module.css";
 
+//Component resposible for handing and displaying settings overlay
 const Settings = ({ setValue, initial }) => {
   const auth = useAuth();
   const errorRef = useFirestore().collection("Report");
@@ -15,6 +16,8 @@ const Settings = ({ setValue, initial }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  // Stores the value of sound in the browser Local Storage.
+
   useEffect(() => {
     if (localStorage.getItem("sound") === "true") {
       setIsSound(true);
@@ -23,6 +26,8 @@ const Settings = ({ setValue, initial }) => {
     }
   }, []);
 
+  // Changes the value of the sound variable in local storage on clicking the switch.
+
   const handleSound = (e) => {
     setIsSound((prevState) => {
       localStorage.setItem("sound", !prevState);
@@ -30,9 +35,14 @@ const Settings = ({ setValue, initial }) => {
     });
   };
 
+  // Displays the contact on click of the button.
+
   const handleContact = () => {
     setIsContact(true);
   };
+
+  // Displays the report bug form on click of the button.
+  // Saves the report in the Reports collection along with user id.
 
   const handleReport = (e) => {
     e.preventDefault();
@@ -58,6 +68,8 @@ const Settings = ({ setValue, initial }) => {
       }
     }
   };
+
+  // Displays the overlay for settings, contact and report form.
 
   return isMain ? (
     <div className={classes.setngOverlay}>
