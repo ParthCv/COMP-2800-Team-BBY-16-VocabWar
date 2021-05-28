@@ -1,3 +1,5 @@
+//function to connect to dictionary api to check word validity
+
 const getWord = async (word) => {
   const url = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`;
   const response = await fetch(url);

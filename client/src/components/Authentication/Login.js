@@ -4,6 +4,7 @@ import "firebase/auth";
 import classes from "./Login.module.css";
 import ClearIcon from "@material-ui/icons/Clear";
 
+//Component resposible for logging in user using credential
 const Login = ({ overlayCloseHandler }) => {
   const [user, setUser] = useState({
     email: "",

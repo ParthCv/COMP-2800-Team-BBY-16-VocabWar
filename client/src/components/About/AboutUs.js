@@ -7,6 +7,7 @@ import Boki from "../../assets/images/Boki_Avatar.png";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import { Link } from "react-router-dom";
 
+/* Component resposible for the about us page. */
 const AboutUs = () => {
   return (
     <div className={classes.aboutContainer}>

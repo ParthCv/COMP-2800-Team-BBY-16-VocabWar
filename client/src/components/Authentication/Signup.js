@@ -4,6 +4,7 @@ import "firebase/auth";
 import classes from "./Signup.module.css";
 import ClearIcon from "@material-ui/icons/Clear";
 
+//Component resposible for signing up of new users
 const Signup = ({ overlayCloseHandler }) => {
   const signButton = useRef();
   const usersRef = useFirestore().collection("Users");

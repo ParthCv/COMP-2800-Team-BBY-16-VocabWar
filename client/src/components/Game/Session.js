@@ -13,6 +13,7 @@ import useSound from "use-sound";
 import Wrong from "../../assets/sounds/wrong.mp3";
 import Correct from "../../assets/sounds/correct.mp3";
 
+//Component resposible for displaying each game, loads in all the responsbile components
 const Session = ({ gameRef, player, setIsCreating }) => {
   const [word, setWord] = useState("");
   const [words, setWords] = useState([]);

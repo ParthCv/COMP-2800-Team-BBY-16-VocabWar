@@ -12,7 +12,6 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import "./Navbar.css";
 
 //Style for the Navbar using useStyle.
-
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#d35400",
@@ -29,6 +28,7 @@ const useStyles = makeStyles({
   },
 });
 
+//Component resposible for displaying navbar
 const Navbar = (props) => {
   const [value, setValue] = useState(parseInt(props.initial));
   const [isSettings, setIsSettings] = useState(true);
@@ -36,7 +36,6 @@ const Navbar = (props) => {
   const classes = useStyles();
 
   //For the click on settings tab.
-
   const settingsHandler = () => {
     if (isSettings) {
       setValue(parseInt(props.initial));
@@ -45,7 +44,6 @@ const Navbar = (props) => {
   };
 
   //For the click on about tab.
-
   const profileHandler = () => {
     if (isProfile) {
       setValue(parseInt(props.initial));
@@ -54,7 +52,6 @@ const Navbar = (props) => {
   };
 
   //Switch to check the 'value' of the navbar tab and use the state hooks.
-
   useEffect(() => {
     switch (value) {
       case 0:
@@ -81,7 +78,6 @@ const Navbar = (props) => {
   // Navbar component is build using the Material UI components.
   // Setting and Profile have an overlay when clicked.
   // Home and Leaderboard both have seperate routes.
-
   return (
     <div>
       {isSettings && (

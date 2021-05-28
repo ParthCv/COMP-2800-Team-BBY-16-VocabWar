@@ -14,10 +14,9 @@ import User from "./User";
 import MainMenuButtons from "./MainMenuButtons";
 import NoMatchPage from "./NoMatchPage";
 
+//Component resposible for routing to different pages
 const MainMenu = () => {
-
   // Uses React Router for many different paths.
-
   return (
     <Router>
       <Switch>
@@ -31,8 +30,7 @@ const MainMenu = () => {
   );
 };
 
-// Home Page Layout.
-
+// Component resposible for displaying homescreen after authentication
 const Home = () => {
   const auth = useAuth();
   const [isCreating, setIsCreating] = useState(false);
@@ -44,21 +42,18 @@ const Home = () => {
   const userData = useFirestoreDocData(user).data;
 
   // Function to trigger lobby Creation
-
   const createLobby = () => {
     setPlayer(1);
     setIsCreating(true);
     setGameID(Math.random().toString(36).substr(2, 6));
   };
 
-  // Logs out the user 
-
+  // Logs out the user
   const logoutHandler = () => {
     auth.signOut();
   };
 
   // Creates a new doc in Games collection and sets values for fields.
-
   useEffect(() => {
     if (isCreating && player === 1) {
       setIsJoining(false);
@@ -74,6 +69,7 @@ const Home = () => {
     }
   }, [gameID]);
 
+  //Conditional rendering to display createLobby screen
   if (isCreating) {
     return (
       <div className={classes.mainmenu}>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import * as workerTimers from "worker-timers";
 import classes from "./Timer.module.css";
 
+//Component resposible for Timer in game gets starting time from session using props
 const Timer = ({ minutes = 0, seconds = 30, gameRef }) => {
   const [over, setOver] = useState(false);
   const [time, setTime] = useState({ minutes, seconds });

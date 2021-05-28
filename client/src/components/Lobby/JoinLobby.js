@@ -5,6 +5,7 @@ import classes from "./JoinLobby.module.css";
 import ClearIcon from "@material-ui/icons/Clear";
 import RickRoll from "./EasterEgg/RickRoll";
 
+//Component resposible for displaying JoinLobby overlay
 const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
   const joinButton = useRef();
   const [code, setCode] = useState("");
@@ -17,7 +18,6 @@ const JoinLobby = ({ setIsJoining, setIsCreating, setGameID }) => {
   // checkCode takes an code and check in the Games collection to see if such game exists.
   // if the code is 'vocab' it displays the easter egg.
   // also checks if the lobby is already full or not.
-
   async function checkCode(e) {
     e.preventDefault();
     if (code === "vocab") {

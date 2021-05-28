@@ -6,6 +6,7 @@ import Switch from "@material-ui/core/Switch";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import classes from "./Settings.module.css";
 
+//Component resposible for handing and displaying settings overlay
 const Settings = ({ setValue, initial }) => {
   const auth = useAuth();
   const errorRef = useFirestore().collection("Report");

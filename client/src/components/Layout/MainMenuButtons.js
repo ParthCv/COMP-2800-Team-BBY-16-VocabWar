@@ -2,6 +2,7 @@ import React from "react";
 import { AddCircleOutline, PersonAdd, ExitToApp } from "@material-ui/icons";
 import classes from "./MainMenuButtons.module.css";
 
+//Component resposible for displaying lobby buttons and logout button
 const MainMenuButtons = ({
   createLobby,
   setIsJoining,

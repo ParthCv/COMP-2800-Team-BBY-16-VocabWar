@@ -1,10 +1,9 @@
 import React from "react";
 import classes from "./CodeBox.module.css";
 
+//Component resposible for displaying code with share button
 const CodeBox = (props) => {
-
   //Use navigator.share() method of the Web Share API to share game code.
-
   const shareCode = () => {
     if (navigator.share) {
       navigator.share({

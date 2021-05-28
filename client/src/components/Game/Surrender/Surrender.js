@@ -1,10 +1,9 @@
 import React from "react";
 import classes from "./Surrender.module.css";
 
+//Component resposible for surrender function
 const Surrender = (props) => {
-
-  // Handles the surrender and updates the game status in the Firebase.
-
+  //Function to check which player clicked surrender and sets winner accordingly
   const surrenderHandler = () => {
     if (props.player === 1) {
       props.gameRef.set(
