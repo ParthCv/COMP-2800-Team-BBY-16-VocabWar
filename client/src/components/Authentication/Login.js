@@ -11,6 +11,8 @@ const Login = ({ overlayCloseHandler }) => {
     error: "",
   });
 
+  // stores the input in login form
+
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -20,6 +22,9 @@ const Login = ({ overlayCloseHandler }) => {
   };
 
   const firebase = useFirebaseApp();
+
+  // Handles login with email and password on submit.
+
   const handleSubmit = (e) => {
     e.preventDefault();
     firebase

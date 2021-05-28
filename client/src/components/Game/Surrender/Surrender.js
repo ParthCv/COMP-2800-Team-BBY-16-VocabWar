@@ -2,6 +2,9 @@ import React from "react";
 import classes from "./Surrender.module.css";
 
 const Surrender = (props) => {
+
+  // Handles the surrender and updates the game status in the Firebase.
+
   const surrenderHandler = () => {
     if (props.player === 1) {
       props.gameRef.set(

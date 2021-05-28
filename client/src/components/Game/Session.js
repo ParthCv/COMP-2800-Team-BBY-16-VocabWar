@@ -25,6 +25,8 @@ const Session = ({ gameRef, player, setIsCreating }) => {
   const [playWrong] = useSound(Wrong);
   const [playCorrect] = useSound(Correct);
 
+  // To prevent reloading by accident during the game.
+
   useEffect(() => {
     window.addEventListener("beforeunload", alertUser);
     return () => {
@@ -36,6 +38,10 @@ const Session = ({ gameRef, player, setIsCreating }) => {
     e.preventDefault();
     e.returnValue = "";
   };
+
+  // Check is word is valid using the sendWord function from wordcheck.js
+  // Plays the sound and changes the color of the line based upon the response.
+  // Stores the word in the array if correct.
 
   async function checkWord() {
     if (!words.includes(word)) {
@@ -70,9 +76,13 @@ const Session = ({ gameRef, player, setIsCreating }) => {
     setWord("");
   }
 
+  // function to act as a backspace when button is clicked.
+
   function backspace() {
     setWord((prev) => prev.substring(0, prev.length - 1));
   }
+
+  // function to handle letter addition.
 
   function handleAddLetter(e) {
     document.getElementById("wordDisplay").style.borderBottom =

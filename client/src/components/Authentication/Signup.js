@@ -14,6 +14,8 @@ const Signup = ({ overlayCloseHandler }) => {
     error: "",
   });
 
+  // stores the input in signup form.
+
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -23,6 +25,8 @@ const Signup = ({ overlayCloseHandler }) => {
   };
 
   const firebase = useFirebaseApp();
+
+  // Registers the new user with firebase and catches any error.
 
   const handleSubmit = (e) => {
     e.preventDefault();

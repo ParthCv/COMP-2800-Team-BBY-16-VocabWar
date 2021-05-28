@@ -10,6 +10,10 @@ const CreateLobby = ({ gameID, setIsCreating, player }) => {
   const p2 = gameData.data?.p2;
   const deleteKey = useFirestore.FieldValue.delete();
   const start = gameData.data?.start;
+
+  // leave Lobby function deletes the doc from the collection with the id of the game code.
+  // Redirects back to the home page.
+
   const leaveLobby = () => {
     if (player === 1) {
       gameRef.delete();
@@ -22,6 +26,8 @@ const CreateLobby = ({ gameID, setIsCreating, player }) => {
     setIsCreating(false);
   };
 
+  // Sets the start to true in the Games collection doc of the current game ID.
+
   const startGame = () => {
     gameRef.set(
       {
@@ -30,6 +36,8 @@ const CreateLobby = ({ gameID, setIsCreating, player }) => {
       { merge: true }
     );
   };
+
+  // Displays the Game Session.
 
   if (start) {
     return (

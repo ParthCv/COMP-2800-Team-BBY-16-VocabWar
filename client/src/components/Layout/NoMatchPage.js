@@ -4,6 +4,8 @@ import classes from "./NoMatchPage.module.css";
 import Navbar from "../UI/Navbar";
 import sad from "../../assets/images/sad.png";
 
+// 404 Error Page.
+
 export default function NoMatchPage() {
   return (
     <div className={classes.container}>

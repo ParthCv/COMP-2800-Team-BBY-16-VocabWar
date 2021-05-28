@@ -11,6 +11,8 @@ const GoogleAuth = () => {
   const provider = new auth.GoogleAuthProvider();
   const incrementer = useFirestore.FieldValue;
 
+  // Handles authentication with google and updates the Users collection.
+
   const signInWithGoogle = (e) => {
     auth2
       .signInWithPopup(provider)

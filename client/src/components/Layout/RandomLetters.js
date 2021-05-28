@@ -1,6 +1,8 @@
 const continents = "BCDFGHJKLMNPQRSTVWXYZ";
 const vowels = "AEIOU";
 
+// Generates unique 6 letters consisting of 3 vowels and 3 consonants.
+
 const randomLetters = () => {
   let array = [];
   let lastletter = null;

@@ -3,6 +3,7 @@ import classes from "./Winner.module.css";
 import { useFirestore, useFirestoreDocData, useAuth } from "reactfire";
 
 // fetches the points from both players
+// Displays the game result and check the winner.
 const WinnerPoints = (props) => {
   const auth = useAuth();
   const incrementer = useFirestore.FieldValue;

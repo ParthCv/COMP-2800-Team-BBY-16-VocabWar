@@ -6,6 +6,8 @@ import classes from "./Reddit.module.css";
 const Reddit = () => {
   const [post, setPost] = useState([]);
 
+  // Makes a fetch request to reddit and then stores the result.
+
   useEffect(() => {
     const fetchReddit = async () => {
       const response = await fetch(

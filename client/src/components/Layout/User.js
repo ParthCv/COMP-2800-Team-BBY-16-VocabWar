@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./User.module.css";
 
+// Displays the user info fetched from firebase.
+
 const User = (props) => {
   return (
     <div className={classes.userDetails}>
